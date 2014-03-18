@@ -23,6 +23,7 @@ Vector.prototype.copy = function (vec) {
 Vector.prototype.add = function (vec) {
 	this.x += vec.x;
 	this.y += vec.y;
+	return this;
 };
 
 Vector.prototype.addCopy = function (vec) {
@@ -35,6 +36,7 @@ Vector.prototype.addCopy = function (vec) {
 Vector.prototype.sub = function (vec) {
 	this.x -= vec.x;
 	this.y -= vec.y;
+	return this;
 };
 
 Vector.prototype.subCopy = function (vec) {
@@ -47,6 +49,7 @@ Vector.prototype.subCopy = function (vec) {
 Vector.prototype.divide = function (vec) {
 	this.x /= vec.x;
 	this.y /= vec.y;
+	return this;
 };
 
 Vector.prototype.divideCopy = function (vec) {
@@ -59,6 +62,7 @@ Vector.prototype.divideCopy = function (vec) {
 Vector.prototype.multiply = function (vec) {
 	this.x *= vec.x;
 	this.y *= vec.y;
+	return this;
 };
 
 Vector.prototype.multiplyCopy = function (vec) {
@@ -90,6 +94,7 @@ Vector.prototype.length = function () {
 Vector.prototype.limit = function (max, factor) {
 	if (Math.abs(this.x) > max){ this.x *= factor; }
 	if (Math.abs(this.y) > max){ this.y *= factor; }
+	return this;
 };
 
 Vector.prototype.randomize = function (maxX, maxY) {
@@ -102,11 +107,13 @@ Vector.prototype.randomize = function (maxX, maxY) {
 Vector.prototype.randomizeX = function (max) {
 	var x = Math.floor(Math.random() * max);
 	this.x = x;
+	return this;
 };
 
 Vector.prototype.randomizeY = function (max) {
 	var y = Math.floor(Math.random() * max);
 	this.y = y;
+	return this;
 };
 
 Vector.prototype.randomizeAny = function (maxX, maxY) {
@@ -115,11 +122,13 @@ Vector.prototype.randomizeAny = function (maxX, maxY) {
 	} else {
 		this.randomizeY(maxY);
 	}
+	return this;
 };
 
 Vector.prototype.unfloat = function () {
 	this.x = Math.round(this.x);
 	this.y = Math.round(this.y);
+	return this;
 };
 
 Vector.prototype.unfloatCopy = function () {
