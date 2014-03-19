@@ -4,7 +4,7 @@
   "description": "A JavaScript 2D vector class with methods for common vector operations",
   "keywords": [
     "vector",
-    "d2"
+    "2d"
   ],
   "main": "index.js",
   "repository": {
