@@ -116,7 +116,7 @@ Vector.prototype.randomizeY = function (max) {
 };
 
 Vector.prototype.randomizeAny = function (maxX, maxY) {
-	if (!! Math.round(Math.random() * 1)) {
+	if (!! Math.round(Math.random())) {
 		this.randomizeX(maxX);
 	} else {
 		this.randomizeY(maxY);
