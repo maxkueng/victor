@@ -26,24 +26,10 @@ Vector.prototype.add = function (vec) {
 	return this;
 };
 
-Vector.prototype.addCopy = function (vec) {
-	return new Vector(
-		this.x + vec.x,
-		this.y + vec.y
-	);
-};
-
 Vector.prototype.sub = function (vec) {
 	this.x -= vec.x;
 	this.y -= vec.y;
 	return this;
-};
-
-Vector.prototype.subCopy = function (vec) {
-	return new Vector(
-		this.x - vec.x,
-		this.y - vec.y
-	);
 };
 
 Vector.prototype.divide = function (vec) {
@@ -52,24 +38,10 @@ Vector.prototype.divide = function (vec) {
 	return this;
 };
 
-Vector.prototype.divideCopy = function (vec) {
-	return new Vector(
-		this.x / vec.x,
-		this.y / vec.y
-	);
-};
-
 Vector.prototype.multiply = function (vec) {
 	this.x *= vec.x;
 	this.y *= vec.y;
 	return this;
-};
-
-Vector.prototype.multiplyCopy = function (vec) {
-	return new Vector(
-		this.x * vec.x,
-		this.y * vec.y
-	);
 };
 
 Vector.prototype.distanceX = function (vec) {
