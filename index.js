@@ -134,3 +134,9 @@ Vector.prototype.unfloatCopy = function () {
 	return new Vector(Math.round(this.x), Math.round(this.y));
 };
 
+//-----------------------------------------------------------------------
+// Utility Methods
+//-----------------------------------------------------------------------
+Vector.prototype.toString = function () {
+	return 'x:' + this.x + ', y:' + this.y;
+};
