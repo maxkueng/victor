@@ -12,7 +12,8 @@
     "url": "git://github.com/maxkueng/victor.git"
   },
   "scripts": {
-    "build": "browserify index.js --standalone Victor | uglifyjs -mc > build/victor.min.js"
+    "build": "browserify index.js --standalone Victor | uglifyjs -mc > build/victor.min.js",
+    "test": "mocha --ui bdd --reporter spec"
   },
   "author": "Max Kueng <me@maxkueng.com> (http://maxkueng.com/)",
   "licenses": [
@@ -23,6 +24,8 @@
   ],
   "devDependencies": {
     "browserify": "^3.33.0",
-    "uglify-js": "^2.4.13"
+    "uglify-js": "^2.4.13",
+    "chai": "~1.9.1",
+    "mocha": "~1.18.2"
   }
 }
