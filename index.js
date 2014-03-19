@@ -4,9 +4,33 @@ function Vector (x, y) {
 	if (!(this instanceof Vector)) {
 		return new Vector(x, y);
 	}
-
 	this.x = x || 0;
 	this.y = y || 0;
+};
+//-----------------------------------------------------------------------
+// Static Methods
+//-----------------------------------------------------------------------
+Vector.add = function (vecA, vecB) {
+	return new Vector(vecA.x + vecB.x, vecA.y + vecB.y);
+};
+
+Vector.subtract = function (vecA, vecB) {
+	return new Vector(vecA.x - vecB.x, vecA.y - vecB.y);
+};
+
+Vector.multiply = function (vec, scalar) {
+	return new Vector(vec.x * scalar, vec.y * scalar);
+};
+
+Vector.divide = function (vec, scalar) {
+	return new Vector(vec.x / scalar, vec.y / scalar);
+};
+
+Vector.mix = function (vecA, vecB, ammount) {
+	ammount = ammount || 0.5
+	var x = (1 - ammount) * vecA.x + ammount * vecB.x;
+	var y = (1 - ammount) * vecA.y + ammount * vecB.y;
+	return new Vector(x, y);
 };
 
 Vector.random = function (maxX, maxY) {
@@ -16,6 +40,9 @@ Vector.random = function (maxX, maxY) {
 	return new Vector(x, y);
 };
 
+//-----------------------------------------------------------------------
+// Instance Methods
+//-----------------------------------------------------------------------
 Vector.prototype.copy = function (vec) {
 	return new Vector(this.x, this.y);
 };
@@ -106,3 +133,4 @@ Vector.prototype.unfloat = function () {
 Vector.prototype.unfloatCopy = function () {
 	return new Vector(Math.round(this.x), Math.round(this.y));
 };
+
