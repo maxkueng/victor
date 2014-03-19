@@ -16,6 +16,10 @@
     "test": "mocha --ui bdd --reporter spec"
   },
   "author": "Max Kueng <me@maxkueng.com> (http://maxkueng.com/)",
+  "contributors": [
+    "Max Kueng (http://maxkueng.com/)",
+    "George Crabtree (http://georgecrabtree.com/)"
+  ],
   "licenses": [
     {
       "type": "MIT",
