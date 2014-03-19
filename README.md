@@ -18,6 +18,12 @@ var Victor = require('victor');
 var vec = new Victor(42, 1337);
 ```
 
+### Bower
+
+```bash
+bower install victor --save
+```
+
 ### Global object
 
 Include the pre-built script.
