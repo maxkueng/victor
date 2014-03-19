@@ -2,11 +2,17 @@
   "name": "victor",
   "version": "0.0.1",
   "description": "A JavaScript 2D vector class with methods for common vector operations",
-  "keywords" : [ "vector", "d2" ],
+  "keywords": [
+    "vector",
+    "d2"
+  ],
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/maxkueng/victor.git"
+  },
+  "scripts": {
+    "build": "browserify index.js --standalone Victor | uglifyjs -mc > build/victor.min.js"
   },
   "author": "Max Kueng <me@maxkueng.com> (http://maxkueng.com/)",
   "licenses": [
@@ -14,5 +20,9 @@
       "type": "MIT",
       "url": "https://github.com/maxkueng/victor/raw/master/LICENSE"
     }
-  ]
+  ],
+  "devDependencies": {
+    "browserify": "^3.33.0",
+    "uglify-js": "^2.4.13"
+  }
 }
