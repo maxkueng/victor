@@ -43,7 +43,7 @@ Vector.random = function (maxX, maxY) {
 //-----------------------------------------------------------------------
 // Instance Methods
 //-----------------------------------------------------------------------
-Vector.prototype.copy = function (vec) {
+Vector.prototype.copy = function () {
 	return new Vector(this.x, this.y);
 };
 
