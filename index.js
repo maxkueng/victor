@@ -94,6 +94,16 @@ Vector.prototype.length = function () {
 	return Math.sqrt(this.x * this.x + this.y * this.y);
 };
 
+Vector.prototype.norm = function () {
+	if (this.length() === 0) {
+		this.x = 1;
+		this.y = 0;
+	} else {
+		this.divide(this.length());
+	}
+	return this;
+};
+
 Vector.prototype.limit = function (max, factor) {
 	if (Math.abs(this.x) > max){ this.x *= factor; }
 	if (Math.abs(this.y) > max){ this.y *= factor; }
