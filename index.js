@@ -50,7 +50,15 @@ Vector.prototype.copy = function () {
 /**
  * Adds another vector to this one
  *
- * @param {Vector} The vector you want to add to this one
+ * ### Examples:
+ *     var vec = new Victor(10, 10);
+ *     var vec2 = new Victor(20, 30);
+ *
+ *     vec.add(vec2);
+ *     vec.toString();
+ *     // => x:30, y:40
+ *
+ * @param {Vector} vector, the other vector you want to this one
  * @return {Vector} this, for chaining capabilities
  * @api public
  */
