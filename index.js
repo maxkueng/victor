@@ -190,6 +190,18 @@ Vector.prototype.unfloat = function () {
 //-----------------------------------------------------------------------
 // Utility Methods
 //-----------------------------------------------------------------------
+/**
+ * Returns an string representation of the vector
+ *
+ * ### Examples:
+ *     var vec = new Victor(10, 20);
+ *
+ *     vec.toString();
+ *     // => x:10, y:20
+ *
+ * @return {String}
+ * @api public
+ */
 Vector.prototype.toString = function () {
 	return 'x:' + this.x + ', y:' + this.y;
 };

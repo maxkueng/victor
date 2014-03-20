@@ -57,6 +57,20 @@ Subtracts another vector from this one
 
 * **Vector** this for chaining capabilities
 
+## toString()
+
+Returns an string representation of the vector
+
+### Examples:
+    var vec = new Victor(10, 20);
+
+    vec.toString();
+    // => x:10, y:20
+
+### Return:
+
+* **String** 
+
 ## toArray()
 
 Returns an array representation of the vector
