@@ -2,7 +2,7 @@
 
 <!-- Start index.js -->
 
-## add(vector,)
+## add(vector)
 
 Adds another vector to this one
 
@@ -16,11 +16,11 @@ Adds another vector to this one
 
 ### Params: 
 
-* **Vector** *vector,* the other vector you want to this one
+* **Vector** *vector* the other vector you want to this one
 
 ### Return:
 
-* **Vector** this, for chaining capabilities
+* **Vector** this for chaining capabilities
 
 <!-- End index.js -->
 

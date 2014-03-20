@@ -58,8 +58,8 @@ Vector.prototype.copy = function () {
  *     vec.toString();
  *     // => x:30, y:40
  *
- * @param {Vector} vector, the other vector you want to this one
- * @return {Vector} this, for chaining capabilities
+ * @param {Vector} vector the other vector you want to this one
+ * @return {Vector} this for chaining capabilities
  * @api public
  */
 Vector.prototype.add = function (vec) {
