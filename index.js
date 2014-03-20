@@ -59,15 +59,15 @@ Vector.prototype.sub = function (vec) {
 	return this;
 };
 
-Vector.prototype.divide = function (vec) {
-	this.x /= vec.x;
-	this.y /= vec.y;
+Vector.prototype.divide = function (scalar) {
+	this.x /= scalar;
+	this.y /= scalar;
 	return this;
 };
 
-Vector.prototype.multiply = function (vec) {
-	this.x *= vec.x;
-	this.y *= vec.y;
+Vector.prototype.multiply = function (scalar) {
+	this.x *= scalar;
+	this.y *= scalar;
 	return this;
 };
 
