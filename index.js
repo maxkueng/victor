@@ -43,6 +43,19 @@ Vector.random = function (maxX, maxY) {
 //-----------------------------------------------------------------------
 // Instance Methods
 //-----------------------------------------------------------------------
+/**
+ * Creates a copy of this vector
+ *
+ * ### Examples:
+ *     var vec = new Victor(10, 10);
+ *     var vec2 = vec.copy();
+ *
+ *     vec2.toString();
+ *     // => x:10, y:10
+ *
+ * @return {Vector} the new vector
+ * @api public
+ */
 Vector.prototype.copy = function () {
 	return new Vector(this.x, this.y);
 };
@@ -58,7 +71,7 @@ Vector.prototype.copy = function () {
  *     vec.toString();
  *     // => x:30, y:40
  *
- * @param {Vector} vector the other vector you want to this one
+ * @param {Vector} vector the other vector you want to add to this one
  * @return {Vector} this for chaining capabilities
  * @api public
  */
@@ -68,6 +81,21 @@ Vector.prototype.add = function (vec) {
 	return this;
 };
 
+/**
+ * Subtracts another vector from this one
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *     var vec2 = new Victor(20, 30);
+ *
+ *     vec.sub(vec2);
+ *     vec.toString();
+ *     // => x:80, y:20
+ *
+ * @param {Vector} vector the other vector you want subtract from this one
+ * @return {Vector} this for chaining capabilities
+ * @api public
+ */
 Vector.prototype.sub = function (vec) {
 	this.x -= vec.x;
 	this.y -= vec.y;
