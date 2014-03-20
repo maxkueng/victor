@@ -134,10 +134,6 @@ Vector.prototype.unfloat = function () {
 	return this;
 };
 
-Vector.prototype.unfloatCopy = function () {
-	return new Vector(Math.round(this.x), Math.round(this.y));
-};
-
 //-----------------------------------------------------------------------
 // Utility Methods
 //-----------------------------------------------------------------------
