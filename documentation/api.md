@@ -57,5 +57,19 @@ Subtracts another vector from this one
 
 * **Vector** this for chaining capabilities
 
+## toArray()
+
+Returns an array representation of the vector
+
+### Examples:
+    var vec = new Victor(10, 20);
+
+    vec.toArray();
+    // => [10, 20]
+
+### Return:
+
+* **Array** 
+
 <!-- End index.js -->
 

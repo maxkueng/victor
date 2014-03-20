@@ -193,3 +193,19 @@ Vector.prototype.unfloat = function () {
 Vector.prototype.toString = function () {
 	return 'x:' + this.x + ', y:' + this.y;
 };
+
+/**
+ * Returns an array representation of the vector
+ *
+ * ### Examples:
+ *     var vec = new Victor(10, 20);
+ *
+ *     vec.toArray();
+ *     // => [10, 20]
+ *
+ * @return {Array}
+ * @api public
+ */
+Vector.prototype.toArray = function () {
+	return [ this.x, this.y ];
+};
