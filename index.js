@@ -47,6 +47,13 @@ Vector.prototype.copy = function () {
 	return new Vector(this.x, this.y);
 };
 
+/**
+ * Adds another vector to this one
+ *
+ * @param {Vector} The vector you want to add to this one
+ * @return {Vector} this, for chaining capabilities
+ * @api public
+ */
 Vector.prototype.add = function (vec) {
 	this.x += vec.x;
 	this.y += vec.y;

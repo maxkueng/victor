@@ -13,6 +13,7 @@
   },
   "scripts": {
     "build": "browserify index.js --standalone Victor > build/victor.js && browserify index.js --standalone Victor | uglifyjs -mc > build/victor.min.js",
+    "doc": "markdox index.js -o documentation/api.md",
     "test": "mocha --ui bdd --reporter spec"
   },
   "author": "Max Kueng <me@maxkueng.com> (http://maxkueng.com/)",
@@ -30,6 +31,7 @@
     "browserify": "^3.33.0",
     "uglify-js": "^2.4.13",
     "chai": "~1.9.1",
-    "mocha": "~1.18.2"
+    "mocha": "~1.18.2",
+    "markdox": "~0.1.3"
   }
 }
