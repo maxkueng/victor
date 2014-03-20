@@ -71,6 +71,10 @@ Vector.prototype.multiply = function (scalar) {
 	return this;
 };
 
+Vector.prototype.dot = function (vector2) {
+	return this.x * vector2.x + this.y * vector2.y;
+};
+
 Vector.prototype.distanceX = function (vec) {
 	return this.x - vec.x;
 };
