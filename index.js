@@ -88,7 +88,7 @@ Vector.prototype.add = function (vec) {
  *     var vec = new Victor(100, 50);
  *     var vec2 = new Victor(20, 30);
  *
- *     vec.sub(vec2);
+ *     vec.subtract(vec2);
  *     vec.toString();
  *     // => x:80, y:20
  *
@@ -96,7 +96,7 @@ Vector.prototype.add = function (vec) {
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Vector.prototype.sub = function (vec) {
+Vector.prototype.subtract = function (vec) {
 	this.x -= vec.x;
 	this.y -= vec.y;
 	return this;

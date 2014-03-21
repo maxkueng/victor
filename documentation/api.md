@@ -37,7 +37,7 @@ Adds another vector to this one
 
 * **Victor** `this` for chaining capabilities
 
-## sub(vector)
+## subtract(vector)
 
 Subtracts another vector from this one
 
@@ -45,7 +45,7 @@ Subtracts another vector from this one
     var vec = new Victor(100, 50);
     var vec2 = new Victor(20, 30);
 
-    vec.sub(vec2);
+    vec.subtract(vec2);
     vec.toString();
     // => x:80, y:20
 
