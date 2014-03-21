@@ -53,7 +53,7 @@ Vector.random = function (maxX, maxY) {
  *     vec2.toString();
  *     // => x:10, y:10
  *
- * @return {Vector} the new vector
+ * @return {Victor} A copy of the vector
  * @api public
  */
 Vector.prototype.copy = function () {
@@ -71,8 +71,8 @@ Vector.prototype.copy = function () {
  *     vec.toString();
  *     // => x:30, y:40
  *
- * @param {Vector} vector the other vector you want to add to this one
- * @return {Vector} this for chaining capabilities
+ * @param {Victor} vector The other vector you want to add to this one
+ * @return {Victor} `this` for chaining capabilities
  * @api public
  */
 Vector.prototype.add = function (vec) {
@@ -92,8 +92,8 @@ Vector.prototype.add = function (vec) {
  *     vec.toString();
  *     // => x:80, y:20
  *
- * @param {Vector} vector the other vector you want subtract from this one
- * @return {Vector} this for chaining capabilities
+ * @param {Victor} vector The other vector you want subtract from this one
+ * @return {Victor} `this` for chaining capabilities
  * @api public
  */
 Vector.prototype.sub = function (vec) {
@@ -102,26 +102,96 @@ Vector.prototype.sub = function (vec) {
 	return this;
 };
 
+/**
+ * Divides both vector axis by a number
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.divide(2);
+ *     vec.toString();
+ *     // => x:50, y:25
+ *
+ * @param {Number} number The number to divide the axis by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
 Vector.prototype.divide = function (scalar) {
 	this.x /= scalar;
 	this.y /= scalar;
 	return this;
 };
 
+/**
+ * Multiplies both vector axis by a number
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.multiply(2);
+ *     vec.toString();
+ *     // => x:200, y:200
+ *
+ * @param {Number} number The number to multiply the axis with
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
 Vector.prototype.multiply = function (scalar) {
 	this.x *= scalar;
 	this.y *= scalar;
 	return this;
 };
 
+/**
+ * Calculates the dot product of this vector and another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.dot(vec2);
+ *     // => 23000
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Dot product
+ * @api public
+ */
 Vector.prototype.dot = function (vec2) {
 	return this.x * vec2.x + this.y * vec2.y;
 };
 
+/**
+ * Calculates the distance of the X axis between this vector and another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.distanceX(vec2);
+ *     // => -100
+ *
+ * @param {Victor} vector The second vector
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
 Vector.prototype.distanceX = function (vec) {
 	return this.x - vec.x;
 };
 
+/**
+ * Calculates the distance of the Y axis between this vector and another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.distanceY(vec2);
+ *     // => -10
+ *
+ * @param {Victor} vector The second vector
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
 Vector.prototype.distanceY = function (vec) {
 	return this.y - vec.y;
 };
