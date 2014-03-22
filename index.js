@@ -19,9 +19,45 @@ function Victor (x, y) {
 	this.x = x || 0;
 	this.y = y || 0;
 };
+//
 //-----------------------------------------------------------------------
 // Static Methods
 //-----------------------------------------------------------------------
+
+/**
+ * Creates a new instance from an array
+ *
+ * ### Examples:
+ *     var vec = Victor.fromArray([42, 21]);
+ *
+ *     vec.toString();
+ *     // => x:42, y:21
+ *
+ * @param {Array} array Array with the x and y values at index 0 and 1 respectively
+ * @return {Victor} The new instance
+ * @api public
+ */
+Victor.fromArray = function (arr) {
+	return new Victor(arr[0] || 0, arr[1] || 0);
+};
+
+/**
+ * Creates a new instance from an object
+ *
+ * ### Examples:
+ *     var vec = Victor.fromObject({ x: 42, y: 21 });
+ *
+ *     vec.toString();
+ *     // => x:42, y:21
+ *
+ * @param {Object} obj Object with the values for x and y
+ * @return {Victor} The new instance
+ * @api public
+ */
+Victor.fromObject = function (obj) {
+	return new Victor(obj.x || 0, obj.y || 0);
+};
+
 Victor.add = function (vecA, vecB) {
 	return new Victor(vecA.x + vecB.x, vecA.y + vecB.y);
 };
@@ -414,4 +450,20 @@ Victor.prototype.toString = function () {
  */
 Victor.prototype.toArray = function () {
 	return [ this.x, this.y ];
+};
+
+/**
+ * Returns an object representation of the vector
+ *
+ * ### Examples:
+ *     var vec = new Victor(10, 20);
+ *
+ *     vec.toObject();
+ *     // => { x: 10, y: 20 }
+ *
+ * @return {Object}
+ * @api public
+ */
+Victor.prototype.toObject = function () {
+	return { x: this.x, y: this.y };
 };
