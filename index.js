@@ -1,5 +1,17 @@
 exports = module.exports = Vector;
 
+/**
+ * Constructor. Will also work without the `new` keyword
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = Victor(42, 1337);
+ *
+ * @param {Number} x Value of the x axis
+ * @param {Number} y Value of the y axis
+ * @return {Victor}
+ * @api public
+ */
 function Vector (x, y) {
 	if (!(this instanceof Vector)) {
 		return new Vector(x, y);
@@ -171,7 +183,7 @@ Vector.prototype.dot = function (vec2) {
  *     // => -100
  *
  * @param {Victor} vector The second vector
- * @return {Victor} `this` for chaining capabilities
+ * @return {Number} Distance
  * @api public
  */
 Vector.prototype.distanceX = function (vec) {
@@ -189,13 +201,27 @@ Vector.prototype.distanceX = function (vec) {
  *     // => -10
  *
  * @param {Victor} vector The second vector
- * @return {Victor} `this` for chaining capabilities
+ * @return {Number} Distance
  * @api public
  */
 Vector.prototype.distanceY = function (vec) {
 	return this.y - vec.y;
 };
 
+/**
+ * Calculates the euclidean distance between this vector and another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.distance(vec2);
+ *     // => 100.4987562112089
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Distance
+ * @api public
+ */
 Vector.prototype.distance = function (vec) {
 	var dx = this.distanceX(vec),
 		dy = this.distanceY(vec);
@@ -203,6 +229,18 @@ Vector.prototype.distance = function (vec) {
 	return Math.sqrt(dx * dx + dy * dy);
 };
 
+/**
+ * Calculates the length or magnitude of the vector
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *
+ *     vec1.length();
+ *     // => 111.80339887498948
+ *
+ * @return {Number} Length / Magnitude
+ * @api public
+ */
 Vector.prototype.length = function () {
 	return Math.sqrt(this.x * this.x + this.y * this.y);
 };
@@ -217,12 +255,42 @@ Vector.prototype.norm = function () {
 	return this;
 };
 
+/**
+ * If the absolute vector axis is greater than `max`, multiplies the axis by `factor`
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.limit(80, 0.9);
+ *     vec.toString();
+ *     // => x:90, y:50
+ *
+ * @param {Number} max The maximum value for both x and y axis
+ * @param {Number} factor Factor by which the axis are to be multiplied with
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
 Vector.prototype.limit = function (max, factor) {
 	if (Math.abs(this.x) > max){ this.x *= factor; }
 	if (Math.abs(this.y) > max){ this.y *= factor; }
 	return this;
 };
 
+/**
+ * Randomizes both axis
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.randomize(200, 100);
+ *     vec.toString();
+ *     // => x:177, y:61
+ *
+ * @param {Number} maxX Maximum value for the x axis
+ * @param {Number} maxY Maximum value for the y axis
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
 Vector.prototype.randomize = function (maxX, maxY) {
 	var x = Math.floor(Math.random() * maxX),
 		y = Math.floor(Math.random() * maxY);
@@ -230,18 +298,61 @@ Vector.prototype.randomize = function (maxX, maxY) {
 	return new Vector(x, y);
 };
 
+/**
+ * Randomizes the x axis
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.randomizeX(100);
+ *     vec.toString();
+ *     // => x:76, y:50
+ *
+ * @param {Number} max Maximum value for the x axis
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
 Vector.prototype.randomizeX = function (max) {
 	var x = Math.floor(Math.random() * max);
 	this.x = x;
 	return this;
 };
 
+/**
+ * Randomizes the y axis
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.randomizeY(100);
+ *     vec.toString();
+ *     // => x:100, y:66
+ *
+ * @param {Number} max Maximum value for the y axis
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
 Vector.prototype.randomizeY = function (max) {
 	var y = Math.floor(Math.random() * max);
 	this.y = y;
 	return this;
 };
 
+/**
+ * Randomly randomizes either axis
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.randomizeAny(200, 100);
+ *     vec.toString();
+ *     // => x:100, y:54
+ *
+ * @param {Number} maxX Maximum value for the x axis
+ * @param {Number} maxY Maximum value for the y axis
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
 Vector.prototype.randomizeAny = function (maxX, maxY) {
 	if (!! Math.round(Math.random())) {
 		this.randomizeX(maxX);
@@ -251,6 +362,19 @@ Vector.prototype.randomizeAny = function (maxX, maxY) {
 	return this;
 };
 
+/**
+ * Rounds both axis to an integer value
+ *
+ * ### Examples:
+ *     var vec = new Victor(100.2, 50.9);
+ *
+ *     vec.unfloat();
+ *     vec.toString();
+ *     // => x:100, y:51
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
 Vector.prototype.unfloat = function () {
 	this.x = Math.round(this.x);
 	this.y = Math.round(this.y);
