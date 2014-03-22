@@ -1,4 +1,4 @@
-exports = module.exports = Vector;
+exports = module.exports = Victor;
 
 /**
  * Constructor. Will also work without the `new` keyword
@@ -12,9 +12,9 @@ exports = module.exports = Vector;
  * @return {Victor}
  * @api public
  */
-function Vector (x, y) {
-	if (!(this instanceof Vector)) {
-		return new Vector(x, y);
+function Victor (x, y) {
+	if (!(this instanceof Victor)) {
+		return new Victor(x, y);
 	}
 	this.x = x || 0;
 	this.y = y || 0;
@@ -22,34 +22,34 @@ function Vector (x, y) {
 //-----------------------------------------------------------------------
 // Static Methods
 //-----------------------------------------------------------------------
-Vector.add = function (vecA, vecB) {
-	return new Vector(vecA.x + vecB.x, vecA.y + vecB.y);
+Victor.add = function (vecA, vecB) {
+	return new Victor(vecA.x + vecB.x, vecA.y + vecB.y);
 };
 
-Vector.subtract = function (vecA, vecB) {
-	return new Vector(vecA.x - vecB.x, vecA.y - vecB.y);
+Victor.subtract = function (vecA, vecB) {
+	return new Victor(vecA.x - vecB.x, vecA.y - vecB.y);
 };
 
-Vector.multiply = function (vec, scalar) {
-	return new Vector(vec.x * scalar, vec.y * scalar);
+Victor.multiply = function (vec, scalar) {
+	return new Victor(vec.x * scalar, vec.y * scalar);
 };
 
-Vector.divide = function (vec, scalar) {
-	return new Vector(vec.x / scalar, vec.y / scalar);
+Victor.divide = function (vec, scalar) {
+	return new Victor(vec.x / scalar, vec.y / scalar);
 };
 
-Vector.mix = function (vecA, vecB, ammount) {
+Victor.mix = function (vecA, vecB, ammount) {
 	ammount = ammount || 0.5
 	var x = (1 - ammount) * vecA.x + ammount * vecB.x;
 	var y = (1 - ammount) * vecA.y + ammount * vecB.y;
-	return new Vector(x, y);
+	return new Victor(x, y);
 };
 
-Vector.random = function (maxX, maxY) {
+Victor.random = function (maxX, maxY) {
 	var x = Math.floor(Math.random() * maxX),
 		y = Math.floor(Math.random() * maxY);
 
-	return new Vector(x, y);
+	return new Victor(x, y);
 };
 
 //-----------------------------------------------------------------------
@@ -68,8 +68,8 @@ Vector.random = function (maxX, maxY) {
  * @return {Victor} A copy of the vector
  * @api public
  */
-Vector.prototype.copy = function () {
-	return new Vector(this.x, this.y);
+Victor.prototype.copy = function () {
+	return new Victor(this.x, this.y);
 };
 
 /**
@@ -87,7 +87,7 @@ Vector.prototype.copy = function () {
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Vector.prototype.add = function (vec) {
+Victor.prototype.add = function (vec) {
 	this.x += vec.x;
 	this.y += vec.y;
 	return this;
@@ -108,7 +108,7 @@ Vector.prototype.add = function (vec) {
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Vector.prototype.subtract = function (vec) {
+Victor.prototype.subtract = function (vec) {
 	this.x -= vec.x;
 	this.y -= vec.y;
 	return this;
@@ -128,7 +128,7 @@ Vector.prototype.subtract = function (vec) {
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Vector.prototype.divide = function (scalar) {
+Victor.prototype.divide = function (scalar) {
 	this.x /= scalar;
 	this.y /= scalar;
 	return this;
@@ -148,7 +148,7 @@ Vector.prototype.divide = function (scalar) {
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Vector.prototype.multiply = function (scalar) {
+Victor.prototype.multiply = function (scalar) {
 	this.x *= scalar;
 	this.y *= scalar;
 	return this;
@@ -168,7 +168,7 @@ Vector.prototype.multiply = function (scalar) {
  * @return {Number} Dot product
  * @api public
  */
-Vector.prototype.dot = function (vec2) {
+Victor.prototype.dot = function (vec2) {
 	return this.x * vec2.x + this.y * vec2.y;
 };
 
@@ -186,7 +186,7 @@ Vector.prototype.dot = function (vec2) {
  * @return {Number} Distance
  * @api public
  */
-Vector.prototype.distanceX = function (vec) {
+Victor.prototype.distanceX = function (vec) {
 	return this.x - vec.x;
 };
 
@@ -204,7 +204,7 @@ Vector.prototype.distanceX = function (vec) {
  * @return {Number} Distance
  * @api public
  */
-Vector.prototype.distanceY = function (vec) {
+Victor.prototype.distanceY = function (vec) {
 	return this.y - vec.y;
 };
 
@@ -222,7 +222,7 @@ Vector.prototype.distanceY = function (vec) {
  * @return {Number} Distance
  * @api public
  */
-Vector.prototype.distance = function (vec) {
+Victor.prototype.distance = function (vec) {
 	var dx = this.distanceX(vec),
 		dy = this.distanceY(vec);
 
@@ -241,11 +241,11 @@ Vector.prototype.distance = function (vec) {
  * @return {Number} Length / Magnitude
  * @api public
  */
-Vector.prototype.length = function () {
+Victor.prototype.length = function () {
 	return Math.sqrt(this.x * this.x + this.y * this.y);
 };
 
-Vector.prototype.norm = function () {
+Victor.prototype.norm = function () {
 	if (this.length() === 0) {
 		this.x = 1;
 		this.y = 0;
@@ -270,7 +270,7 @@ Vector.prototype.norm = function () {
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Vector.prototype.limit = function (max, factor) {
+Victor.prototype.limit = function (max, factor) {
 	if (Math.abs(this.x) > max){ this.x *= factor; }
 	if (Math.abs(this.y) > max){ this.y *= factor; }
 	return this;
@@ -291,11 +291,11 @@ Vector.prototype.limit = function (max, factor) {
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Vector.prototype.randomize = function (maxX, maxY) {
+Victor.prototype.randomize = function (maxX, maxY) {
 	var x = Math.floor(Math.random() * maxX),
 		y = Math.floor(Math.random() * maxY);
 
-	return new Vector(x, y);
+	return new Victor(x, y);
 };
 
 /**
@@ -312,7 +312,7 @@ Vector.prototype.randomize = function (maxX, maxY) {
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Vector.prototype.randomizeX = function (max) {
+Victor.prototype.randomizeX = function (max) {
 	var x = Math.floor(Math.random() * max);
 	this.x = x;
 	return this;
@@ -332,7 +332,7 @@ Vector.prototype.randomizeX = function (max) {
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Vector.prototype.randomizeY = function (max) {
+Victor.prototype.randomizeY = function (max) {
 	var y = Math.floor(Math.random() * max);
 	this.y = y;
 	return this;
@@ -353,7 +353,7 @@ Vector.prototype.randomizeY = function (max) {
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Vector.prototype.randomizeAny = function (maxX, maxY) {
+Victor.prototype.randomizeAny = function (maxX, maxY) {
 	if (!! Math.round(Math.random())) {
 		this.randomizeX(maxX);
 	} else {
@@ -375,7 +375,7 @@ Vector.prototype.randomizeAny = function (maxX, maxY) {
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Vector.prototype.unfloat = function () {
+Victor.prototype.unfloat = function () {
 	this.x = Math.round(this.x);
 	this.y = Math.round(this.y);
 	return this;
@@ -396,7 +396,7 @@ Vector.prototype.unfloat = function () {
  * @return {String}
  * @api public
  */
-Vector.prototype.toString = function () {
+Victor.prototype.toString = function () {
 	return 'x:' + this.x + ', y:' + this.y;
 };
 
@@ -412,6 +412,6 @@ Vector.prototype.toString = function () {
  * @return {Array}
  * @api public
  */
-Vector.prototype.toArray = function () {
+Victor.prototype.toArray = function () {
 	return [ this.x, this.y ];
 };
