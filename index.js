@@ -25,7 +25,7 @@ function Victor (x, y) {
 };
 
 /**
- * # Static functions
+ * # Static Functions
  */
 
 /**
@@ -95,25 +95,8 @@ Victor.random = function (maxX, maxY) {
 };
 
 /**
- * # Instance methods
+ * # Chainable Instance Methods
  */
-
-/**
- * Creates a copy of this vector
- *
- * ### Examples:
- *     var vec1 = new Victor(10, 10);
- *     var vec2 = vec1.copy();
- *
- *     vec2.toString();
- *     // => x:10, y:10
- *
- * @return {Victor} A copy of the vector
- * @api public
- */
-Victor.prototype.copy = function () {
-	return new Victor(this.x, this.y);
-};
 
 /**
  * Adds another vector to this one
@@ -198,97 +181,7 @@ Victor.prototype.multiply = function (scalar) {
 };
 
 /**
- * Calculates the dot product of this vector and another
- *
- * ### Examples:
- *     var vec1 = new Victor(100, 50);
- *     var vec2 = new Victor(200, 60);
- *
- *     vec1.dot(vec2);
- *     // => 23000
- *
- * @param {Victor} vector The second vector
- * @return {Number} Dot product
- * @api public
- */
-Victor.prototype.dot = function (vec2) {
-	return this.x * vec2.x + this.y * vec2.y;
-};
-
-/**
- * Calculates the distance of the X axis between this vector and another
- *
- * ### Examples:
- *     var vec1 = new Victor(100, 50);
- *     var vec2 = new Victor(200, 60);
- *
- *     vec1.distanceX(vec2);
- *     // => -100
- *
- * @param {Victor} vector The second vector
- * @return {Number} Distance
- * @api public
- */
-Victor.prototype.distanceX = function (vec) {
-	return this.x - vec.x;
-};
-
-/**
- * Calculates the distance of the Y axis between this vector and another
- *
- * ### Examples:
- *     var vec1 = new Victor(100, 50);
- *     var vec2 = new Victor(200, 60);
- *
- *     vec1.distanceY(vec2);
- *     // => -10
- *
- * @param {Victor} vector The second vector
- * @return {Number} Distance
- * @api public
- */
-Victor.prototype.distanceY = function (vec) {
-	return this.y - vec.y;
-};
-
-/**
- * Calculates the euclidean distance between this vector and another
- *
- * ### Examples:
- *     var vec1 = new Victor(100, 50);
- *     var vec2 = new Victor(200, 60);
- *
- *     vec1.distance(vec2);
- *     // => 100.4987562112089
- *
- * @param {Victor} vector The second vector
- * @return {Number} Distance
- * @api public
- */
-Victor.prototype.distance = function (vec) {
-	var dx = this.distanceX(vec),
-		dy = this.distanceY(vec);
-
-	return Math.sqrt(dx * dx + dy * dy);
-};
-
-/**
- * Calculates the length or magnitude of the vector
- *
- * ### Examples:
- *     var vec = new Victor(100, 50);
- *
- *     vec.length();
- *     // => 111.80339887498948
- *
- * @return {Number} Length / Magnitude
- * @api public
- */
-Victor.prototype.length = function () {
-	return Math.sqrt(this.x * this.x + this.y * this.y);
-};
-
-/**
+ * Norm
  *
  * @return {Victor} `this` for chaining capabilities
  * @api public
@@ -429,9 +322,122 @@ Victor.prototype.unfloat = function () {
 	return this;
 };
 
-//-----------------------------------------------------------------------
-// Utility Methods
-//-----------------------------------------------------------------------
+/**
+ * # Instance Methods
+ */
+
+/**
+ * Creates a copy of this vector
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = vec1.copy();
+ *
+ *     vec2.toString();
+ *     // => x:10, y:10
+ *
+ * @return {Victor} A copy of the vector
+ * @api public
+ */
+Victor.prototype.copy = function () {
+	return new Victor(this.x, this.y);
+};
+
+/**
+ * Calculates the dot product of this vector and another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.dot(vec2);
+ *     // => 23000
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Dot product
+ * @api public
+ */
+Victor.prototype.dot = function (vec2) {
+	return this.x * vec2.x + this.y * vec2.y;
+};
+
+/**
+ * Calculates the distance of the X axis between this vector and another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.distanceX(vec2);
+ *     // => -100
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Distance
+ * @api public
+ */
+Victor.prototype.distanceX = function (vec) {
+	return this.x - vec.x;
+};
+
+/**
+ * Calculates the distance of the Y axis between this vector and another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.distanceY(vec2);
+ *     // => -10
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Distance
+ * @api public
+ */
+Victor.prototype.distanceY = function (vec) {
+	return this.y - vec.y;
+};
+
+/**
+ * Calculates the euclidean distance between this vector and another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.distance(vec2);
+ *     // => 100.4987562112089
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Distance
+ * @api public
+ */
+Victor.prototype.distance = function (vec) {
+	var dx = this.distanceX(vec),
+		dy = this.distanceY(vec);
+
+	return Math.sqrt(dx * dx + dy * dy);
+};
+
+/**
+ * Calculates the length or magnitude of the vector
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.length();
+ *     // => 111.80339887498948
+ *
+ * @return {Number} Length / Magnitude
+ * @api public
+ */
+Victor.prototype.length = function () {
+	return Math.sqrt(this.x * this.x + this.y * this.y);
+};
+
+/**
+ * # Utility Methods
+ */
+
 /**
  * Returns an string representation of the vector
  *
