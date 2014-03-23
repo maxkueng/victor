@@ -1,6 +1,10 @@
 exports = module.exports = Victor;
 
 /**
+ * # Victor - A JavaScript 2D vector class with methods for common vector operations
+ */
+
+/**
  * Constructor. Will also work without the `new` keyword
  *
  * ### Examples:
@@ -19,10 +23,10 @@ function Victor (x, y) {
 	this.x = x || 0;
 	this.y = y || 0;
 };
-//
-//-----------------------------------------------------------------------
-// Static Methods
-//-----------------------------------------------------------------------
+
+/**
+ * # Static functions
+ */
 
 /**
  * Creates a new instance from an array
@@ -33,6 +37,7 @@ function Victor (x, y) {
  *     vec.toString();
  *     // => x:42, y:21
  *
+ * @name Victor.fromArray
  * @param {Array} array Array with the x and y values at index 0 and 1 respectively
  * @return {Victor} The new instance
  * @api public
@@ -50,6 +55,7 @@ Victor.fromArray = function (arr) {
  *     vec.toString();
  *     // => x:42, y:21
  *
+ * @name Victor.fromObject
  * @param {Object} obj Object with the values for x and y
  * @return {Victor} The new instance
  * @api public
@@ -88,15 +94,16 @@ Victor.random = function (maxX, maxY) {
 	return new Victor(x, y);
 };
 
-//-----------------------------------------------------------------------
-// Instance Methods
-//-----------------------------------------------------------------------
+/**
+ * # Instance methods
+ */
+
 /**
  * Creates a copy of this vector
  *
  * ### Examples:
- *     var vec = new Victor(10, 10);
- *     var vec2 = vec.copy();
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = vec1.copy();
  *
  *     vec2.toString();
  *     // => x:10, y:10
@@ -112,11 +119,11 @@ Victor.prototype.copy = function () {
  * Adds another vector to this one
  *
  * ### Examples:
- *     var vec = new Victor(10, 10);
+ *     var vec1 = new Victor(10, 10);
  *     var vec2 = new Victor(20, 30);
  *
- *     vec.add(vec2);
- *     vec.toString();
+ *     vec1.add(vec2);
+ *     vec1.toString();
  *     // => x:30, y:40
  *
  * @param {Victor} vector The other vector you want to add to this one
@@ -133,11 +140,11 @@ Victor.prototype.add = function (vec) {
  * Subtracts another vector from this one
  *
  * ### Examples:
- *     var vec = new Victor(100, 50);
+ *     var vec1 = new Victor(100, 50);
  *     var vec2 = new Victor(20, 30);
  *
- *     vec.subtract(vec2);
- *     vec.toString();
+ *     vec1.subtract(vec2);
+ *     vec1.toString();
  *     // => x:80, y:20
  *
  * @param {Victor} vector The other vector you want subtract from this one
@@ -269,9 +276,9 @@ Victor.prototype.distance = function (vec) {
  * Calculates the length or magnitude of the vector
  *
  * ### Examples:
- *     var vec1 = new Victor(100, 50);
+ *     var vec = new Victor(100, 50);
  *
- *     vec1.length();
+ *     vec.length();
  *     // => 111.80339887498948
  *
  * @return {Number} Length / Magnitude
@@ -281,6 +288,11 @@ Victor.prototype.length = function () {
 	return Math.sqrt(this.x * this.x + this.y * this.y);
 };
 
+/**
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
 Victor.prototype.norm = function () {
 	if (this.length() === 0) {
 		this.x = 1;
@@ -313,7 +325,7 @@ Victor.prototype.limit = function (max, factor) {
 };
 
 /**
- * Randomizes both axis
+ * Randomizes both vector axis
  *
  * ### Examples:
  *     var vec = new Victor(100, 50);
