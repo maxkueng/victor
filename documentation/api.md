@@ -2,31 +2,76 @@
 
 <!-- Start index.js -->
 
-## copy()
+# Victor - A JavaScript 2D vector class with methods for common vector operations
 
-Creates a copy of this vector
+## Victor(x, y)
+
+Constructor. Will also work without the `new` keyword
 
 ### Examples:
-    var vec = new Victor(10, 10);
-    var vec2 = vec.copy();
+    var vec1 = new Victor(100, 50);
+    var vec2 = Victor(42, 1337);
 
-    vec2.toString();
-    // => x:10, y:10
+### Params: 
+
+* **Number** *x* Value of the x axis
+
+* **Number** *y* Value of the y axis
 
 ### Return:
 
-* **Victor** A copy of the vector
+* **Victor** 
+
+# Static Functions
+
+## Victor.fromArray(array)
+
+Creates a new instance from an array
+
+### Examples:
+    var vec = Victor.fromArray([42, 21]);
+
+    vec.toString();
+    // => x:42, y:21
+
+### Params: 
+
+* **Array** *array* Array with the x and y values at index 0 and 1 respectively
+
+### Return:
+
+* **Victor** The new instance
+
+## Victor.fromObject(obj)
+
+Creates a new instance from an object
+
+### Examples:
+    var vec = Victor.fromObject({ x: 42, y: 21 });
+
+    vec.toString();
+    // => x:42, y:21
+
+### Params: 
+
+* **Object** *obj* Object with the values for x and y
+
+### Return:
+
+* **Victor** The new instance
+
+# Chainable Instance Methods
 
 ## add(vector)
 
 Adds another vector to this one
 
 ### Examples:
-    var vec = new Victor(10, 10);
+    var vec1 = new Victor(10, 10);
     var vec2 = new Victor(20, 30);
 
-    vec.add(vec2);
-    vec.toString();
+    vec1.add(vec2);
+    vec1.toString();
     // => x:30, y:40
 
 ### Params: 
@@ -42,11 +87,11 @@ Adds another vector to this one
 Subtracts another vector from this one
 
 ### Examples:
-    var vec = new Victor(100, 50);
+    var vec1 = new Victor(100, 50);
     var vec2 = new Victor(20, 30);
 
-    vec.subtract(vec2);
-    vec.toString();
+    vec1.subtract(vec2);
+    vec1.toString();
     // => x:80, y:20
 
 ### Params: 
@@ -95,6 +140,147 @@ Multiplies both vector axis by a number
 
 * **Victor** `this` for chaining capabilities
 
+## norm()
+
+Norm
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## limit(max, factor)
+
+If the absolute vector axis is greater than `max`, multiplies the axis by `factor`
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.limit(80, 0.9);
+    vec.toString();
+    // => x:90, y:50
+
+### Params: 
+
+* **Number** *max* The maximum value for both x and y axis
+
+* **Number** *factor* Factor by which the axis are to be multiplied with
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## randomize(maxX, maxY)
+
+Randomizes both vector axis
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.randomize(200, 100);
+    vec.toString();
+    // => x:177, y:61
+
+### Params: 
+
+* **Number** *maxX* Maximum value for the x axis
+
+* **Number** *maxY* Maximum value for the y axis
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## randomizeX(max)
+
+Randomizes the x axis
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.randomizeX(100);
+    vec.toString();
+    // => x:76, y:50
+
+### Params: 
+
+* **Number** *max* Maximum value for the x axis
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## randomizeY(max)
+
+Randomizes the y axis
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.randomizeY(100);
+    vec.toString();
+    // => x:100, y:66
+
+### Params: 
+
+* **Number** *max* Maximum value for the y axis
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## randomizeAny(maxX, maxY)
+
+Randomly randomizes either axis
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.randomizeAny(200, 100);
+    vec.toString();
+    // => x:100, y:54
+
+### Params: 
+
+* **Number** *maxX* Maximum value for the x axis
+
+* **Number** *maxY* Maximum value for the y axis
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## unfloat()
+
+Rounds both axis to an integer value
+
+### Examples:
+    var vec = new Victor(100.2, 50.9);
+
+    vec.unfloat();
+    vec.toString();
+    // => x:100, y:51
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+# Instance Methods
+
+## copy()
+
+Creates a copy of this vector
+
+### Examples:
+    var vec1 = new Victor(10, 10);
+    var vec2 = vec1.copy();
+
+    vec2.toString();
+    // => x:10, y:10
+
+### Return:
+
+* **Victor** A copy of the vector
+
 ## dot(vector)
 
 Calculates the dot product of this vector and another
@@ -131,7 +317,7 @@ Calculates the distance of the X axis between this vector and another
 
 ### Return:
 
-* **Victor** `this` for chaining capabilities
+* **Number** Distance
 
 ## distanceY(vector)
 
@@ -150,7 +336,42 @@ Calculates the distance of the Y axis between this vector and another
 
 ### Return:
 
-* **Victor** `this` for chaining capabilities
+* **Number** Distance
+
+## distance(vector)
+
+Calculates the euclidean distance between this vector and another
+
+### Examples:
+    var vec1 = new Victor(100, 50);
+    var vec2 = new Victor(200, 60);
+
+    vec1.distance(vec2);
+    // => 100.4987562112089
+
+### Params: 
+
+* **Victor** *vector* The second vector
+
+### Return:
+
+* **Number** Distance
+
+## length()
+
+Calculates the length or magnitude of the vector
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.length();
+    // => 111.80339887498948
+
+### Return:
+
+* **Number** Length / Magnitude
+
+# Utility Methods
 
 ## toString()
 
@@ -179,6 +400,20 @@ Returns an array representation of the vector
 ### Return:
 
 * **Array** 
+
+## toObject()
+
+Returns an object representation of the vector
+
+### Examples:
+    var vec = new Victor(10, 20);
+
+    vec.toObject();
+    // => { x: 10, y: 20 }
+
+### Return:
+
+* **Object** 
 
 <!-- End index.js -->
 
