@@ -168,7 +168,7 @@ Victor.prototype.divide = function (scalar) {
  *
  *     vec.multiply(2);
  *     vec.toString();
- *     // => x:200, y:200
+ *     // => x:200, y:100
  *
  * @param {Number} number The number to multiply the axis with
  * @return {Victor} `this` for chaining capabilities
