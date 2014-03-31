@@ -15,6 +15,7 @@ Constructor. Will also work without the `new` keyword
 ### Params: 
 
 * **Number** *x* Value of the x axis
+
 * **Number** *y* Value of the y axis
 
 ### Return:
@@ -129,7 +130,7 @@ Multiplies both vector axis by a number
 
     vec.multiply(2);
     vec.toString();
-    // => x:200, y:200
+    // => x:200, y:100
 
 ### Params: 
 
@@ -161,6 +162,7 @@ If the absolute vector axis is greater than `max`, multiplies the axis by `facto
 ### Params: 
 
 * **Number** *max* The maximum value for both x and y axis
+
 * **Number** *factor* Factor by which the axis are to be multiplied with
 
 ### Return:
@@ -181,6 +183,7 @@ Randomizes both vector axis
 ### Params: 
 
 * **Number** *maxX* Maximum value for the x axis
+
 * **Number** *maxY* Maximum value for the y axis
 
 ### Return:
@@ -239,6 +242,7 @@ Randomly randomizes either axis
 ### Params: 
 
 * **Number** *maxX* Maximum value for the x axis
+
 * **Number** *maxY* Maximum value for the y axis
 
 ### Return:
@@ -255,6 +259,28 @@ Rounds both axis to an integer value
     vec.unfloat();
     vec.toString();
     // => x:100, y:51
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## mix(vector, amount)
+
+Performs a linear blend / interpolation another vector
+
+### Examples:
+    var vec1 = new Victor(100, 100);
+    var vec2 = new Victor(200, 200);
+
+    vec1.mix(vec2, 0.5);
+    vec.toString();
+    // => x:150, y:150
+
+### Params: 
+
+* **Victor** *vector* The other vector
+
+* **Number** *amount* The blend amount (optional, default: 0.5)
 
 ### Return:
 
