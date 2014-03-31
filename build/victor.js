@@ -169,7 +169,7 @@ Victor.prototype.divide = function (scalar) {
  *
  *     vec.multiply(2);
  *     vec.toString();
- *     // => x:200, y:200
+ *     // => x:200, y:100
  *
  * @param {Number} number The number to multiply the axis with
  * @return {Victor} `this` for chaining capabilities
@@ -234,10 +234,10 @@ Victor.prototype.limit = function (max, factor) {
  * @api public
  */
 Victor.prototype.randomize = function (maxX, maxY) {
-	var x = Math.floor(Math.random() * maxX),
-		y = Math.floor(Math.random() * maxY);
+	this.randomizeX(maxX);
+	this.randomizeY(maxY);
 
-	return new Victor(x, y);
+	return this;
 };
 
 /**
@@ -255,8 +255,7 @@ Victor.prototype.randomize = function (maxX, maxY) {
  * @api public
  */
 Victor.prototype.randomizeX = function (max) {
-	var x = Math.floor(Math.random() * max);
-	this.x = x;
+	this.x = Math.floor(Math.random() * max);
 	return this;
 };
 
@@ -275,8 +274,7 @@ Victor.prototype.randomizeX = function (max) {
  * @api public
  */
 Victor.prototype.randomizeY = function (max) {
-	var y = Math.floor(Math.random() * max);
-	this.y = y;
+	this.y = Math.floor(Math.random() * max);
 	return this;
 };
 
@@ -320,6 +318,29 @@ Victor.prototype.randomizeAny = function (maxX, maxY) {
 Victor.prototype.unfloat = function () {
 	this.x = Math.round(this.x);
 	this.y = Math.round(this.y);
+	return this;
+};
+
+/**
+ * Performs a linear blend / interpolation another vector
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 100);
+ *     var vec2 = new Victor(200, 200);
+ *
+ *     vec1.mix(vec2, 0.5);
+ *     vec.toString();
+ *     // => x:150, y:150
+ *
+ * @param {Victor} vector The other vector
+ * @param {Number} amount The blend amount (optional, default: 0.5)
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.mix = function (vec, amount) {
+	amount = amount || 0.5
+	this.x = (1 - amount) * this.x + amount * vec.x;
+	this.y = (1 - amount) * this.y + amount * vec.y;
 	return this;
 };
 
