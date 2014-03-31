@@ -63,25 +63,6 @@ describe('static methods', function () {
 		});
 	});
 
-	describe('#add()', function () {
-		var vec1, vec2, vec3;
-
-		before(function () {
-			vec1 = new Victor(20, 40);
-			vec2 = new Victor(30, 20);
-			vec3 = Victor.add(vec1, vec2);
-		});
-
-		it('should return an instance of Victor', function () {
-			expect(vec3).to.be.an.instanceof(Victor);
-		});
-
-		it('should add 2 vectors', function () {
-			expect(vec3).to.have.property('x', 50);
-			expect(vec3).to.have.property('y', 60);
-		});
-	});
-
 });
 
 describe('chainable instance methods', function () {
