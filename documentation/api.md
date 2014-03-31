@@ -15,7 +15,6 @@ Constructor. Will also work without the `new` keyword
 ### Params: 
 
 * **Number** *x* Value of the x axis
-
 * **Number** *y* Value of the y axis
 
 ### Return:
@@ -162,7 +161,6 @@ If the absolute vector axis is greater than `max`, multiplies the axis by `facto
 ### Params: 
 
 * **Number** *max* The maximum value for both x and y axis
-
 * **Number** *factor* Factor by which the axis are to be multiplied with
 
 ### Return:
@@ -183,7 +181,6 @@ Randomizes both vector axis
 ### Params: 
 
 * **Number** *maxX* Maximum value for the x axis
-
 * **Number** *maxY* Maximum value for the y axis
 
 ### Return:
@@ -242,7 +239,6 @@ Randomly randomizes either axis
 ### Params: 
 
 * **Number** *maxX* Maximum value for the x axis
-
 * **Number** *maxY* Maximum value for the y axis
 
 ### Return:
@@ -279,7 +275,6 @@ Performs a linear blend / interpolation another vector
 ### Params: 
 
 * **Victor** *vector* The other vector
-
 * **Number** *amount* The blend amount (optional, default: 0.5)
 
 ### Return:
