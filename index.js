@@ -88,39 +88,6 @@ Victor.fromObject = function (obj) {
 	return new Victor(obj.x || 0, obj.y || 0);
 };
 
-Victor.add = function (vecA, vecB) {
-	return new Victor(vecA.x + vecB.x, vecA.y + vecB.y);
-};
-
-Victor.subtract = function (vecA, vecB) {
-	return new Victor(vecA.x - vecB.x, vecA.y - vecB.y);
-};
-
-Victor.multiply = function (vec, scalar) {
-	return new Victor(vec.x * scalar, vec.y * scalar);
-};
-
-Victor.divide = function (vec, scalar) {
-	return new Victor(vec.x / scalar, vec.y / scalar);
-};
-
-Victor.mix = function (vecA, vecB, amount) {
-	if (typeof amount === 'undefined') {
-		amount = 0.5;
-	}
-
-	var x = (1 - amount) * vecA.x + amount * vecB.x;
-	var y = (1 - amount) * vecA.y + amount * vecB.y;
-	return new Victor(x, y);
-};
-
-Victor.random = function (maxX, maxY) {
-	var x = Math.floor(Math.random() * maxX),
-		y = Math.floor(Math.random() * maxY);
-
-	return new Victor(x, y);
-};
-
 /**
  * # Manipulation
  *
