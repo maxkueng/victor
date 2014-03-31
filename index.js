@@ -233,10 +233,10 @@ Victor.prototype.limit = function (max, factor) {
  * @api public
  */
 Victor.prototype.randomize = function (maxX, maxY) {
-	var x = Math.floor(Math.random() * maxX),
-		y = Math.floor(Math.random() * maxY);
+	this.randomizeX(maxX);
+	this.randomizeY(maxY);
 
-	return new Victor(x, y);
+	return this;
 };
 
 /**
@@ -254,8 +254,7 @@ Victor.prototype.randomize = function (maxX, maxY) {
  * @api public
  */
 Victor.prototype.randomizeX = function (max) {
-	var x = Math.floor(Math.random() * max);
-	this.x = x;
+	this.x = Math.floor(Math.random() * max);
 	return this;
 };
 
@@ -274,8 +273,7 @@ Victor.prototype.randomizeX = function (max) {
  * @api public
  */
 Victor.prototype.randomizeY = function (max) {
-	var y = Math.floor(Math.random() * max);
-	this.y = y;
+	this.y = Math.floor(Math.random() * max);
 	return this;
 };
 
