@@ -477,7 +477,7 @@ Victor.prototype.unfloat = function () {
 };
 
 /**
- * Performs a linear blend / interpolation another vector
+ * Performs a linear blend / interpolation to another vector
  *
  * ### Examples:
  *     var vec1 = new Victor(100, 100);
