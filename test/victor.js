@@ -86,6 +86,44 @@ describe('static methods', function () {
 
 describe('chainable instance methods', function () {
 
+	describe('#addX()', function () {
+		var vec1, vec2, ret;
+
+		before(function () {
+			vec1 = new Victor(20, 40);
+			vec2 = new Victor(30, 20);
+			ret = vec1.addX(vec2);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec1);
+		});
+
+		it('should add only the X axis of a vector', function () {
+			expect(vec1).to.have.property('x', 50);
+			expect(vec1).to.have.property('y', 40);
+		});
+	});
+
+	describe('#addY()', function () {
+		var vec1, vec2, ret;
+
+		before(function () {
+			vec1 = new Victor(20, 40);
+			vec2 = new Victor(30, 20);
+			ret = vec1.addY(vec2);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec1);
+		});
+
+		it('should add only the Y axis of a vector', function () {
+			expect(vec1).to.have.property('x', 20);
+			expect(vec1).to.have.property('y', 60);
+		});
+	});
+
 	describe('#add()', function () {
 		var vec1, vec2, ret;
 
@@ -162,6 +200,42 @@ describe('chainable instance methods', function () {
 		});
 	});
 
+	describe('#divideX()', function () {
+		var vec, ret;
+
+		before(function () {
+			vec = new Victor(30, 20);
+			ret = vec.divideX(2);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should divide the X axis by 2', function () {
+			expect(vec).to.have.property('x', 15);
+			expect(vec).to.have.property('y', 20);
+		});
+	});
+
+	describe('#divideY()', function () {
+		var vec, ret;
+
+		before(function () {
+			vec = new Victor(30, 20);
+			ret = vec.divideY(2);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should divide the Y axis by 2', function () {
+			expect(vec).to.have.property('x', 30);
+			expect(vec).to.have.property('y', 10);
+		});
+	});
+
 	describe('#divide()', function () {
 		var vec, ret;
 
@@ -177,6 +251,42 @@ describe('chainable instance methods', function () {
 		it('should divide both vector axis by 2', function () {
 			expect(vec).to.have.property('x', 15);
 			expect(vec).to.have.property('y', 10);
+		});
+	});
+
+	describe('#multiplyX()', function () {
+		var vec, ret;
+
+		before(function () {
+			vec = new Victor(30, 20);
+			ret = vec.multiplyX(2);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should multiply the X axis by 2', function () {
+			expect(vec).to.have.property('x', 60);
+			expect(vec).to.have.property('y', 20);
+		});
+	});
+
+	describe('#multiplyY()', function () {
+		var vec, ret;
+
+		before(function () {
+			vec = new Victor(30, 20);
+			ret = vec.multiplyY(2);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should multiply the Y axis by 2', function () {
+			expect(vec).to.have.property('x', 30);
+			expect(vec).to.have.property('y', 40);
 		});
 	});
 

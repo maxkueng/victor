@@ -99,6 +99,46 @@ Victor.random = function (maxX, maxY) {
  */
 
 /**
+ * Adds another vector's X axis to this one
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = new Victor(20, 30);
+ *
+ *     vec1.addX(vec2);
+ *     vec1.toString();
+ *     // => x:30, y:10
+ *
+ * @param {Victor} vector The other vector you want to add to this one
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.addX = function (vec) {
+	this.x += vec.x;
+	return this;
+};
+
+/**
+ * Adds another vector's Y axis to this one
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = new Victor(20, 30);
+ *
+ *     vec1.addY(vec2);
+ *     vec1.toString();
+ *     // => x:10, y:40
+ *
+ * @param {Victor} vector The other vector you want to add to this one
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.addY = function (vec) {
+	this.y += vec.y;
+	return this;
+};
+
+/**
  * Adds another vector to this one
  *
  * ### Examples:
@@ -114,8 +154,8 @@ Victor.random = function (maxX, maxY) {
  * @api public
  */
 Victor.prototype.add = function (vec) {
-	this.x += vec.x;
-	this.y += vec.y;
+	this.addX(vec);
+	this.addY(vec);
 	return this;
 };
 
@@ -181,6 +221,44 @@ Victor.prototype.subtract = function (vec) {
 };
 
 /**
+ * Divides the X axis by a number
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.divideX(2);
+ *     vec.toString();
+ *     // => x:50, y:50
+ *
+ * @param {Number} number The number to divide the axis by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.divideX = function (scalar) {
+	this.x /= scalar;
+	return this;
+};
+
+/**
+ * Divides the Y axis by a number
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.divideY(2);
+ *     vec.toString();
+ *     // => x:100, y:25
+ *
+ * @param {Number} number The number to divide the axis by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.divideY = function (scalar) {
+	this.y /= scalar;
+	return this;
+};
+
+/**
  * Divides both vector axis by a number
  *
  * ### Examples:
@@ -195,8 +273,46 @@ Victor.prototype.subtract = function (vec) {
  * @api public
  */
 Victor.prototype.divide = function (scalar) {
-	this.x /= scalar;
-	this.y /= scalar;
+	this.divideX(scalar);
+	this.divideY(scalar);
+	return this;
+};
+
+/**
+ * Multiplies the X axis by a number
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.multiplyX(2);
+ *     vec.toString();
+ *     // => x:200, y:50
+ *
+ * @param {Number} number The number to multiply the axis with
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.multiplyX = function (scalar) {
+	this.x *= scalar;
+	return this;
+};
+
+/**
+ * Multiplies the Y axis by a number
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.multiplyY(2);
+ *     vec.toString();
+ *     // => x:100, y:100
+ *
+ * @param {Number} number The number to multiply the axis with
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.multiplyY = function (scalar) {
+	this.y *= scalar;
 	return this;
 };
 
@@ -215,8 +331,8 @@ Victor.prototype.divide = function (scalar) {
  * @api public
  */
 Victor.prototype.multiply = function (scalar) {
-	this.x *= scalar;
-	this.y *= scalar;
+	this.multiplyX(scalar);
+	this.multiplyY(scalar);
 	return this;
 };
 
