@@ -120,6 +120,46 @@ Victor.prototype.add = function (vec) {
 };
 
 /**
+ * Subtracts the X axis of another vector from this one
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(20, 30);
+ *
+ *     vec1.subtractX(vec2);
+ *     vec1.toString();
+ *     // => x:80, y:50
+ *
+ * @param {Victor} vector The other vector you want subtract from this one
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.subtractX = function (vec) {
+	this.x -= vec.x;
+	return this;
+};
+
+/**
+ * Subtracts the Y axis of another vector from this one
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(20, 30);
+ *
+ *     vec1.subtractY(vec2);
+ *     vec1.toString();
+ *     // => x:100, y:20
+ *
+ * @param {Victor} vector The other vector you want subtract from this one
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.subtractY = function (vec) {
+	this.y -= vec.y;
+	return this;
+};
+
+/**
  * Subtracts another vector from this one
  *
  * ### Examples:
@@ -135,8 +175,8 @@ Victor.prototype.add = function (vec) {
  * @api public
  */
 Victor.prototype.subtract = function (vec) {
-	this.x -= vec.x;
-	this.y -= vec.y;
+	this.subtractX(vec);
+	this.subtractY(vec);
 	return this;
 };
 

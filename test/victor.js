@@ -105,6 +105,44 @@ describe('chainable instance methods', function () {
 		});
 	});
 
+	describe('#subtractX()', function () {
+		var vec1, vec2, ret;
+
+		before(function () {
+			vec1 = new Victor(30, 20);
+			vec2 = new Victor(20, 40);
+			ret = vec1.subtractX(vec2);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec1);
+		});
+
+		it('should subtract only the X axis of a vector', function () {
+			expect(vec1).to.have.property('x', 10);
+			expect(vec1).to.have.property('y', 20);
+		});
+	});
+
+	describe('#subtractY()', function () {
+		var vec1, vec2, ret;
+
+		before(function () {
+			vec1 = new Victor(30, 20);
+			vec2 = new Victor(20, 40);
+			ret = vec1.subtractY(vec2);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec1);
+		});
+
+		it('should subtract only the Y axis of a vector', function () {
+			expect(vec1).to.have.property('x', 30);
+			expect(vec1).to.have.property('y', -20);
+		});
+	});
+
 	describe('#subtract()', function () {
 		var vec1, vec2, ret;
 
