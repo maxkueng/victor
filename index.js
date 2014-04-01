@@ -477,7 +477,51 @@ Victor.prototype.unfloat = function () {
 };
 
 /**
- * Performs a linear blend / interpolation to another vector
+ * Performs a linear blend / interpolation of the X axis towards another vector
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 100);
+ *     var vec2 = new Victor(200, 200);
+ *
+ *     vec1.mixX(vec2, 0.5);
+ *     vec.toString();
+ *     // => x:150, y:100
+ *
+ * @param {Victor} vector The other vector
+ * @param {Number} amount The blend amount (optional, default: 0.5)
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.mixX = function (vec, amount) {
+	amount = amount || 0.5;
+	this.x = (1 - amount) * this.x + amount * vec.x;
+	return this;
+};
+
+/**
+ * Performs a linear blend / interpolation of the Y axis towards another vector
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 100);
+ *     var vec2 = new Victor(200, 200);
+ *
+ *     vec1.mixY(vec2, 0.5);
+ *     vec.toString();
+ *     // => x:100, y:150
+ *
+ * @param {Victor} vector The other vector
+ * @param {Number} amount The blend amount (optional, default: 0.5)
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.mixY = function (vec, amount) {
+	amount = amount || 0.5;
+	this.y = (1 - amount) * this.y + amount * vec.y;
+	return this;
+};
+
+/**
+ * Performs a linear blend / interpolation towards another vector
  *
  * ### Examples:
  *     var vec1 = new Victor(100, 100);
@@ -493,9 +537,9 @@ Victor.prototype.unfloat = function () {
  * @api public
  */
 Victor.prototype.mix = function (vec, amount) {
-	amount = amount || 0.5
-	this.x = (1 - amount) * this.x + amount * vec.x;
-	this.y = (1 - amount) * this.y + amount * vec.y;
+	amount = amount || 0.5;
+	this.mixX(vec, amount);
+	this.mixY(vec, amount);
 	return this;
 };
 

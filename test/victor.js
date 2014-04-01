@@ -434,6 +434,44 @@ describe('chainable instance methods', function () {
 		});
 	});
 
+	describe('#mixX()', function () {
+		var vec1, vec2, ret;
+
+		before(function () {
+			vec1 = new Victor(100, 100);
+			vec2 = new Victor(200, 200);
+			ret = vec1.mixX(vec2, 0.5);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec1);
+		});
+
+		it('should interpolate the X axis half way', function () {
+			expect(vec1).to.have.property('x', 150);
+			expect(vec1).to.have.property('y', 100);
+		});
+	});
+
+	describe('#mixY()', function () {
+		var vec1, vec2, ret;
+
+		before(function () {
+			vec1 = new Victor(100, 100);
+			vec2 = new Victor(200, 200);
+			ret = vec1.mixY(vec2, 0.5);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec1);
+		});
+
+		it('should interpolate the Y axis half way', function () {
+			expect(vec1).to.have.property('x', 100);
+			expect(vec1).to.have.property('y', 150);
+		});
+	});
+
 	describe('#mix()', function () {
 		var vec1, vec2, ret;
 
