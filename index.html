@@ -58,7 +58,38 @@ var vec2 = Victor(42, 1337);
 <li>
 <strong>Victor</strong> </li>
 </ul><h1>
-<a name="static-functions" class="anchor" href="#static-functions"><span class="octicon octicon-link"></span></a>Static Functions</h1>
+<a name="properties" class="anchor" href="#properties"><span class="octicon octicon-link"></span></a>Properties</h1>
+
+<h2>
+<a name="x" class="anchor" href="#x"><span class="octicon octicon-link"></span></a>x</h2>
+
+<p>The X axis</p>
+
+<h3>
+<a name="examples-1" class="anchor" href="#examples-1"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec = new Victor.fromArray(42, 21);
+
+vec.x;
+// =&gt; 42
+</code></pre>
+
+<h2>
+<a name="y" class="anchor" href="#y"><span class="octicon octicon-link"></span></a>y</h2>
+
+<p>The Y axis</p>
+
+<h3>
+<a name="examples-2" class="anchor" href="#examples-2"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec = new Victor.fromArray(42, 21);
+
+vec.y;
+// =&gt; 21
+</code></pre>
+
+<h1>
+<a name="static" class="anchor" href="#static"><span class="octicon octicon-link"></span></a>Static</h1>
 
 <h2>
 <a name="victorfromarrayarray" class="anchor" href="#victorfromarrayarray"><span class="octicon octicon-link"></span></a>Victor.fromArray(array)</h2>
@@ -66,7 +97,7 @@ var vec2 = Victor(42, 1337);
 <p>Creates a new instance from an array</p>
 
 <h3>
-<a name="examples-1" class="anchor" href="#examples-1"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-3" class="anchor" href="#examples-3"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = Victor.fromArray([42, 21]);
 
@@ -92,7 +123,7 @@ vec.toString();
 <p>Creates a new instance from an object</p>
 
 <h3>
-<a name="examples-2" class="anchor" href="#examples-2"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-4" class="anchor" href="#examples-4"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = Victor.fromObject({ x: 42, y: 21 });
 
@@ -113,22 +144,24 @@ vec.toString();
 <li>
 <strong>Victor</strong> The new instance</li>
 </ul><h1>
-<a name="chainable-instance-methods" class="anchor" href="#chainable-instance-methods"><span class="octicon octicon-link"></span></a>Chainable Instance Methods</h1>
+<a name="manipulation" class="anchor" href="#manipulation"><span class="octicon octicon-link"></span></a>Manipulation</h1>
+
+<p>These functions are chainable.</p>
 
 <h2>
-<a name="addvector" class="anchor" href="#addvector"><span class="octicon octicon-link"></span></a>add(vector)</h2>
+<a name="addxvector" class="anchor" href="#addxvector"><span class="octicon octicon-link"></span></a>addX(vector)</h2>
 
-<p>Adds another vector to this one</p>
+<p>Adds another vector's X axis to this one</p>
 
 <h3>
-<a name="examples-3" class="anchor" href="#examples-3"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-5" class="anchor" href="#examples-5"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec1 = new Victor(10, 10);
 var vec2 = new Victor(20, 30);
 
-vec1.add(vec2);
+vec1.addX(vec2);
 vec1.toString();
-// =&gt; x:30, y:40
+// =&gt; x:30, y:10
 </code></pre>
 
 <h3>
@@ -144,12 +177,124 @@ vec1.toString();
 <li>
 <strong>Victor</strong> <code>this</code> for chaining capabilities</li>
 </ul><h2>
+<a name="addyvector" class="anchor" href="#addyvector"><span class="octicon octicon-link"></span></a>addY(vector)</h2>
+
+<p>Adds another vector's Y axis to this one</p>
+
+<h3>
+<a name="examples-6" class="anchor" href="#examples-6"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec1 = new Victor(10, 10);
+var vec2 = new Victor(20, 30);
+
+vec1.addY(vec2);
+vec1.toString();
+// =&gt; x:10, y:40
+</code></pre>
+
+<h3>
+<a name="params-4" class="anchor" href="#params-4"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <em>vector</em> The other vector you want to add to this one</li>
+</ul><h3>
+<a name="return-4" class="anchor" href="#return-4"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <code>this</code> for chaining capabilities</li>
+</ul><h2>
+<a name="addvector" class="anchor" href="#addvector"><span class="octicon octicon-link"></span></a>add(vector)</h2>
+
+<p>Adds another vector to this one</p>
+
+<h3>
+<a name="examples-7" class="anchor" href="#examples-7"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec1 = new Victor(10, 10);
+var vec2 = new Victor(20, 30);
+
+vec1.add(vec2);
+vec1.toString();
+// =&gt; x:30, y:40
+</code></pre>
+
+<h3>
+<a name="params-5" class="anchor" href="#params-5"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <em>vector</em> The other vector you want to add to this one</li>
+</ul><h3>
+<a name="return-5" class="anchor" href="#return-5"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <code>this</code> for chaining capabilities</li>
+</ul><h2>
+<a name="subtractxvector" class="anchor" href="#subtractxvector"><span class="octicon octicon-link"></span></a>subtractX(vector)</h2>
+
+<p>Subtracts the X axis of another vector from this one</p>
+
+<h3>
+<a name="examples-8" class="anchor" href="#examples-8"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec1 = new Victor(100, 50);
+var vec2 = new Victor(20, 30);
+
+vec1.subtractX(vec2);
+vec1.toString();
+// =&gt; x:80, y:50
+</code></pre>
+
+<h3>
+<a name="params-6" class="anchor" href="#params-6"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <em>vector</em> The other vector you want subtract from this one</li>
+</ul><h3>
+<a name="return-6" class="anchor" href="#return-6"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <code>this</code> for chaining capabilities</li>
+</ul><h2>
+<a name="subtractyvector" class="anchor" href="#subtractyvector"><span class="octicon octicon-link"></span></a>subtractY(vector)</h2>
+
+<p>Subtracts the Y axis of another vector from this one</p>
+
+<h3>
+<a name="examples-9" class="anchor" href="#examples-9"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec1 = new Victor(100, 50);
+var vec2 = new Victor(20, 30);
+
+vec1.subtractY(vec2);
+vec1.toString();
+// =&gt; x:100, y:20
+</code></pre>
+
+<h3>
+<a name="params-7" class="anchor" href="#params-7"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <em>vector</em> The other vector you want subtract from this one</li>
+</ul><h3>
+<a name="return-7" class="anchor" href="#return-7"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <code>this</code> for chaining capabilities</li>
+</ul><h2>
 <a name="subtractvector" class="anchor" href="#subtractvector"><span class="octicon octicon-link"></span></a>subtract(vector)</h2>
 
 <p>Subtracts another vector from this one</p>
 
 <h3>
-<a name="examples-4" class="anchor" href="#examples-4"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-10" class="anchor" href="#examples-10"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec1 = new Victor(100, 50);
 var vec2 = new Victor(20, 30);
@@ -160,13 +305,67 @@ vec1.toString();
 </code></pre>
 
 <h3>
-<a name="params-4" class="anchor" href="#params-4"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-8" class="anchor" href="#params-8"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
 <strong>Victor</strong> <em>vector</em> The other vector you want subtract from this one</li>
 </ul><h3>
-<a name="return-4" class="anchor" href="#return-4"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-8" class="anchor" href="#return-8"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <code>this</code> for chaining capabilities</li>
+</ul><h2>
+<a name="dividexnumber" class="anchor" href="#dividexnumber"><span class="octicon octicon-link"></span></a>divideX(number)</h2>
+
+<p>Divides the X axis by a number</p>
+
+<h3>
+<a name="examples-11" class="anchor" href="#examples-11"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec = new Victor(100, 50);
+
+vec.divideX(2);
+vec.toString();
+// =&gt; x:50, y:50
+</code></pre>
+
+<h3>
+<a name="params-9" class="anchor" href="#params-9"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Number</strong> <em>number</em> The number to divide the axis by</li>
+</ul><h3>
+<a name="return-9" class="anchor" href="#return-9"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <code>this</code> for chaining capabilities</li>
+</ul><h2>
+<a name="divideynumber" class="anchor" href="#divideynumber"><span class="octicon octicon-link"></span></a>divideY(number)</h2>
+
+<p>Divides the Y axis by a number</p>
+
+<h3>
+<a name="examples-12" class="anchor" href="#examples-12"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec = new Victor(100, 50);
+
+vec.divideY(2);
+vec.toString();
+// =&gt; x:100, y:25
+</code></pre>
+
+<h3>
+<a name="params-10" class="anchor" href="#params-10"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Number</strong> <em>number</em> The number to divide the axis by</li>
+</ul><h3>
+<a name="return-10" class="anchor" href="#return-10"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -177,7 +376,7 @@ vec1.toString();
 <p>Divides both vector axis by a number</p>
 
 <h3>
-<a name="examples-5" class="anchor" href="#examples-5"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-13" class="anchor" href="#examples-13"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(100, 50);
 
@@ -187,13 +386,67 @@ vec.toString();
 </code></pre>
 
 <h3>
-<a name="params-5" class="anchor" href="#params-5"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-11" class="anchor" href="#params-11"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
 <strong>Number</strong> <em>number</em> The number to divide the axis by</li>
 </ul><h3>
-<a name="return-5" class="anchor" href="#return-5"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-11" class="anchor" href="#return-11"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <code>this</code> for chaining capabilities</li>
+</ul><h2>
+<a name="multiplyxnumber" class="anchor" href="#multiplyxnumber"><span class="octicon octicon-link"></span></a>multiplyX(number)</h2>
+
+<p>Multiplies the X axis by a number</p>
+
+<h3>
+<a name="examples-14" class="anchor" href="#examples-14"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec = new Victor(100, 50);
+
+vec.multiplyX(2);
+vec.toString();
+// =&gt; x:200, y:50
+</code></pre>
+
+<h3>
+<a name="params-12" class="anchor" href="#params-12"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Number</strong> <em>number</em> The number to multiply the axis with</li>
+</ul><h3>
+<a name="return-12" class="anchor" href="#return-12"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <code>this</code> for chaining capabilities</li>
+</ul><h2>
+<a name="multiplyynumber" class="anchor" href="#multiplyynumber"><span class="octicon octicon-link"></span></a>multiplyY(number)</h2>
+
+<p>Multiplies the Y axis by a number</p>
+
+<h3>
+<a name="examples-15" class="anchor" href="#examples-15"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec = new Victor(100, 50);
+
+vec.multiplyY(2);
+vec.toString();
+// =&gt; x:100, y:100
+</code></pre>
+
+<h3>
+<a name="params-13" class="anchor" href="#params-13"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Number</strong> <em>number</em> The number to multiply the axis with</li>
+</ul><h3>
+<a name="return-13" class="anchor" href="#return-13"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -204,7 +457,7 @@ vec.toString();
 <p>Multiplies both vector axis by a number</p>
 
 <h3>
-<a name="examples-6" class="anchor" href="#examples-6"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-16" class="anchor" href="#examples-16"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(100, 50);
 
@@ -214,13 +467,13 @@ vec.toString();
 </code></pre>
 
 <h3>
-<a name="params-6" class="anchor" href="#params-6"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-14" class="anchor" href="#params-14"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
 <strong>Number</strong> <em>number</em> The number to multiply the axis with</li>
 </ul><h3>
-<a name="return-6" class="anchor" href="#return-6"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-14" class="anchor" href="#return-14"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -231,7 +484,7 @@ vec.toString();
 <p>Norm</p>
 
 <h3>
-<a name="return-7" class="anchor" href="#return-7"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-15" class="anchor" href="#return-15"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -242,7 +495,7 @@ vec.toString();
 <p>If the absolute vector axis is greater than <code>max</code>, multiplies the axis by <code>factor</code></p>
 
 <h3>
-<a name="examples-7" class="anchor" href="#examples-7"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-17" class="anchor" href="#examples-17"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(100, 50);
 
@@ -252,7 +505,7 @@ vec.toString();
 </code></pre>
 
 <h3>
-<a name="params-7" class="anchor" href="#params-7"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-15" class="anchor" href="#params-15"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
@@ -260,7 +513,7 @@ vec.toString();
 <li>
 <strong>Number</strong> <em>factor</em> Factor by which the axis are to be multiplied with</li>
 </ul><h3>
-<a name="return-8" class="anchor" href="#return-8"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-16" class="anchor" href="#return-16"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -271,7 +524,7 @@ vec.toString();
 <p>Randomizes both vector axis</p>
 
 <h3>
-<a name="examples-8" class="anchor" href="#examples-8"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-18" class="anchor" href="#examples-18"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(100, 50);
 
@@ -281,7 +534,7 @@ vec.toString();
 </code></pre>
 
 <h3>
-<a name="params-8" class="anchor" href="#params-8"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-16" class="anchor" href="#params-16"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
@@ -289,7 +542,7 @@ vec.toString();
 <li>
 <strong>Number</strong> <em>maxY</em> Maximum value for the y axis</li>
 </ul><h3>
-<a name="return-9" class="anchor" href="#return-9"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-17" class="anchor" href="#return-17"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -300,7 +553,7 @@ vec.toString();
 <p>Randomizes the x axis</p>
 
 <h3>
-<a name="examples-9" class="anchor" href="#examples-9"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-19" class="anchor" href="#examples-19"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(100, 50);
 
@@ -310,13 +563,13 @@ vec.toString();
 </code></pre>
 
 <h3>
-<a name="params-9" class="anchor" href="#params-9"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-17" class="anchor" href="#params-17"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
 <strong>Number</strong> <em>max</em> Maximum value for the x axis</li>
 </ul><h3>
-<a name="return-10" class="anchor" href="#return-10"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-18" class="anchor" href="#return-18"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -327,7 +580,7 @@ vec.toString();
 <p>Randomizes the y axis</p>
 
 <h3>
-<a name="examples-10" class="anchor" href="#examples-10"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-20" class="anchor" href="#examples-20"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(100, 50);
 
@@ -337,13 +590,13 @@ vec.toString();
 </code></pre>
 
 <h3>
-<a name="params-10" class="anchor" href="#params-10"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-18" class="anchor" href="#params-18"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
 <strong>Number</strong> <em>max</em> Maximum value for the y axis</li>
 </ul><h3>
-<a name="return-11" class="anchor" href="#return-11"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-19" class="anchor" href="#return-19"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -354,7 +607,7 @@ vec.toString();
 <p>Randomly randomizes either axis</p>
 
 <h3>
-<a name="examples-11" class="anchor" href="#examples-11"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-21" class="anchor" href="#examples-21"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(100, 50);
 
@@ -364,7 +617,7 @@ vec.toString();
 </code></pre>
 
 <h3>
-<a name="params-11" class="anchor" href="#params-11"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-19" class="anchor" href="#params-19"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
@@ -372,7 +625,7 @@ vec.toString();
 <li>
 <strong>Number</strong> <em>maxY</em> Maximum value for the y axis</li>
 </ul><h3>
-<a name="return-12" class="anchor" href="#return-12"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-20" class="anchor" href="#return-20"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -383,7 +636,7 @@ vec.toString();
 <p>Rounds both axis to an integer value</p>
 
 <h3>
-<a name="examples-12" class="anchor" href="#examples-12"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-22" class="anchor" href="#examples-22"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(100.2, 50.9);
 
@@ -393,7 +646,67 @@ vec.toString();
 </code></pre>
 
 <h3>
-<a name="return-13" class="anchor" href="#return-13"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-21" class="anchor" href="#return-21"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <code>this</code> for chaining capabilities</li>
+</ul><h2>
+<a name="mixxvector-amount" class="anchor" href="#mixxvector-amount"><span class="octicon octicon-link"></span></a>mixX(vector, amount)</h2>
+
+<p>Performs a linear blend / interpolation of the X axis towards another vector</p>
+
+<h3>
+<a name="examples-23" class="anchor" href="#examples-23"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec1 = new Victor(100, 100);
+var vec2 = new Victor(200, 200);
+
+vec1.mixX(vec2, 0.5);
+vec.toString();
+// =&gt; x:150, y:100
+</code></pre>
+
+<h3>
+<a name="params-20" class="anchor" href="#params-20"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <em>vector</em> The other vector</li>
+<li>
+<strong>Number</strong> <em>amount</em> The blend amount (optional, default: 0.5)</li>
+</ul><h3>
+<a name="return-22" class="anchor" href="#return-22"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <code>this</code> for chaining capabilities</li>
+</ul><h2>
+<a name="mixyvector-amount" class="anchor" href="#mixyvector-amount"><span class="octicon octicon-link"></span></a>mixY(vector, amount)</h2>
+
+<p>Performs a linear blend / interpolation of the Y axis towards another vector</p>
+
+<h3>
+<a name="examples-24" class="anchor" href="#examples-24"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec1 = new Victor(100, 100);
+var vec2 = new Victor(200, 200);
+
+vec1.mixY(vec2, 0.5);
+vec.toString();
+// =&gt; x:100, y:150
+</code></pre>
+
+<h3>
+<a name="params-21" class="anchor" href="#params-21"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <em>vector</em> The other vector</li>
+<li>
+<strong>Number</strong> <em>amount</em> The blend amount (optional, default: 0.5)</li>
+</ul><h3>
+<a name="return-23" class="anchor" href="#return-23"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -401,10 +714,10 @@ vec.toString();
 </ul><h2>
 <a name="mixvector-amount" class="anchor" href="#mixvector-amount"><span class="octicon octicon-link"></span></a>mix(vector, amount)</h2>
 
-<p>Performs a linear blend / interpolation another vector</p>
+<p>Performs a linear blend / interpolation towards another vector</p>
 
 <h3>
-<a name="examples-13" class="anchor" href="#examples-13"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-25" class="anchor" href="#examples-25"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec1 = new Victor(100, 100);
 var vec2 = new Victor(200, 200);
@@ -415,7 +728,7 @@ vec.toString();
 </code></pre>
 
 <h3>
-<a name="params-12" class="anchor" href="#params-12"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-22" class="anchor" href="#params-22"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
@@ -423,13 +736,13 @@ vec.toString();
 <li>
 <strong>Number</strong> <em>amount</em> The blend amount (optional, default: 0.5)</li>
 </ul><h3>
-<a name="return-14" class="anchor" href="#return-14"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-24" class="anchor" href="#return-24"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
 <strong>Victor</strong> <code>this</code> for chaining capabilities</li>
 </ul><h1>
-<a name="instance-methods" class="anchor" href="#instance-methods"><span class="octicon octicon-link"></span></a>Instance Methods</h1>
+<a name="products" class="anchor" href="#products"><span class="octicon octicon-link"></span></a>Products</h1>
 
 <h2>
 <a name="copy" class="anchor" href="#copy"><span class="octicon octicon-link"></span></a>copy()</h2>
@@ -437,7 +750,7 @@ vec.toString();
 <p>Creates a copy of this vector</p>
 
 <h3>
-<a name="examples-14" class="anchor" href="#examples-14"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-26" class="anchor" href="#examples-26"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec1 = new Victor(10, 10);
 var vec2 = vec1.copy();
@@ -447,7 +760,7 @@ vec2.toString();
 </code></pre>
 
 <h3>
-<a name="return-15" class="anchor" href="#return-15"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-25" class="anchor" href="#return-25"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -458,7 +771,7 @@ vec2.toString();
 <p>Calculates the dot product of this vector and another</p>
 
 <h3>
-<a name="examples-15" class="anchor" href="#examples-15"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-27" class="anchor" href="#examples-27"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec1 = new Victor(100, 50);
 var vec2 = new Victor(200, 60);
@@ -468,13 +781,13 @@ vec1.dot(vec2);
 </code></pre>
 
 <h3>
-<a name="params-13" class="anchor" href="#params-13"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-23" class="anchor" href="#params-23"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
 <strong>Victor</strong> <em>vector</em> The second vector</li>
 </ul><h3>
-<a name="return-16" class="anchor" href="#return-16"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-26" class="anchor" href="#return-26"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -485,7 +798,7 @@ vec1.dot(vec2);
 <p>Calculates the distance of the X axis between this vector and another</p>
 
 <h3>
-<a name="examples-16" class="anchor" href="#examples-16"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-28" class="anchor" href="#examples-28"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec1 = new Victor(100, 50);
 var vec2 = new Victor(200, 60);
@@ -495,24 +808,51 @@ vec1.distanceX(vec2);
 </code></pre>
 
 <h3>
-<a name="params-14" class="anchor" href="#params-14"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-24" class="anchor" href="#params-24"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
 <strong>Victor</strong> <em>vector</em> The second vector</li>
 </ul><h3>
-<a name="return-17" class="anchor" href="#return-17"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-27" class="anchor" href="#return-27"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
 <strong>Number</strong> Distance</li>
+</ul><h2>
+<a name="absdistancexvector" class="anchor" href="#absdistancexvector"><span class="octicon octicon-link"></span></a>absDistanceX(vector)</h2>
+
+<p>Same as <code>distanceX()</code> but always returns an absolute number</p>
+
+<h3>
+<a name="examples-29" class="anchor" href="#examples-29"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec1 = new Victor(100, 50);
+var vec2 = new Victor(200, 60);
+
+vec1.absDistanceX(vec2);
+// =&gt; 100
+</code></pre>
+
+<h3>
+<a name="params-25" class="anchor" href="#params-25"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <em>vector</em> The second vector</li>
+</ul><h3>
+<a name="return-28" class="anchor" href="#return-28"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Number</strong> Absolute distance</li>
 </ul><h2>
 <a name="distanceyvector" class="anchor" href="#distanceyvector"><span class="octicon octicon-link"></span></a>distanceY(vector)</h2>
 
 <p>Calculates the distance of the Y axis between this vector and another</p>
 
 <h3>
-<a name="examples-17" class="anchor" href="#examples-17"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-30" class="anchor" href="#examples-30"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec1 = new Victor(100, 50);
 var vec2 = new Victor(200, 60);
@@ -522,24 +862,51 @@ vec1.distanceY(vec2);
 </code></pre>
 
 <h3>
-<a name="params-15" class="anchor" href="#params-15"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-26" class="anchor" href="#params-26"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
 <strong>Victor</strong> <em>vector</em> The second vector</li>
 </ul><h3>
-<a name="return-18" class="anchor" href="#return-18"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-29" class="anchor" href="#return-29"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
 <strong>Number</strong> Distance</li>
+</ul><h2>
+<a name="absdistanceyvector" class="anchor" href="#absdistanceyvector"><span class="octicon octicon-link"></span></a>absDistanceY(vector)</h2>
+
+<p>Same as <code>distanceY()</code> but always returns an absolute number</p>
+
+<h3>
+<a name="examples-31" class="anchor" href="#examples-31"><span class="octicon octicon-link"></span></a>Examples:</h3>
+
+<pre><code>var vec1 = new Victor(100, 50);
+var vec2 = new Victor(200, 60);
+
+vec1.distanceY(vec2);
+// =&gt; 10
+</code></pre>
+
+<h3>
+<a name="params-27" class="anchor" href="#params-27"><span class="octicon octicon-link"></span></a>Params:</h3>
+
+<ul>
+<li>
+<strong>Victor</strong> <em>vector</em> The second vector</li>
+</ul><h3>
+<a name="return-30" class="anchor" href="#return-30"><span class="octicon octicon-link"></span></a>Return:</h3>
+
+<ul>
+<li>
+<strong>Number</strong> Absolute distance</li>
 </ul><h2>
 <a name="distancevector" class="anchor" href="#distancevector"><span class="octicon octicon-link"></span></a>distance(vector)</h2>
 
 <p>Calculates the euclidean distance between this vector and another</p>
 
 <h3>
-<a name="examples-18" class="anchor" href="#examples-18"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-32" class="anchor" href="#examples-32"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec1 = new Victor(100, 50);
 var vec2 = new Victor(200, 60);
@@ -549,13 +916,13 @@ vec1.distance(vec2);
 </code></pre>
 
 <h3>
-<a name="params-16" class="anchor" href="#params-16"><span class="octicon octicon-link"></span></a>Params:</h3>
+<a name="params-28" class="anchor" href="#params-28"><span class="octicon octicon-link"></span></a>Params:</h3>
 
 <ul>
 <li>
 <strong>Victor</strong> <em>vector</em> The second vector</li>
 </ul><h3>
-<a name="return-19" class="anchor" href="#return-19"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-31" class="anchor" href="#return-31"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -566,7 +933,7 @@ vec1.distance(vec2);
 <p>Calculates the length or magnitude of the vector</p>
 
 <h3>
-<a name="examples-19" class="anchor" href="#examples-19"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-33" class="anchor" href="#examples-33"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(100, 50);
 
@@ -575,7 +942,7 @@ vec.length();
 </code></pre>
 
 <h3>
-<a name="return-20" class="anchor" href="#return-20"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-32" class="anchor" href="#return-32"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -589,7 +956,7 @@ vec.length();
 <p>Returns an string representation of the vector</p>
 
 <h3>
-<a name="examples-20" class="anchor" href="#examples-20"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-34" class="anchor" href="#examples-34"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(10, 20);
 
@@ -598,7 +965,7 @@ vec.toString();
 </code></pre>
 
 <h3>
-<a name="return-21" class="anchor" href="#return-21"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-33" class="anchor" href="#return-33"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -609,7 +976,7 @@ vec.toString();
 <p>Returns an array representation of the vector</p>
 
 <h3>
-<a name="examples-21" class="anchor" href="#examples-21"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-35" class="anchor" href="#examples-35"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(10, 20);
 
@@ -618,7 +985,7 @@ vec.toArray();
 </code></pre>
 
 <h3>
-<a name="return-22" class="anchor" href="#return-22"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-34" class="anchor" href="#return-34"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
@@ -629,7 +996,7 @@ vec.toArray();
 <p>Returns an object representation of the vector</p>
 
 <h3>
-<a name="examples-22" class="anchor" href="#examples-22"><span class="octicon octicon-link"></span></a>Examples:</h3>
+<a name="examples-36" class="anchor" href="#examples-36"><span class="octicon octicon-link"></span></a>Examples:</h3>
 
 <pre><code>var vec = new Victor(10, 20);
 
@@ -638,7 +1005,7 @@ vec.toObject();
 </code></pre>
 
 <h3>
-<a name="return-23" class="anchor" href="#return-23"><span class="octicon octicon-link"></span></a>Return:</h3>
+<a name="return-35" class="anchor" href="#return-35"><span class="octicon octicon-link"></span></a>Return:</h3>
 
 <ul>
 <li>
