@@ -25,6 +25,36 @@ function Victor (x, y) {
 };
 
 /**
+ * # Properties
+ */
+
+/**
+ * The X axis
+ *
+ * ### Examples:
+ *     var vec = new Victor.fromArray(42, 21);
+ *
+ *     vec.x;
+ *     // => 42
+ *
+ * @api public
+ */
+Victor.prototype.x = 0;
+
+/**
+ * The Y axis
+ *
+ * ### Examples:
+ *     var vec = new Victor.fromArray(42, 21);
+ *
+ *     vec.y;
+ *     // => 21
+ *
+ * @api public
+ */
+Victor.prototype.y = 0;
+
+/**
  * # Static Functions
  */
 
