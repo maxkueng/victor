@@ -55,7 +55,7 @@ Victor.prototype.x = 0;
 Victor.prototype.y = 0;
 
 /**
- * # Static Functions
+ * # Static
  */
 
 /**
@@ -125,7 +125,9 @@ Victor.random = function (maxX, maxY) {
 };
 
 /**
- * # Chainable Instance Methods
+ * # Manipulation
+ *
+ * These functions are chainable.
  */
 
 /**
@@ -574,7 +576,7 @@ Victor.prototype.mix = function (vec, amount) {
 };
 
 /**
- * # Instance Methods
+ * # Products
  */
 
 /**
@@ -631,6 +633,24 @@ Victor.prototype.distanceX = function (vec) {
 };
 
 /**
+ * Same as `distanceX()` but always returns an absolute number
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.absDistanceX(vec2);
+ *     // => 100
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Absolute distance
+ * @api public
+ */
+Victor.prototype.absDistanceX = function (vec) {
+	return Math.abs(this.distanceX(vec));
+};
+
+/**
  * Calculates the distance of the Y axis between this vector and another
  *
  * ### Examples:
@@ -646,6 +666,24 @@ Victor.prototype.distanceX = function (vec) {
  */
 Victor.prototype.distanceY = function (vec) {
 	return this.y - vec.y;
+};
+
+/**
+ * Same as `distanceY()` but always returns an absolute number
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.distanceY(vec2);
+ *     // => 10
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Absolute distance
+ * @api public
+ */
+Victor.prototype.absDistanceY = function (vec) {
+	return Math.abs(this.distanceY(vec));
 };
 
 /**
