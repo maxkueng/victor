@@ -26,7 +26,37 @@ function Victor (x, y) {
 };
 
 /**
- * # Static Functions
+ * # Properties
+ */
+
+/**
+ * The X axis
+ *
+ * ### Examples:
+ *     var vec = new Victor.fromArray(42, 21);
+ *
+ *     vec.x;
+ *     // => 42
+ *
+ * @api public
+ */
+Victor.prototype.x = 0;
+
+/**
+ * The Y axis
+ *
+ * ### Examples:
+ *     var vec = new Victor.fromArray(42, 21);
+ *
+ *     vec.y;
+ *     // => 21
+ *
+ * @api public
+ */
+Victor.prototype.y = 0;
+
+/**
+ * # Static
  */
 
 /**
@@ -96,8 +126,50 @@ Victor.random = function (maxX, maxY) {
 };
 
 /**
- * # Chainable Instance Methods
+ * # Manipulation
+ *
+ * These functions are chainable.
  */
+
+/**
+ * Adds another vector's X axis to this one
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = new Victor(20, 30);
+ *
+ *     vec1.addX(vec2);
+ *     vec1.toString();
+ *     // => x:30, y:10
+ *
+ * @param {Victor} vector The other vector you want to add to this one
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.addX = function (vec) {
+	this.x += vec.x;
+	return this;
+};
+
+/**
+ * Adds another vector's Y axis to this one
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = new Victor(20, 30);
+ *
+ *     vec1.addY(vec2);
+ *     vec1.toString();
+ *     // => x:10, y:40
+ *
+ * @param {Victor} vector The other vector you want to add to this one
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.addY = function (vec) {
+	this.y += vec.y;
+	return this;
+};
 
 /**
  * Adds another vector to this one
@@ -115,8 +187,48 @@ Victor.random = function (maxX, maxY) {
  * @api public
  */
 Victor.prototype.add = function (vec) {
-	this.x += vec.x;
-	this.y += vec.y;
+	this.addX(vec);
+	this.addY(vec);
+	return this;
+};
+
+/**
+ * Subtracts the X axis of another vector from this one
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(20, 30);
+ *
+ *     vec1.subtractX(vec2);
+ *     vec1.toString();
+ *     // => x:80, y:50
+ *
+ * @param {Victor} vector The other vector you want subtract from this one
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.subtractX = function (vec) {
+	this.x -= vec.x;
+	return this;
+};
+
+/**
+ * Subtracts the Y axis of another vector from this one
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(20, 30);
+ *
+ *     vec1.subtractY(vec2);
+ *     vec1.toString();
+ *     // => x:100, y:20
+ *
+ * @param {Victor} vector The other vector you want subtract from this one
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.subtractY = function (vec) {
+	this.y -= vec.y;
 	return this;
 };
 
@@ -136,8 +248,46 @@ Victor.prototype.add = function (vec) {
  * @api public
  */
 Victor.prototype.subtract = function (vec) {
-	this.x -= vec.x;
-	this.y -= vec.y;
+	this.subtractX(vec);
+	this.subtractY(vec);
+	return this;
+};
+
+/**
+ * Divides the X axis by a number
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.divideX(2);
+ *     vec.toString();
+ *     // => x:50, y:50
+ *
+ * @param {Number} number The number to divide the axis by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.divideX = function (scalar) {
+	this.x /= scalar;
+	return this;
+};
+
+/**
+ * Divides the Y axis by a number
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.divideY(2);
+ *     vec.toString();
+ *     // => x:100, y:25
+ *
+ * @param {Number} number The number to divide the axis by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.divideY = function (scalar) {
+	this.y /= scalar;
 	return this;
 };
 
@@ -156,8 +306,46 @@ Victor.prototype.subtract = function (vec) {
  * @api public
  */
 Victor.prototype.divide = function (scalar) {
-	this.x /= scalar;
-	this.y /= scalar;
+	this.divideX(scalar);
+	this.divideY(scalar);
+	return this;
+};
+
+/**
+ * Multiplies the X axis by a number
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.multiplyX(2);
+ *     vec.toString();
+ *     // => x:200, y:50
+ *
+ * @param {Number} number The number to multiply the axis with
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.multiplyX = function (scalar) {
+	this.x *= scalar;
+	return this;
+};
+
+/**
+ * Multiplies the Y axis by a number
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.multiplyY(2);
+ *     vec.toString();
+ *     // => x:100, y:100
+ *
+ * @param {Number} number The number to multiply the axis with
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.multiplyY = function (scalar) {
+	this.y *= scalar;
 	return this;
 };
 
@@ -176,8 +364,8 @@ Victor.prototype.divide = function (scalar) {
  * @api public
  */
 Victor.prototype.multiply = function (scalar) {
-	this.x *= scalar;
-	this.y *= scalar;
+	this.multiplyX(scalar);
+	this.multiplyY(scalar);
 	return this;
 };
 
@@ -322,7 +510,51 @@ Victor.prototype.unfloat = function () {
 };
 
 /**
- * Performs a linear blend / interpolation another vector
+ * Performs a linear blend / interpolation of the X axis towards another vector
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 100);
+ *     var vec2 = new Victor(200, 200);
+ *
+ *     vec1.mixX(vec2, 0.5);
+ *     vec.toString();
+ *     // => x:150, y:100
+ *
+ * @param {Victor} vector The other vector
+ * @param {Number} amount The blend amount (optional, default: 0.5)
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.mixX = function (vec, amount) {
+	amount = amount || 0.5;
+	this.x = (1 - amount) * this.x + amount * vec.x;
+	return this;
+};
+
+/**
+ * Performs a linear blend / interpolation of the Y axis towards another vector
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 100);
+ *     var vec2 = new Victor(200, 200);
+ *
+ *     vec1.mixY(vec2, 0.5);
+ *     vec.toString();
+ *     // => x:100, y:150
+ *
+ * @param {Victor} vector The other vector
+ * @param {Number} amount The blend amount (optional, default: 0.5)
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.mixY = function (vec, amount) {
+	amount = amount || 0.5;
+	this.y = (1 - amount) * this.y + amount * vec.y;
+	return this;
+};
+
+/**
+ * Performs a linear blend / interpolation towards another vector
  *
  * ### Examples:
  *     var vec1 = new Victor(100, 100);
@@ -338,14 +570,14 @@ Victor.prototype.unfloat = function () {
  * @api public
  */
 Victor.prototype.mix = function (vec, amount) {
-	amount = amount || 0.5
-	this.x = (1 - amount) * this.x + amount * vec.x;
-	this.y = (1 - amount) * this.y + amount * vec.y;
+	amount = amount || 0.5;
+	this.mixX(vec, amount);
+	this.mixY(vec, amount);
 	return this;
 };
 
 /**
- * # Instance Methods
+ * # Products
  */
 
 /**
@@ -402,6 +634,24 @@ Victor.prototype.distanceX = function (vec) {
 };
 
 /**
+ * Same as `distanceX()` but always returns an absolute number
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.absDistanceX(vec2);
+ *     // => 100
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Absolute distance
+ * @api public
+ */
+Victor.prototype.absDistanceX = function (vec) {
+	return Math.abs(this.distanceX(vec));
+};
+
+/**
  * Calculates the distance of the Y axis between this vector and another
  *
  * ### Examples:
@@ -417,6 +667,24 @@ Victor.prototype.distanceX = function (vec) {
  */
 Victor.prototype.distanceY = function (vec) {
 	return this.y - vec.y;
+};
+
+/**
+ * Same as `distanceY()` but always returns an absolute number
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.distanceY(vec2);
+ *     // => 10
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Absolute distance
+ * @api public
+ */
+Victor.prototype.absDistanceY = function (vec) {
+	return Math.abs(this.distanceY(vec));
 };
 
 /**

@@ -21,6 +21,28 @@ Constructor. Will also work without the `new` keyword
 
 * **Victor** 
 
+# Properties
+
+## x
+
+The X axis
+
+### Examples:
+    var vec = new Victor.fromArray(42, 21);
+
+    vec.x;
+    // => 42
+
+## y
+
+The Y axis
+
+### Examples:
+    var vec = new Victor.fromArray(42, 21);
+
+    vec.y;
+    // => 21
+
 # Static Functions
 
 ## Victor.fromArray(array)
@@ -61,6 +83,46 @@ Creates a new instance from an object
 
 # Chainable Instance Methods
 
+## addX(vector)
+
+Adds another vector's X axis to this one
+
+### Examples:
+    var vec1 = new Victor(10, 10);
+    var vec2 = new Victor(20, 30);
+
+    vec1.addX(vec2);
+    vec1.toString();
+    // => x:30, y:10
+
+### Params: 
+
+* **Victor** *vector* The other vector you want to add to this one
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## addY(vector)
+
+Adds another vector's Y axis to this one
+
+### Examples:
+    var vec1 = new Victor(10, 10);
+    var vec2 = new Victor(20, 30);
+
+    vec1.addY(vec2);
+    vec1.toString();
+    // => x:10, y:40
+
+### Params: 
+
+* **Victor** *vector* The other vector you want to add to this one
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
 ## add(vector)
 
 Adds another vector to this one
@@ -76,6 +138,46 @@ Adds another vector to this one
 ### Params: 
 
 * **Victor** *vector* The other vector you want to add to this one
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## subtractX(vector)
+
+Subtracts the X axis of another vector from this one
+
+### Examples:
+    var vec1 = new Victor(100, 50);
+    var vec2 = new Victor(20, 30);
+
+    vec1.subtractX(vec2);
+    vec1.toString();
+    // => x:80, y:50
+
+### Params: 
+
+* **Victor** *vector* The other vector you want subtract from this one
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## subtractY(vector)
+
+Subtracts the Y axis of another vector from this one
+
+### Examples:
+    var vec1 = new Victor(100, 50);
+    var vec2 = new Victor(20, 30);
+
+    vec1.subtractY(vec2);
+    vec1.toString();
+    // => x:100, y:20
+
+### Params: 
+
+* **Victor** *vector* The other vector you want subtract from this one
 
 ### Return:
 
@@ -101,6 +203,44 @@ Subtracts another vector from this one
 
 * **Victor** `this` for chaining capabilities
 
+## divideX(number)
+
+Divides the X axis by a number
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.divideX(2);
+    vec.toString();
+    // => x:50, y:50
+
+### Params: 
+
+* **Number** *number* The number to divide the axis by
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## divideY(number)
+
+Divides the Y axis by a number
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.divideY(2);
+    vec.toString();
+    // => x:100, y:25
+
+### Params: 
+
+* **Number** *number* The number to divide the axis by
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
 ## divide(number)
 
 Divides both vector axis by a number
@@ -115,6 +255,44 @@ Divides both vector axis by a number
 ### Params: 
 
 * **Number** *number* The number to divide the axis by
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## multiplyX(number)
+
+Multiplies the X axis by a number
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.multiplyX(2);
+    vec.toString();
+    // => x:200, y:50
+
+### Params: 
+
+* **Number** *number* The number to multiply the axis with
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## multiplyY(number)
+
+Multiplies the Y axis by a number
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.multiplyY(2);
+    vec.toString();
+    // => x:100, y:100
+
+### Params: 
+
+* **Number** *number* The number to multiply the axis with
 
 ### Return:
 
@@ -260,9 +438,51 @@ Rounds both axis to an integer value
 
 * **Victor** `this` for chaining capabilities
 
+## mixX(vector, amount)
+
+Performs a linear blend / interpolation of the X axis towards another vector
+
+### Examples:
+    var vec1 = new Victor(100, 100);
+    var vec2 = new Victor(200, 200);
+
+    vec1.mixX(vec2, 0.5);
+    vec.toString();
+    // => x:150, y:100
+
+### Params: 
+
+* **Victor** *vector* The other vector
+* **Number** *amount* The blend amount (optional, default: 0.5)
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## mixY(vector, amount)
+
+Performs a linear blend / interpolation of the Y axis towards another vector
+
+### Examples:
+    var vec1 = new Victor(100, 100);
+    var vec2 = new Victor(200, 200);
+
+    vec1.mixY(vec2, 0.5);
+    vec.toString();
+    // => x:100, y:150
+
+### Params: 
+
+* **Victor** *vector* The other vector
+* **Number** *amount* The blend amount (optional, default: 0.5)
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
 ## mix(vector, amount)
 
-Performs a linear blend / interpolation another vector
+Performs a linear blend / interpolation towards another vector
 
 ### Examples:
     var vec1 = new Victor(100, 100);
