@@ -43,7 +43,7 @@ The Y axis
     vec.y;
     // => 21
 
-# Static Functions
+# Static
 
 ## Victor.fromArray(array)
 
@@ -81,7 +81,9 @@ Creates a new instance from an object
 
 * **Victor** The new instance
 
-# Chainable Instance Methods
+# Manipulation
+
+These functions are chainable.
 
 ## addX(vector)
 
@@ -501,7 +503,7 @@ Performs a linear blend / interpolation towards another vector
 
 * **Victor** `this` for chaining capabilities
 
-# Instance Methods
+# Products
 
 ## copy()
 
@@ -556,6 +558,25 @@ Calculates the distance of the X axis between this vector and another
 
 * **Number** Distance
 
+## absDistanceX(vector)
+
+Same as `distanceX()` but always returns an absolute number
+
+### Examples:
+    var vec1 = new Victor(100, 50);
+    var vec2 = new Victor(200, 60);
+
+    vec1.absDistanceX(vec2);
+    // => 100
+
+### Params: 
+
+* **Victor** *vector* The second vector
+
+### Return:
+
+* **Number** Absolute distance
+
 ## distanceY(vector)
 
 Calculates the distance of the Y axis between this vector and another
@@ -574,6 +595,25 @@ Calculates the distance of the Y axis between this vector and another
 ### Return:
 
 * **Number** Distance
+
+## absDistanceY(vector)
+
+Same as `distanceY()` but always returns an absolute number
+
+### Examples:
+    var vec1 = new Victor(100, 50);
+    var vec2 = new Victor(200, 60);
+
+    vec1.distanceY(vec2);
+    // => 10
+
+### Params: 
+
+* **Victor** *vector* The second vector
+
+### Return:
+
+* **Number** Absolute distance
 
 ## distance(vector)
 
