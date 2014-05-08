@@ -12,7 +12,7 @@
     "url": "git://github.com/maxkueng/victor.git"
   },
   "scripts": {
-    "build": "browserify index.js --standalone Victor > build/victor.js && browserify index.js --standalone Victor | uglifyjs -mc > build/victor.min.js",
+    "build": "(echo '/*!' ; cat ./LICENSE ; echo '*/' ; browserify index.js --standalone Victor) > build/victor.js && cat build/victor.js | uglifyjs -mc --comments '/^!/' > build/victor.min.js",
     "doc": "markdox index.js -o documentation/api.md",
     "test": "mocha --ui bdd --reporter spec"
   },
