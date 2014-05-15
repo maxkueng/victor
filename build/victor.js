@@ -431,85 +431,91 @@ Victor.prototype.limit = function (max, factor) {
 };
 
 /**
- * Randomizes both vector axis
+ * Randomizes both vector axis with a value between 2 vectors
  *
  * ### Examples:
  *     var vec = new Victor(100, 50);
  *
- *     vec.randomize(200, 100);
+ *     vec.randomize(new Victor(50, 60), new Victor(70, 80`));
  *     vec.toString();
- *     // => x:177, y:61
+ *     // => x:67, y:73
  *
- * @param {Number} maxX Maximum value for the x axis
- * @param {Number} maxY Maximum value for the y axis
+ * @param {Victor} topLeft first vector
+ * @param {Victor} bottomRight second vector
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.randomize = function (maxX, maxY) {
-	this.randomizeX(maxX);
-	this.randomizeY(maxY);
+Victor.prototype.randomize = function (topLeft, bottomRight) {
+	this.randomizeX(topLeft, bottomRight);
+	this.randomizeY(topLeft, bottomRight);
 
 	return this;
 };
 
 /**
- * Randomizes the x axis
+ * Randomizes the y axis with a value between 2 vectors
  *
  * ### Examples:
  *     var vec = new Victor(100, 50);
  *
- *     vec.randomizeX(100);
+ *     vec.randomizeX(new Victor(50, 60), new Victor(70, 80`));
  *     vec.toString();
- *     // => x:76, y:50
+ *     // => x:55, y:50
  *
- * @param {Number} max Maximum value for the x axis
+ * @param {Victor} topLeft first vector
+ * @param {Victor} bottomRight second vector
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.randomizeX = function (max) {
-	this.x = Math.floor(Math.random() * max);
+Victor.prototype.randomizeX = function (topLeft, bottomRight) {
+	var min = Math.min(topLeft.x, bottomRight.x);
+	var max = Math.max(topLeft.x, bottomRight.x);
+	this.x = random(min, max);
 	return this;
 };
 
 /**
- * Randomizes the y axis
+ * Randomizes the y axis with a value between 2 vectors
  *
  * ### Examples:
  *     var vec = new Victor(100, 50);
  *
- *     vec.randomizeY(100);
+ *     vec.randomizeY(new Victor(50, 60), new Victor(70, 80`));
  *     vec.toString();
  *     // => x:100, y:66
  *
- * @param {Number} max Maximum value for the y axis
+ * @param {Victor} topLeft first vector
+ * @param {Victor} bottomRight second vector
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.randomizeY = function (max) {
-	this.y = Math.floor(Math.random() * max);
+Victor.prototype.randomizeY = function (topLeft, bottomRight) {
+	var min = Math.min(topLeft.y, bottomRight.y);
+	var max = Math.max(topLeft.y, bottomRight.y);
+	this.y = random(min, max);
 	return this;
 };
 
 /**
- * Randomly randomizes either axis
+ * Randomly randomizes either axis between 2 vectors
  *
  * ### Examples:
  *     var vec = new Victor(100, 50);
  *
- *     vec.randomizeAny(200, 100);
+ *     vec.randomizeAny(new Victor(50, 60), new Victor(70, 80));
  *     vec.toString();
- *     // => x:100, y:54
+ *     // => x:100, y:77
  *
- * @param {Number} maxX Maximum value for the x axis
- * @param {Number} maxY Maximum value for the y axis
+ * @param {Victor} topLeft first vector
+ * @param {Victor} bottomRight second vector
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.randomizeAny = function (maxX, maxY) {
+Victor.prototype.randomizeAny = function (topLeft, bottomRight) {
 	if (!! Math.round(Math.random())) {
-		this.randomizeX(maxX);
+		this.randomizeX(topLeft, bottomRight);
 	} else {
-		this.randomizeY(maxY);
+		this.randomizeY(topLeft, bottomRight);
 	}
 	return this;
 };
@@ -799,6 +805,11 @@ Victor.prototype.toArray = function () {
 Victor.prototype.toObject = function () {
 	return { x: this.x, y: this.y };
 };
+
+
+function random (min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
 
 },{}]},{},[1])
 (1)

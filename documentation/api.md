@@ -347,79 +347,81 @@ If the absolute vector axis is greater than `max`, multiplies the axis by `facto
 
 * **Victor** `this` for chaining capabilities
 
-## randomize(maxX, maxY)
+## randomize(topLeft, bottomRight)
 
-Randomizes both vector axis
+Randomizes both vector axis with a value between 2 vectors
 
 ### Examples:
     var vec = new Victor(100, 50);
 
-    vec.randomize(200, 100);
+    vec.randomize(new Victor(50, 60), new Victor(70, 80`));
     vec.toString();
-    // => x:177, y:61
+    // => x:67, y:73
 
 ### Params: 
 
-* **Number** *maxX* Maximum value for the x axis
-* **Number** *maxY* Maximum value for the y axis
+* **Victor** *topLeft* first vector
+* **Victor** *bottomRight* second vector
 
 ### Return:
 
 * **Victor** `this` for chaining capabilities
 
-## randomizeX(max)
+## randomizeX(topLeft, bottomRight)
 
-Randomizes the x axis
+Randomizes the y axis with a value between 2 vectors
 
 ### Examples:
     var vec = new Victor(100, 50);
 
-    vec.randomizeX(100);
+    vec.randomizeX(new Victor(50, 60), new Victor(70, 80`));
     vec.toString();
-    // => x:76, y:50
+    // => x:55, y:50
 
 ### Params: 
 
-* **Number** *max* Maximum value for the x axis
+* **Victor** *topLeft* first vector
+* **Victor** *bottomRight* second vector
 
 ### Return:
 
 * **Victor** `this` for chaining capabilities
 
-## randomizeY(max)
+## randomizeY(topLeft, bottomRight)
 
-Randomizes the y axis
+Randomizes the y axis with a value between 2 vectors
 
 ### Examples:
     var vec = new Victor(100, 50);
 
-    vec.randomizeY(100);
+    vec.randomizeY(new Victor(50, 60), new Victor(70, 80`));
     vec.toString();
     // => x:100, y:66
 
 ### Params: 
 
-* **Number** *max* Maximum value for the y axis
+* **Victor** *topLeft* first vector
+* **Victor** *bottomRight* second vector
 
 ### Return:
 
 * **Victor** `this` for chaining capabilities
 
-## randomizeAny(maxX, maxY)
+## randomizeAny(topLeft, bottomRight)
 
-Randomly randomizes either axis
+Randomly randomizes either axis between 2 vectors
 
 ### Examples:
     var vec = new Victor(100, 50);
 
-    vec.randomizeAny(200, 100);
+    vec.randomizeAny(new Victor(50, 60), new Victor(70, 80));
     vec.toString();
-    // => x:100, y:54
+    // => x:100, y:77
 
 ### Params: 
 
-* **Number** *maxX* Maximum value for the x axis
-* **Number** *maxY* Maximum value for the y axis
+* **Victor** *topLeft* first vector
+* **Victor** *bottomRight* second vector
 
 ### Return:
 
