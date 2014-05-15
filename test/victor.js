@@ -345,74 +345,120 @@ describe('chainable instance methods', function () {
 	});
 
 	describe('#randomize()', function () {
-		var vec, ret;
-
-		before(function () {
-			vec = new Victor(30, 20);
-			ret = vec.randomize(100, 200);
-		});
+		var topLeft = new Victor(-50, 100);
+		var bottomRight = new Victor(300, -500);
 
 		it('should be chainable', function () {
-			expect(ret).to.equal(vec);
+			var vec = new Victor(30, 20);
+			expect(vec.randomize(topLeft, bottomRight)).to.equal(vec);
 		});
 
-		it('should randomize both vector axis and respect maxX and maxY', function () {
-			expect(vec).to.have.property('x').that.is.most(100);
-			expect(vec).to.have.property('y').that.is.most(200);
+		it('should randomize both vector axis and respect the boundaries', function () {
+			var i, count = 100;
+			var vec = new Victor(30, 20);
+
+			var minX = Math.min(topLeft.x, bottomRight.x);
+			var maxX = Math.max(topLeft.x, bottomRight.x);
+			var minY = Math.min(topLeft.y, bottomRight.y);
+			var maxY = Math.max(topLeft.y, bottomRight.y);
+			
+			for (i = 0; i < count; i++) {
+				vec.randomize(topLeft, bottomRight);
+
+				expect(vec.x).to.be.within(minX, maxX);
+				expect(vec.y).to.be.within(minY, maxY);
+			}
 		});
 	});
 
 	describe('#randomizeX()', function () {
-		var vec, ret;
-
-		before(function () {
-			vec = new Victor(30, 20);
-			ret = vec.randomizeX(200);
-		});
+		var topLeft = new Victor(-50, 100);
+		var bottomRight = new Victor(300, -500);
 
 		it('should be chainable', function () {
-			expect(ret).to.equal(vec);
+			var vec = new Victor(30, 20);
+			expect(vec.randomizeX(topLeft, bottomRight)).to.equal(vec);
 		});
 
-		it('should randomize only the X axis and recpect max', function () {
-			expect(vec).to.have.property('x').that.is.most(200);
-			expect(vec).to.have.property('y', 20);
+		it('should randomize only the X axis and respect the boundaries', function () {
+			var i, count = 100;
+			var vec = new Victor(30, 20);
+
+			var y = vec.y;
+			var minX = Math.min(topLeft.x, bottomRight.x);
+			var maxX = Math.max(topLeft.x, bottomRight.x);
+			
+			for (i = 0; i < count; i++) {
+				vec.randomizeX(topLeft, bottomRight);
+
+				expect(vec).to.have.property('x')
+					.that.is.within(minX, maxX);
+
+				expect(vec).to.have.property('y', y);
+			}
 		});
 	});
 
 	describe('#randomizeY()', function () {
-		var vec, ret;
-
-		before(function () {
-			vec = new Victor(30, 20);
-			ret = vec.randomizeY(200);
-		});
+		var topLeft = new Victor(-50, 100);
+		var bottomRight = new Victor(300, -500);
 
 		it('should be chainable', function () {
-			expect(ret).to.equal(vec);
+			var vec = new Victor(30, 20);
+			expect(vec.randomizeY(topLeft, bottomRight)).to.equal(vec);
 		});
 
-		it('should randomize only the Y axis and recpect max', function () {
-			expect(vec).to.have.property('x', 30);
-			expect(vec).to.have.property('y').that.is.most(200);
+		it('should randomize only the X axis and respect the boundaries', function () {
+			var i, count = 100;
+			var vec = new Victor(30, 20);
+
+			var x = vec.x;
+			var minY = Math.min(topLeft.y, bottomRight.y);
+			var maxY = Math.max(topLeft.y, bottomRight.y);
+			
+			for (i = 0; i < count; i++) {
+				vec.randomizeY(topLeft, bottomRight);
+
+				expect(vec).to.have.property('y')
+					.that.is.within(minY, maxY);
+
+				expect(vec).to.have.property('x', x);
+			}
 		});
 	});
 
 	describe('#randomizeAny()', function () {
-		var vec, ret;
-
-		before(function () {
-			vec = new Victor(30, 20);
-			ret = vec.randomizeAny(100, 200);
-		});
+		var topLeft = new Victor(100, 100);
+		var bottomRight = new Victor(300, 300);
 
 		it('should be chainable', function () {
-			expect(ret).to.equal(vec);
+			var vec = new Victor(30, 20);
+			expect(vec.randomizeAny(topLeft, bottomRight)).to.equal(vec);
 		});
 
-		it('should randomize both vector axis and respect maxX and maxY', function () {
-			expect(vec).to.have.property('x').that.is.most(100);
-			expect(vec).to.have.property('y').that.is.most(200);
+		it('should randomize only one vector axis and respect the boundaries', function () {
+			var vec, i, count = 100, originX = 50, originY = 50;
+
+			var minX = Math.min(topLeft.x, bottomRight.x);
+			var maxX = Math.max(topLeft.x, bottomRight.x);
+			var minY = Math.min(topLeft.y, bottomRight.y);
+			var maxY = Math.max(topLeft.y, bottomRight.y);
+
+			for (i = 0; i < count; i++) {
+				vec = new Victor(originX, originY);
+				vec.randomizeAny(topLeft, bottomRight);
+
+				if (vec.x !== originX) {
+					expect(vec).to.have.property('x')
+						.that.is.within(minX, maxX);
+					expect(vec).to.have.property('y', originY);
+
+				} else {
+					expect(vec).to.have.property('y')
+						.that.is.within(minY, maxY);
+					expect(vec).to.have.property('x', originX);
+				}
+			}
 		});
 	});
 
