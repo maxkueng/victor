@@ -4,13 +4,14 @@
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="" />
+		<meta name="description" content="A JavaScript vector maths library for Node.js and the browser." />
+		<meta name="keywords" content="javascript, vector, victor, math, 2d, drawing, npm, browserify, bower" />
 		<meta name="author" content="" />
 		<link rel="stylesheet" href="./styles/screen.css" />
 		<link rel="stylesheet" href="./styles/prism.css" />
 		<link rel="shortcut icon" href="./favicon.ico" />
 		<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css' />
-		<title>Dashboard Template for Bootstrap</title>
+		<title>Victor.js - Vectors for JavaScript</title>
 	</head>
 
 	<body>
@@ -48,7 +49,13 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-3 col-md-2 sidebarx">
-					sidebar
+					<nav>
+						<ul>
+							<li><a href="#installation">Installation</a></li>
+							<li><a href="#build-test">Build & Test</a></li>
+							<li><a href="#documentation">Documentation</a></li>
+						</ul>
+					</nav>
 				</div>
 				<div class="col-sm-9 xxcol-sm-offset-3 col-md-10 xxcol-md-offset-2 main">
 					<h2><a name="installation"></a>Installation</h2>
@@ -64,24 +71,29 @@
 						</div>
 					</div>
 
-					<h2>Build & Test</h2>
+					<h2><a name="build-test"></a>Build & Test</h2>
 					<div class="row">
 						<div class="col-md-6">
+							<p class="pull-right"><a href="http://travis-ci.org/maxkueng/victor"><img src="//secure.travis-ci.org/maxkueng/victor.png?branch=master" /></a></p>
 							<p>Install <a href="http://nodejs.org/">Node.js</a> and run the build and test scripts.</p>
-							<pre data-src="examples/build-1.js"></pre>
 						</div>
 						<div class="col-md-6">
-							<a href="http://travis-ci.org/maxkueng/victor"><img src="//secure.travis-ci.org/maxkueng/victor.png?branch=master" /></a>
+							<pre data-src="examples/build-1.js"></pre>
 						</div>
 					</div>
 
-					<h2>Documentation</h2>
+					<h2><a name="documentation"></a>Documentation</h2>
+
+					<h3><a name="constructors"></a>Constructors</h3>
 
 					<div class="row">
 						<div class="col-md-6">
+							<p>
+							Different constructors allow instanciation in most practical way for the situation.
+							</p>
 						</div>
 						<div class="col-md-6">
-							<iframe style="width: 100%;" height="315" src="http://requirebin.com/embed?gist=302a6c5ec3bda0b85d46" frameborder="0" allowfullscreen></iframe>
+							<pre data-src="examples/static-constructors-1.js"></pre>
 						</div>
 					</div>
 

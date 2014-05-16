@@ -259,10 +259,15 @@ function loadImages (images, callback) {
 function Ship (ctx) {
 	this.width = 20;
 	this.height = 20;
-	this.position = new Victor(0, 0);
-	this.velocity = new Victor(1, 1);
+	this.position = new Victor(300, 300);
+	this.velocity = new Victor(1, -1);
 
 	this.move = function () {
+		var bottomDistance = canvasBottomRight.distanceY(this.position);
+		ctx.fillStyle = 'lime';
+		ctx.fillText('b: ' + bottomDistance, 100, 100);
+
+		//this.velocity.subtractX(new Victor(0.01, 0.1));
 
 		this.position.add(this.velocity);
 	};
@@ -272,7 +277,7 @@ function Ship (ctx) {
 
 		ctx.save();
 		ctx.translate(this.position.x, this.position.y);
-		ctx.rotate(this.velocity.angle());
+		ctx.rotate(this.velocity.angle() + Math.PI / 2);
 		ctx.translate(this.width / 2 * -1, this.height / 2 * -1);
 		ctx.drawImage(sprites.ship, 0, 0);
 		ctx.restore();
@@ -296,9 +301,9 @@ function draw () {
 	*/
 
 	ctx.fillStyle = 'lime';
-//	ctx.clearRect(0, 0, canvasBottomRight.x, canvasBottomRight.y);
+	ctx.clearRect(0, 0, canvasBottomRight.x, canvasBottomRight.y);
 //	ctx.fillRect(0, 0, canvasBottomRight.x, canvasBottomRight.y);
-	ctx.clearRect(ship.position.x - ship.width, ship.position.y - ship.height, ship.width * 2, ship.height * 2);
+//	ctx.clearRect(ship.position.x - ship.width, ship.position.y - ship.height, ship.width * 2, ship.height * 2);
 	ship.draw();
 
 }
