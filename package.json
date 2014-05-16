@@ -1,0 +1,28 @@
+{
+  "name": "victorjs.org",
+  "version": "0.0.1",
+  "description": "victor.js website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/maxkueng/victor.git"
+  },
+  "author": "",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/maxkueng/victor/issues"
+  },
+  "devDependencies": {
+    "gulp": "~3.6.2",
+    "gulp-ruby-sass": "~0.5.0",
+    "vinyl-source-stream": "~0.1.1",
+    "gulp-streamify": "0.0.5",
+    "browserify": "~4.1.3"
+  },
+  "dependencies": {
+    "domready": "~1.0.5"
+  }
+}

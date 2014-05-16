@@ -1,0 +1,85 @@
+$brand-primary: #e06a60;
+$header-bg: #1a1a1f;
+$body-bg: #17191b;
+$header-color: #939396;
+$text-color: lighten(#939396, 10%);
+
+$font-family-base: 'Source Sans Pro', sans-serif;
+$font-size-base: 18px;
+$headings-font-weight: 300;
+
+@import "vendor/bootstrap";
+
+.ship {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-image: url('../assets/ship.png');
+	background-repeat: no-repeat;
+	background-position: 0 3px;
+	top: 100px; left: 200px;
+
+	&:hover {
+		background-image: url('../assets/ship-active.png');
+	}
+}
+
+.header-wrapper {
+	position: relative;
+	margin: 0;
+	padding: 0;
+
+
+	background-color: $header-bg;
+	background-image: url('../assets/header-bg.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: bottom;
+	background-size: cover;
+
+	padding-bottom: 30px;
+
+	
+	box-shadow: 0 4px 4px -2px #000;
+	-moz-box-shadow: 0 4px 4px -2px #000;
+	-webkit-box-shadow: 0 4px 4px -2px #000;
+
+	color: $header-color;
+
+	img {
+		display: block;
+		margin: 60px auto 30px auto;
+		width: 100%;
+		max-width: 352px;
+	}
+
+	h1 {
+		@extend .sr-only;
+	}
+
+	.lead {
+		text-align: center;
+		font-weight: 400;
+	}
+
+	.header-canvas {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6,
+h1, h2, h3, h4, h5, h6 {
+	color: #d83e31;
+}
+
+.sidebar {
+	background-color: $header-bg;
+}
+
+.main {
+}
