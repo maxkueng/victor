@@ -586,20 +586,78 @@ Victor.prototype.mix = function (vec, amount) {
  */
 
 /**
- * Creates a copy of this vector
+ * Creates a clone of this vector
  *
  * ### Examples:
  *     var vec1 = new Victor(10, 10);
- *     var vec2 = vec1.copy();
+ *     var vec2 = vec1.clone();
  *
  *     vec2.toString();
  *     // => x:10, y:10
  *
- * @return {Victor} A copy of the vector
+ * @return {Victor} A clone of the vector
  * @api public
  */
-Victor.prototype.copy = function () {
+Victor.prototype.clone = function () {
 	return new Victor(this.x, this.y);
+};
+
+/**
+ * Copies another vector's X component in to its own
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = new Victor(20, 20);
+ *     var vec2 = vec1.copyX(vec1);
+ *
+ *     vec2.toString();
+ *     // => x:20, y:10
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.copyX = function (vec) {
+	this.x = vec.x;
+	return this;
+};
+
+/**
+ * Copies another vector's Y component in to its own
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = new Victor(20, 20);
+ *     var vec2 = vec1.copyY(vec1);
+ *
+ *     vec2.toString();
+ *     // => x:10, y:20
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.copyY = function (vec) {
+	this.y = vec.y;
+	return this;
+};
+
+/**
+ * Copies another vector's X and Y components in to its own
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = new Victor(20, 20);
+ *     var vec2 = vec1.copy(vec1);
+ *
+ *     vec2.toString();
+ *     // => x:20, y:20
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.copy = function (vec) {
+	this.copyX(vec);
+	this.copyY(vec);
+	return this;
 };
 
 /**
@@ -621,7 +679,12 @@ Victor.prototype.dot = function (vec2) {
 };
 
 Victor.prototype.angle = function () {
-	return Math.atan2(this.x, this.y);
+	return Math.atan2(this.y, this.x) + Math.PI / 2;
+};
+
+Victor.prototype.rotate = function (angle) {
+	this.x = (this.x * Math.cos(angle)) - (this.y * Math.sin(angle));
+	this.y = (this.x * Math.sin(angle)) - (this.y * Math.cos(angle));
 };
 
 /**
@@ -788,4 +851,9 @@ Victor.prototype.toObject = function () {
 
 function random (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function radian2degrees (rad) {
+	var degrees = 180 / Math.PI;
+	return rad * degrees;
 }

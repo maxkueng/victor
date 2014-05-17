@@ -1,5 +1,5 @@
 $brand-primary: #e06a60;
-$header-bg: #1a1a1f;
+$header-bg: #000;
 $body-bg: #17191b;
 $header-color: #939396;
 $text-color: lighten(#939396, 10%);
@@ -9,20 +9,6 @@ $font-size-base: 18px;
 $headings-font-weight: 300;
 
 @import "vendor/bootstrap";
-
-.ship {
-	position: absolute;
-	width: 20px;
-	height: 20px;
-	background-image: url('../assets/ship.png');
-	background-repeat: no-repeat;
-	background-position: 0 3px;
-	top: 100px; left: 200px;
-
-	&:hover {
-		background-image: url('../assets/ship-active.png');
-	}
-}
 
 .header-wrapper {
 	position: relative;
@@ -62,7 +48,7 @@ $headings-font-weight: 300;
 		font-weight: 400;
 	}
 
-	.header-canvas {
+	canvas {
 		display: block;
 		position: absolute;
 		top: 0;
@@ -77,9 +63,60 @@ h1, h2, h3, h4, h5, h6 {
 	color: #d83e31;
 }
 
+tt {
+	font-size: 0.8em;
+}
+
 .sidebar {
-	background-color: $header-bg;
+	padding-top: 30px;
+	font-size: 0.85em;
+
+	ul {
+		margin: 0;
+		padding: 0;
+
+		li {
+			list-style-type: none;
+			text-transform: uppercase;
+		}
+
+		li ul {
+			padding-left: 10px;
+			padding-bottom: 10px;
+		}
+
+		li li {
+			text-transform: none;
+		}
+	}
 }
 
 .main {
 }
+
+.method-docs {
+	@extend .dl-horizontal;
+
+	ul li {
+		list-style-type: none;
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	.label-chainable {
+		@extend .label;
+		@extend .label-default;
+		@extend .pull-right;
+
+		display: inline-block;
+		margin-top: 8px;
+		font-size: $font-size-base * 0.6;
+	}
+
+	&:hover {
+		.label-chainable {
+			@extend .label-primary;
+		}
+	}
+}
+

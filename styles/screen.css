@@ -293,7 +293,7 @@ th {
     border-top-color: #000 !important;
   }
 
-  .label {
+  .label, h1 .label-chainable, h2 .label-chainable, h3 .label-chainable, h4 .label-chainable, h5 .label-chainable, h6 .label-chainable {
     border: 1px solid #000;
   }
 
@@ -674,7 +674,7 @@ dd {
 }
 
 @media (min-width: 768px) {
-  .dl-horizontal dt {
+  .dl-horizontal dt, .method-docs dt {
     float: left;
     width: 160px;
     clear: left;
@@ -683,14 +683,14 @@ dd {
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .dl-horizontal dd {
+  .dl-horizontal dd, .method-docs dd {
     margin-left: 180px;
   }
-  .dl-horizontal dd:before, .dl-horizontal dd:after {
+  .dl-horizontal dd:before, .method-docs dd:before, .dl-horizontal dd:after, .method-docs dd:after {
     content: " ";
     display: table;
   }
-  .dl-horizontal dd:after {
+  .dl-horizontal dd:after, .method-docs dd:after {
     clear: both;
   }
 }
@@ -731,7 +731,13 @@ blockquote .small:before {
 }
 
 .blockquote-reverse,
-blockquote.pull-right {
+blockquote.pull-right,
+h1 blockquote.label-chainable,
+h2 blockquote.label-chainable,
+h3 blockquote.label-chainable,
+h4 blockquote.label-chainable,
+h5 blockquote.label-chainable,
+h6 blockquote.label-chainable {
   padding-right: 15px;
   padding-left: 0;
   border-right: 5px solid #eeeeee;
@@ -742,16 +748,52 @@ blockquote.pull-right {
 .blockquote-reverse small:before,
 .blockquote-reverse .small:before,
 blockquote.pull-right footer:before,
+h1 blockquote.label-chainable footer:before,
+h2 blockquote.label-chainable footer:before,
+h3 blockquote.label-chainable footer:before,
+h4 blockquote.label-chainable footer:before,
+h5 blockquote.label-chainable footer:before,
+h6 blockquote.label-chainable footer:before,
 blockquote.pull-right small:before,
-blockquote.pull-right .small:before {
+h1 blockquote.label-chainable small:before,
+h2 blockquote.label-chainable small:before,
+h3 blockquote.label-chainable small:before,
+h4 blockquote.label-chainable small:before,
+h5 blockquote.label-chainable small:before,
+h6 blockquote.label-chainable small:before,
+blockquote.pull-right .small:before,
+h1 blockquote.label-chainable .small:before,
+h2 blockquote.label-chainable .small:before,
+h3 blockquote.label-chainable .small:before,
+h4 blockquote.label-chainable .small:before,
+h5 blockquote.label-chainable .small:before,
+h6 blockquote.label-chainable .small:before {
   content: '';
 }
 .blockquote-reverse footer:after,
 .blockquote-reverse small:after,
 .blockquote-reverse .small:after,
 blockquote.pull-right footer:after,
+h1 blockquote.label-chainable footer:after,
+h2 blockquote.label-chainable footer:after,
+h3 blockquote.label-chainable footer:after,
+h4 blockquote.label-chainable footer:after,
+h5 blockquote.label-chainable footer:after,
+h6 blockquote.label-chainable footer:after,
 blockquote.pull-right small:after,
-blockquote.pull-right .small:after {
+h1 blockquote.label-chainable small:after,
+h2 blockquote.label-chainable small:after,
+h3 blockquote.label-chainable small:after,
+h4 blockquote.label-chainable small:after,
+h5 blockquote.label-chainable small:after,
+h6 blockquote.label-chainable small:after,
+blockquote.pull-right .small:after,
+h1 blockquote.label-chainable .small:after,
+h2 blockquote.label-chainable .small:after,
+h3 blockquote.label-chainable .small:after,
+h4 blockquote.label-chainable .small:after,
+h5 blockquote.label-chainable .small:after,
+h6 blockquote.label-chainable .small:after {
   content: '\00A0 \2014';
 }
 
@@ -3529,7 +3571,7 @@ input[type="button"].btn-block {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
   background-clip: padding-box;
 }
-.dropdown-menu.pull-right {
+.dropdown-menu.pull-right, h1 .dropdown-menu.label-chainable, h2 .dropdown-menu.label-chainable, h3 .dropdown-menu.label-chainable, h4 .dropdown-menu.label-chainable, h5 .dropdown-menu.label-chainable, h6 .dropdown-menu.label-chainable {
   right: 0;
   left: auto;
 }
@@ -3608,7 +3650,7 @@ input[type="button"].btn-block {
   z-index: 990;
 }
 
-.pull-right > .dropdown-menu {
+.pull-right > .dropdown-menu, h1 .label-chainable > .dropdown-menu, h2 .label-chainable > .dropdown-menu, h3 .label-chainable > .dropdown-menu, h4 .label-chainable > .dropdown-menu, h5 .label-chainable > .dropdown-menu, h6 .label-chainable > .dropdown-menu {
   right: 0;
   left: auto;
 }
@@ -4714,7 +4756,7 @@ input[type="button"].btn-block {
   cursor: not-allowed;
 }
 
-.label {
+.label, h1 .label-chainable, h2 .label-chainable, h3 .label-chainable, h4 .label-chainable, h5 .label-chainable, h6 .label-chainable {
   display: inline;
   padding: .2em .6em .3em;
   font-size: 75%;
@@ -4726,30 +4768,30 @@ input[type="button"].btn-block {
   vertical-align: baseline;
   border-radius: .25em;
 }
-.label[href]:hover, .label[href]:focus {
+.label[href]:hover, h1 [href].label-chainable:hover, h2 [href].label-chainable:hover, h3 [href].label-chainable:hover, h4 [href].label-chainable:hover, h5 [href].label-chainable:hover, h6 [href].label-chainable:hover, .label[href]:focus, h1 [href].label-chainable:focus, h2 [href].label-chainable:focus, h3 [href].label-chainable:focus, h4 [href].label-chainable:focus, h5 [href].label-chainable:focus, h6 [href].label-chainable:focus {
   color: white;
   text-decoration: none;
   cursor: pointer;
 }
-.label:empty {
+.label:empty, h1 .label-chainable:empty, h2 .label-chainable:empty, h3 .label-chainable:empty, h4 .label-chainable:empty, h5 .label-chainable:empty, h6 .label-chainable:empty {
   display: none;
 }
-.btn .label {
+.btn .label, .btn h1 .label-chainable, h1 .btn .label-chainable, .btn h2 .label-chainable, h2 .btn .label-chainable, .btn h3 .label-chainable, h3 .btn .label-chainable, .btn h4 .label-chainable, h4 .btn .label-chainable, .btn h5 .label-chainable, h5 .btn .label-chainable, .btn h6 .label-chainable, h6 .btn .label-chainable {
   position: relative;
   top: -1px;
 }
 
-.label-default {
+.label-default, h1 .label-chainable, h2 .label-chainable, h3 .label-chainable, h4 .label-chainable, h5 .label-chainable, h6 .label-chainable {
   background-color: #999999;
 }
-.label-default[href]:hover, .label-default[href]:focus {
+.label-default[href]:hover, h1 [href].label-chainable:hover, h2 [href].label-chainable:hover, h3 [href].label-chainable:hover, h4 [href].label-chainable:hover, h5 [href].label-chainable:hover, h6 [href].label-chainable:hover, .label-default[href]:focus, h1 [href].label-chainable:focus, h2 [href].label-chainable:focus, h3 [href].label-chainable:focus, h4 [href].label-chainable:focus, h5 [href].label-chainable:focus, h6 [href].label-chainable:focus {
   background-color: gray;
 }
 
-.label-primary {
+.label-primary, h1:hover .label-chainable, h2:hover .label-chainable, h3:hover .label-chainable, h4:hover .label-chainable, h5:hover .label-chainable, h6:hover .label-chainable {
   background-color: #e06a60;
 }
-.label-primary[href]:hover, .label-primary[href]:focus {
+.label-primary[href]:hover, h1:hover [href].label-chainable:hover, h2:hover [href].label-chainable:hover, h3:hover [href].label-chainable:hover, h4:hover [href].label-chainable:hover, h5:hover [href].label-chainable:hover, h6:hover [href].label-chainable:hover, .label-primary[href]:focus, h1:hover [href].label-chainable:focus, h2:hover [href].label-chainable:focus, h3:hover [href].label-chainable:focus, h4:hover [href].label-chainable:focus, h5:hover [href].label-chainable:focus, h6:hover [href].label-chainable:focus {
   background-color: #d84235;
 }
 
@@ -5082,7 +5124,7 @@ a.thumbnail.active {
 .media > .pull-left {
   margin-right: 10px;
 }
-.media > .pull-right {
+.media > .pull-right, h1 .media > .label-chainable, h2 .media > .label-chainable, h3 .media > .label-chainable, h4 .media > .label-chainable, h5 .media > .label-chainable, h6 .media > .label-chainable {
   margin-left: 10px;
 }
 
@@ -6151,7 +6193,7 @@ button.close {
   margin-right: auto;
 }
 
-.pull-right {
+.pull-right, h1 .label-chainable, h2 .label-chainable, h3 .label-chainable, h4 .label-chainable, h5 .label-chainable, h6 .label-chainable {
   float: right !important;
 }
 
@@ -6315,25 +6357,11 @@ button.close {
     display: none !important;
   }
 }
-.ship {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background-image: url("../assets/ship.png");
-  background-repeat: no-repeat;
-  background-position: 0 3px;
-  top: 100px;
-  left: 200px;
-}
-.ship:hover {
-  background-image: url("../assets/ship-active.png");
-}
-
 .header-wrapper {
   position: relative;
   margin: 0;
   padding: 0;
-  background-color: #1a1a1f;
+  background-color: black;
   background-image: url("../assets/header-bg.png");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -6355,7 +6383,7 @@ button.close {
   text-align: center;
   font-weight: 400;
 }
-.header-wrapper .header-canvas {
+.header-wrapper canvas {
   display: block;
   position: absolute;
   top: 0;
@@ -6369,6 +6397,36 @@ h1, h2, h3, h4, h5, h6 {
   color: #d83e31;
 }
 
+tt {
+  font-size: 0.8em;
+}
+
 .sidebar {
-  background-color: #1a1a1f;
+  padding-top: 30px;
+  font-size: 0.85em;
+}
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+}
+.sidebar ul li {
+  list-style-type: none;
+  text-transform: uppercase;
+}
+.sidebar ul li ul {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+.sidebar ul li li {
+  text-transform: none;
+}
+
+.method-docs ul li {
+  list-style-type: none;
+}
+
+h1 .label-chainable, h2 .label-chainable, h3 .label-chainable, h4 .label-chainable, h5 .label-chainable, h6 .label-chainable {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 10.8px;
 }

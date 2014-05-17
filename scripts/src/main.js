@@ -1,3 +1,1 @@
-console.log('hello');
-
-require('./header-animation');
+require('./header-animation')(document.querySelector('.header-wrapper'));

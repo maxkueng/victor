@@ -11,12 +11,11 @@
 		<link rel="stylesheet" href="./styles/prism.css" />
 		<link rel="shortcut icon" href="./favicon.ico" />
 		<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css' />
-		<title>Victor.js - Vectors for JavaScript</title>
+		<title>Victor.js - 2D Vectors for JavaScript</title>
 	</head>
 
 	<body>
 		<div id="header-wrapper" class="header-wrapper">
-			<canvas class="header-canvas"></canvas>
 			<div class="container-fluid">
 				<h1>victor.js</h1>
 				<div class="row logo">
@@ -27,17 +26,18 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="lead">
-							<p>A JavaScript vector maths library for Node.js and the browser.</p>
+							<p>A JavaScript 2D vector maths library for Node.js and the browser.</p>
 						</div>
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-offset-3 col-sm-3 col-md-offset-2 col-md-4">
+					<div class="col-sm-offset-3 col-sm-4 col-md-offset-2 col-md-4">
 						<h2>Node.js & the Browser</h2>
+						<p>Victor can be used in both Node.js and the browser.</p>
 						<p>Builds come with an UMD wrapper so it can be used in CommonJS and AMD environments, or as a global object.</p>
 						<p>Install Victor with bower, npm, or <a href="https://github.com/maxkueng/victor/releases">download</a> the latest release.</p>
 					</div>
-					<div class="col-sm-3 col-md-4">
+					<div class="col-sm-4 col-md-4">
 						<h2>Open Source</h2>
 						<p>Victor is licensed under the <a href="http://opensource.org/licenses/MIT">MIT license</a> and can be used without restrictions.</p>
 						<p>Fork Victor on <a href="https://github.com/maxkueng/victor">GitHub</a> and help make it better.</p>
@@ -48,12 +48,101 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-sm-3 col-md-2 sidebarx">
+				<div class="col-sm-3 col-md-2 sidebar hidden-xs">
 					<nav>
 						<ul>
-							<li><a href="#installation">Installation</a></li>
-							<li><a href="#build-test">Build & Test</a></li>
-							<li><a href="#documentation">Documentation</a></li>
+							<li>
+								<a href="#installation">Installation</a>
+								<ul>
+									<li>
+										<a href="#installation-npm">Node & Browserify</a>
+									</li>
+									<li>
+										<a href="#installation-bower">Bower</a>
+									</li>
+									<li>
+										<a href="#build-test">Build & Test</a>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#documentation">Documentation</a>
+								<ul>
+									<li>
+										<a href="#properties">Properties</a>
+										<ul>
+											<li> <a href="#properties-x"><tt>.x</tt></a> </li>
+											<li> <a href="#properties-x"><tt>.y</tt></a> </li>
+										</ul>
+									</li>
+									<li>
+										<a href="#constructors">Constructors</a>
+										<ul>
+											<li> <a href="#constructors-new"><tt>new Victor</tt></a> </li>
+											<li> <a href="#constructors-fromarray"><tt>Victor.fromArray</tt></a> </li>
+											<li> <a href="#constructors-fromobject"><tt>Victor.fromObject</tt></a> </li>
+										</ul>
+									</li>
+									<li>
+										<a href="#utility">Utility</a>
+										<ul>
+											<li> <a href="#clone"><tt>.clone</tt></a> </li>
+											<li> <a href="#copyx"><tt>.copyX</tt></a> </li>
+											<li> <a href="#copyY"><tt>.copyY</tt></a> </li>
+											<li> <a href="#copy"><tt>.copy</tt></a> </li>
+											<li> <a href="#tostring"><tt>.toString</tt></a> </li>
+											<li> <a href="#toarray"><tt>.toArray</tt></a> </li>
+											<li> <a href="#toobject"><tt>.toObject</tt></a> </li>
+										</ul>
+									</li>
+									<li>
+										<a href="#manipilation">Manipulation</a>
+										<ul>
+											<li> <a href="#addx"><tt>.addX</tt></a> </li>
+											<li> <a href="#addy"><tt>.addY</tt></a> </li>
+											<li> <a href="#add"><tt>.add</tt></a> </li>
+											<li> <a href="#subtractx"><tt>.subtractX</tt></a> </li>
+											<li> <a href="#subtracty"><tt>.subtractY</tt></a> </li>
+											<li> <a href="#subtract"><tt>.subtract</tt></a> </li>
+											<li> <a href="#multiplyx"><tt>.multiplyX</tt></a> </li>
+											<li> <a href="#multiplyy"><tt>.multiplyY</tt></a> </li>
+											<li> <a href="#multiply"><tt>.multiply</tt></a> </li>
+											<li> <a href="#dividex"><tt>.divideX</tt></a> </li>
+											<li> <a href="#dividey"><tt>.divideY</tt></a> </li>
+											<li> <a href="#divide"><tt>.divide</tt></a> </li>
+											<li> <a href="#normalize"><tt>.normalize</tt></a> </li>
+											<li> <a href="#limit"><tt>.limit</tt></a> </li>
+											<li> <a href="#randomizex"><tt>.randomizeX</tt></a> </li>
+											<li> <a href="#randomizey"><tt>.randomizeY</tt></a> </li>
+											<li> <a href="#randomize"><tt>.randomize</tt></a> </li>
+											<li> <a href="#unfloat"><tt>.unfloat</tt></a> </li>
+											<li> <a href="#mixx"><tt>.mixX</tt></a> </li>
+											<li> <a href="#mixy"><tt>.mixY</tt></a> </li>
+											<li> <a href="#mix"><tt>.mix</tt></a> </li>
+											<li> <a href="#rotate"><tt>.rotate</tt></a> </li>
+										</ul>
+									</li>
+									<li>
+										<a href="#products">Products</a>
+										<ul>
+											<li> <a href="#dot"><tt>.dot</tt></a> </li>
+											<li> <a href="#length"><tt>.length</tt></a> </li>
+											<li> <a href="#distancex"><tt>.distanceX</tt></a> </li>
+											<li> <a href="#distancey"><tt>.distanceY</tt></a> </li>
+											<li> <a href="#absdistancex"><tt>.absdistanceX</tt></a> </li>
+											<li> <a href="#absdistancey"><tt>.absdistanceY</tt></a> </li>
+											<li> <a href="#distance"><tt>.distance</tt></a> </li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<a href="#credits">Credits</a>
+								<ul>
+									<li><a href="#contributors">Contributors</a></li>
+									<li><a href="#license">License</a></li>
+								</ul>
+							</li>
 						</ul>
 					</nav>
 				</div>
@@ -62,16 +151,16 @@
 					<p>You can manually <a href="https://github.com/maxkueng/victor/tree/master/build">download</a> the latest build or use your favorite package manager.</p>
 					<div class="row">
 						<div class="col-md-6">
-							<h3>Node.js & Browserify</h3>
+							<h3><a name="installation-npm"></a>Node.js & Browserify</h3>
 							<pre data-src="examples/installation-node.js"></pre>
 						</div>
 						<div class="col-md-6">
-							<h3>Bower</h3>
+							<h3><a name="installation-bower"></a>Bower</h3>
 							<pre data-src="examples/installation-bower.js"></pre>
 						</div>
 					</div>
 
-					<h2><a name="build-test"></a>Build & Test</h2>
+					<h3><a name="build-test"></a>Build & Test</h3>
 					<div class="row">
 						<div class="col-md-6">
 							<p class="pull-right"><a href="http://travis-ci.org/maxkueng/victor"><img src="//secure.travis-ci.org/maxkueng/victor.png?branch=master" /></a></p>
@@ -84,16 +173,316 @@
 
 					<h2><a name="documentation"></a>Documentation</h2>
 
+					<h3><a name="properties"></a>Properties</h3>
+
+					<div class="row">
+						<div class="col-md-6">
+
+							<h4><a name="properties-x"></a><tt>.x</tt></h4>
+							<p>Holds the value for the X component.</p>
+							<h4><a name="properties-y"></a><tt>.y</tt></h4>
+							<p>Holds the value for the Y component.</p>
+						</div>
+						<div class="col-md-6">
+							<pre data-src="examples/properties-1.js"></pre>
+						</div>
+					</div>
+
 					<h3><a name="constructors"></a>Constructors</h3>
 
 					<div class="row">
 						<div class="col-md-6">
-							<p>
-							Different constructors allow instanciation in most practical way for the situation.
-							</p>
+							<p>Different constructors allow instanciation in most practical way for the situation.</p>
+
+							<h4><a name="constructors-new"></a><tt>new Victor(x, y)</tt></h4>
+							<p>Can be used without the <tt>new</tt> keyword.</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Number</strong> <em>x</em> The X component</li>
+										<li><strong>Number</strong> <em>y</em> The Y component</li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> The new vector</li>
+									</ul>
+								</dd>
+							</dl>
+
+							<h4><a name="constructors-fromarray"></a><tt>Victor.fromArray(array)</tt></h4>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Array</strong> <em>array</em> An array that contains the X component in the first element and the Y component in the second</li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> The new vector</li>
+									</ul>
+								</dd>
+							</dl>
+
+							<h4><a name="constructors-fromobject"></a><tt>Victor.fromObject(obj)</tt></h4>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Object</strong> <em>obj</em> An object containing the X component in the <tt>x</tt> property and the Y component in the <tt>y</tt> property</li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> The new vector</li>
+									</ul>
+								</dd>
+							</dl>
 						</div>
 						<div class="col-md-6">
 							<pre data-src="examples/static-constructors-1.js"></pre>
+						</div>
+					</div>
+
+					<h3><a name="utility"></a>Utility</h3>
+
+					<div class="row">
+						<div class="col-md-6">
+							<h4><a name="clone"></a><tt>.clone()</tt></h4>
+							<p>Creates a new <tt>Victor</tt> with the same X and Y components</p>
+							<dl class="method-docs">
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> A new vector</li>
+									</ul>
+								</dd>
+							</dl>
+
+						</div>
+						<div class="col-md-6">
+							<pre data-src="examples/clone-1.js"></pre>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h4><a name="copyx"></a><tt>.copyX(vector)</tt> <span class="label-chainable">chainable</span></h4>
+							<p>Copies the X component of another vector in to itself</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Victor</strong> <em>vector</em></li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> <tt>this</tt></li>
+									</ul>
+								</dd>
+							</dl>
+
+							<h4><a name="copyy"></a><tt>.copyY(vector)</tt> <span class="label-chainable">chainable</span></h4>
+							<p>Copies the Y component of another vector in to itself</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Victor</strong> <em>vector</em></li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> <tt>this</tt></li>
+									</ul>
+								</dd>
+							</dl>
+
+							<h4><a name="copy"></a><tt>.copy(vector)</tt> <span class="label-chainable">chainable</span></h4>
+							<p>Copies the X and Y components of another vector in to itself</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Victor</strong> <em>vector</em></li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> <tt>this</tt></li>
+									</ul>
+								</dd>
+							</dl>
+
+						</div>
+						<div class="col-md-6">
+							<pre data-src="examples/copy-1.js"></pre>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<h4><a name="tostring"></a><tt>.toString()</tt></h4>
+							<p>Returns a string representation of the X and Y components</p>
+							<dl class="method-docs">
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>String</strong></li>
+									</ul>
+								</dd>
+							</dl>
+
+							<h4><a name="toarray"></a><tt>.toArray()</tt></h4>
+							<p>Returns a string representation of the X and Y components</p>
+							<dl class="method-docs">
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Array</strong></li>
+									</ul>
+								</dd>
+							</dl>
+
+							<h4><a name="toobject"></a><tt>.toObject()</tt></h4>
+							<p>Returns a object representation of tha X and Y components</p>
+							<dl class="method-docs">
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Object</strong></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+						<div class="col-md-6">
+							<pre data-src="examples/to-1.js"></pre>
+						</div>
+					</div>
+
+					<h3><a name="manipulation"></a>Manipulation</h3>
+					<p>All manipulation functions are chainable.</p>
+
+					<div class="row">
+						<div class="col-md-6">
+							<h4><a name="addx"></a><tt>.addX(vector)</tt> <span class="label-chainable">chainable</span></h4>
+							<p>Adds another vector's X component to itself.</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Victor</strong> <em>vector</em></li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> <tt>this</tt></li>
+									</ul>
+								</dd>
+							</dl>
+
+							<h4><a name="addy"></a><tt>.addY()</tt> <span class="label-chainable">chainable</span></h4>
+							<p>Adds another vector's Y component to itself.</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Victor</strong> <em>vector</em></li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> <tt>this</tt></li>
+									</ul>
+								</dd>
+							</dl>
+
+							<h4><a name="add"></a><tt>.add()</tt> <span class="label-chainable">chainable</span></h4>
+							<p>Adds another vector to itself.</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Victor</strong> <em>vector</em></li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> <tt>this</tt></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+						<div class="col-md-6">
+							<pre data-src="examples/add-1.js"></pre>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-md-6">
+							<h4><a name="subtractx"></a><tt>.subtractX(vector)</tt> <span class="label-chainable">chainable</span></h4>
+							<p>Subtracts another vector's X component from itself.</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Victor</strong> <em>vector</em></li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> <tt>this</tt></li>
+									</ul>
+								</dd>
+							</dl>
+
+							<h4><a name="subtracty"></a><tt>.subtractY()</tt> <span class="label-chainable">chainable</span></h4>
+							<p>Subtracts another vector's Y component from itself.</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Victor</strong> <em>vector</em></li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> <tt>this</tt></li>
+									</ul>
+								</dd>
+							</dl>
+
+							<h4><a name="subtract"></a><tt>.subtract()</tt> <span class="label-chainable">chainable</span></h4>
+							<p>Subtracts another vector from itself.</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Victor</strong> <em>vector</em></li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> <tt>this</tt></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+						<div class="col-md-6">
+							<pre data-src="examples/subtract-1.js"></pre>
 						</div>
 					</div>
 
