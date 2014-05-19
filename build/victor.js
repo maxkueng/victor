@@ -135,10 +135,10 @@ Victor.divide = function (vec, scalar) {
 	return new Victor(vec.x / scalar, vec.y / scalar);
 };
 
-Victor.mix = function (vecA, vecB, ammount) {
-	ammount = ammount || 0.5
-	var x = (1 - ammount) * vecA.x + ammount * vecB.x;
-	var y = (1 - ammount) * vecA.y + ammount * vecB.y;
+Victor.mix = function (vecA, vecB, amount) {
+	amount = amount || 0.5
+	var x = (1 - amount) * vecA.x + amount * vecB.x;
+	var y = (1 - amount) * vecA.y + amount * vecB.y;
 	return new Victor(x, y);
 };
 
@@ -394,12 +394,12 @@ Victor.prototype.multiply = function (scalar) {
 };
 
 /**
- * Norm
+ * Normalize
  *
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.norm = function () {
+Victor.prototype.normalize = function () {
 	if (this.length() === 0) {
 		this.x = 1;
 		this.y = 0;
@@ -408,6 +408,8 @@ Victor.prototype.norm = function () {
 	}
 	return this;
 };
+
+Victor.prototype.norm = Victor.prototype.normalize;
 
 /**
  * If the absolute vector axis is greater than `max`, multiplies the axis by `factor`
@@ -611,20 +613,78 @@ Victor.prototype.mix = function (vec, amount) {
  */
 
 /**
- * Creates a copy of this vector
+ * Creates a clone of this vector
  *
  * ### Examples:
  *     var vec1 = new Victor(10, 10);
- *     var vec2 = vec1.copy();
+ *     var vec2 = vec1.clone();
  *
  *     vec2.toString();
  *     // => x:10, y:10
  *
- * @return {Victor} A copy of the vector
+ * @return {Victor} A clone of the vector
  * @api public
  */
-Victor.prototype.copy = function () {
+Victor.prototype.clone = function () {
 	return new Victor(this.x, this.y);
+};
+
+/**
+ * Copies another vector's X component in to its own
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = new Victor(20, 20);
+ *     var vec2 = vec1.copyX(vec1);
+ *
+ *     vec2.toString();
+ *     // => x:20, y:10
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.copyX = function (vec) {
+	this.x = vec.x;
+	return this;
+};
+
+/**
+ * Copies another vector's Y component in to its own
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = new Victor(20, 20);
+ *     var vec2 = vec1.copyY(vec1);
+ *
+ *     vec2.toString();
+ *     // => x:10, y:20
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.copyY = function (vec) {
+	this.y = vec.y;
+	return this;
+};
+
+/**
+ * Copies another vector's X and Y components in to its own
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *     var vec2 = new Victor(20, 20);
+ *     var vec2 = vec1.copy(vec1);
+ *
+ *     vec2.toString();
+ *     // => x:20, y:20
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.copy = function (vec) {
+	this.copyX(vec);
+	this.copyY(vec);
+	return this;
 };
 
 /**
@@ -643,6 +703,50 @@ Victor.prototype.copy = function () {
  */
 Victor.prototype.dot = function (vec2) {
 	return this.x * vec2.x + this.y * vec2.y;
+};
+
+Victor.prototype.horizontalAngle = function () {
+	return Math.atan2(this.y, this.x);
+};
+
+Victor.prototype.horizontalAngleDeg = function () {
+	return radian2degrees(this.horizontalAngle());
+};
+
+Victor.prototype.verticalAngle = function () {
+	return Math.atan2(this.x, this.y);
+};
+
+Victor.prototype.verticalAngleDeg = function () {
+	return radian2degrees(this.verticalAngle());
+};
+
+Victor.prototype.angle = Victor.prototype.horizontalAngle;
+Victor.prototype.angleDeg = Victor.prototype.horizontalAngleDeg;
+Victor.prototype.direction = Victor.prototype.horizontalAngle;
+
+Victor.prototype.rotate = function (angle) {
+	var nx = (this.x * Math.cos(angle)) - (this.y * Math.sin(angle));
+	var ny = (this.x * Math.sin(angle)) + (this.y * Math.cos(angle));
+
+	this.x = nx;
+	this.y = ny;
+};
+
+Victor.prototype.rotateDeg = function (angle) {
+	angle = degrees2radian(angle);
+	this.rotate(angle);
+};
+
+Victor.prototype.rotateBy = function (rotation) {
+	var angle = this.angle() + rotation;
+
+	this.rotate(angle);
+};
+
+Victor.prototype.rotateByDeg = function (rotation) {
+	rotation = degrees2radian(rotation);
+	this.rotateBy(rotation);
 };
 
 /**
@@ -754,6 +858,8 @@ Victor.prototype.length = function () {
 	return Math.sqrt(this.x * this.x + this.y * this.y);
 };
 
+Victor.prototype.magnitude = Victor.prototype.length;
+
 /**
  * # Utility Methods
  */
@@ -807,8 +913,18 @@ Victor.prototype.toObject = function () {
 };
 
 
+var degrees = 180 / Math.PI;
+
 function random (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function radian2degrees (rad) {
+	return rad * degrees;
+}
+
+function degrees2radian (deg) {
+	return deg / degrees;
 }
 
 },{}]},{},[1])

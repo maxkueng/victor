@@ -319,9 +319,9 @@ Multiplies both vector axis by a number
 
 * **Victor** `this` for chaining capabilities
 
-## norm()
+## normalize()
 
-Norm
+Normalize
 
 ### Return:
 
@@ -507,20 +507,68 @@ Performs a linear blend / interpolation towards another vector
 
 # Products
 
-## copy()
+## clone()
 
-Creates a copy of this vector
+Creates a clone of this vector
 
 ### Examples:
     var vec1 = new Victor(10, 10);
-    var vec2 = vec1.copy();
+    var vec2 = vec1.clone();
 
     vec2.toString();
     // => x:10, y:10
 
 ### Return:
 
-* **Victor** A copy of the vector
+* **Victor** A clone of the vector
+
+## copyX()
+
+Copies another vector's X component in to its own
+
+### Examples:
+    var vec1 = new Victor(10, 10);
+    var vec2 = new Victor(20, 20);
+    var vec2 = vec1.copyX(vec1);
+
+    vec2.toString();
+    // => x:20, y:10
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## copyY()
+
+Copies another vector's Y component in to its own
+
+### Examples:
+    var vec1 = new Victor(10, 10);
+    var vec2 = new Victor(20, 20);
+    var vec2 = vec1.copyY(vec1);
+
+    vec2.toString();
+    // => x:10, y:20
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## copy()
+
+Copies another vector's X and Y components in to its own
+
+### Examples:
+    var vec1 = new Victor(10, 10);
+    var vec2 = new Victor(20, 20);
+    var vec2 = vec1.copy(vec1);
+
+    vec2.toString();
+    // => x:20, y:20
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
 
 ## dot(vector)
 
