@@ -124,3 +124,21 @@ h1, h2, h3, h4, h5, h6 {
 	}
 }
 
+.demo {
+	margin: 20px 0;
+	padding: 0.5em;
+	border-radius: 0.3em;
+	background-color: #090909;
+
+	canvas {
+		display: block;
+		margin: 0;
+		padding: 0;
+	}
+}
+
+.ghbuttons {
+	position: absolute; 
+	top: 20px;
+	right: 20px;
+}
