@@ -5,7 +5,7 @@
     "type": "git",
     "url": "git://github.com/maxkueng/victor.git"
   },
-  "version": "0.0.1",
+  "version": "0.1.1",
   "homepage": "https://github.com/maxkueng/victor",
   "authors": [
     "Max Kueng (http://maxkueng.com/)",
