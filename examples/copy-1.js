@@ -1,0 +1,13 @@
+var vec1 = new Victor(100, 200);
+var vec2 = new Victor(300, 400);
+var vec3 = new Victor(10, 12);
+
+vec1
+  .copyX(vec2)
+  .toString();
+// => x: 300, y: 200
+
+vec3
+  .copy(vec2)
+  .toString();
+// => x: 300, y: 400

@@ -15,6 +15,7 @@ $headings-font-weight: 300;
 	margin: 0;
 	padding: 0;
 
+	min-height: 99vh;
 
 	background-color: $header-bg;
 	background-image: url('../assets/header-bg.png');
@@ -68,6 +69,9 @@ tt {
 }
 
 .sidebar {
+	width: 200px;
+	bottom: 0;
+
 	padding-top: 30px;
 	font-size: 0.85em;
 

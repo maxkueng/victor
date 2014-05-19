@@ -87,7 +87,7 @@ function animation (el) {
 
 		this.selectTarget = function () {
 			if (!gold.length) {
-				this.target.randomize(canvasTopLeft, canvasBottomRight);
+				this.target.randomizeAny(canvasTopLeft, canvasBottomRight);
 				return;
 			}
 
@@ -144,7 +144,7 @@ function animation (el) {
 			ctx.restore();
 		};
 
-		setInterval(this.selectTarget.bind(this), 2000);
+		setInterval(this.selectTarget.bind(this), 1000);
 	}
 
 

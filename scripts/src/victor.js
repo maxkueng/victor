@@ -110,10 +110,10 @@ Victor.divide = function (vec, scalar) {
 	return new Victor(vec.x / scalar, vec.y / scalar);
 };
 
-Victor.mix = function (vecA, vecB, ammount) {
-	ammount = ammount || 0.5
-	var x = (1 - ammount) * vecA.x + ammount * vecB.x;
-	var y = (1 - ammount) * vecA.y + ammount * vecB.y;
+Victor.mix = function (vecA, vecB, amount) {
+	amount = amount || 0.5
+	var x = (1 - amount) * vecA.x + amount * vecB.x;
+	var y = (1 - amount) * vecA.y + amount * vecB.y;
 	return new Victor(x, y);
 };
 
@@ -369,12 +369,12 @@ Victor.prototype.multiply = function (scalar) {
 };
 
 /**
- * Norm
+ * Normalize
  *
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.norm = function () {
+Victor.prototype.normalize = function () {
 	if (this.length() === 0) {
 		this.x = 1;
 		this.y = 0;
@@ -383,6 +383,8 @@ Victor.prototype.norm = function () {
 	}
 	return this;
 };
+
+Victor.prototype.norm = Victor.prototype.normalize;
 
 /**
  * If the absolute vector axis is greater than `max`, multiplies the axis by `factor`
@@ -678,13 +680,48 @@ Victor.prototype.dot = function (vec2) {
 	return this.x * vec2.x + this.y * vec2.y;
 };
 
-Victor.prototype.angle = function () {
-	return Math.atan2(this.y, this.x) + Math.PI / 2;
+Victor.prototype.horizontalAngle = function () {
+	return Math.atan2(this.y, this.x);
 };
 
+Victor.prototype.horizontalAngleDeg = function () {
+	return radian2degrees(this.horizontalAngle());
+};
+
+Victor.prototype.verticalAngle = function () {
+	return Math.atan2(this.x, this.y);
+};
+
+Victor.prototype.verticalAngleDeg = function () {
+	return radian2degrees(this.verticalAngle());
+};
+
+Victor.prototype.angle = Victor.prototype.horizontalAngle;
+Victor.prototype.angleDeg = Victor.prototype.horizontalAngleDeg;
+Victor.prototype.direction = Victor.prototype.horizontalAngle;
+
 Victor.prototype.rotate = function (angle) {
-	this.x = (this.x * Math.cos(angle)) - (this.y * Math.sin(angle));
-	this.y = (this.x * Math.sin(angle)) - (this.y * Math.cos(angle));
+	var nx = (this.x * Math.cos(angle)) - (this.y * Math.sin(angle));
+	var ny = (this.x * Math.sin(angle)) + (this.y * Math.cos(angle));
+
+	this.x = nx;
+	this.y = ny;
+};
+
+Victor.prototype.rotateDeg = function (angle) {
+	angle = degrees2radian(angle);
+	this.rotate(angle);
+};
+
+Victor.prototype.rotateBy = function (rotation) {
+	var angle = this.angle() + rotation;
+
+	this.rotate(angle);
+};
+
+Victor.prototype.rotateByDeg = function (rotation) {
+	rotation = degrees2radian(rotation);
+	this.rotateBy(rotation);
 };
 
 /**
@@ -796,6 +833,8 @@ Victor.prototype.length = function () {
 	return Math.sqrt(this.x * this.x + this.y * this.y);
 };
 
+Victor.prototype.magnitude = Victor.prototype.length;
+
 /**
  * # Utility Methods
  */
@@ -849,11 +888,16 @@ Victor.prototype.toObject = function () {
 };
 
 
+var degrees = 180 / Math.PI;
+
 function random (min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 function radian2degrees (rad) {
-	var degrees = 180 / Math.PI;
 	return rad * degrees;
+}
+
+function degrees2radian (deg) {
+	return deg / degrees;
 }
