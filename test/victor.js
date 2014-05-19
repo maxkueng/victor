@@ -541,15 +541,15 @@ describe('chainable instance methods', function () {
 
 describe('regular instance methods', function () {
 
-	describe('#copy()', function () {
+	describe('#clone()', function () {
 		var vec1, vec2;
 
 		before(function () {
 			vec1 = new Victor(42, 21);
-			vec2 = vec1.copy();
+			vec2 = vec1.clone();
 		});
 
-		it('should return a copy of a vector', function () {
+		it('should return a clone of a vector', function () {
 			expect(vec2).to.be.an.instanceof(Victor);
 			expect(vec2).to.not.equal(vec1);
 		});
