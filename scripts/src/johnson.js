@@ -30,7 +30,7 @@ function johnson (el) {
 		style = window.getComputedStyle(el);
 		height = parseInt(style.getPropertyValue('height'));
 
-		originalOffset = getOffsetTop();
+		originalOffset = getOffsetTop(el.parentElement);
 
 		bigMode = isBig();
 	}
@@ -129,23 +129,26 @@ function johnson (el) {
 		return el.getBoundingClientRect();
 	}
 
-	function getOffsetTop() {
-		var viewportOffset = el.getBoundingClientRect();
-		var offsetTop = viewportOffset.top + ((window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop);
-		return offsetTop;
+	function getOffsetTop (el) {
+		var box = el.getBoundingClientRect()
+		var scrollTop = getScrollTop();
+		var clientTop = getClientTop();
+		
+		var top  = box.top +  scrollTop - clientTop
+		
+		return Math.round(top);
 	}
 
-	function getScrollTop(){
-		if (typeof pageYOffset!= 'undefined') {
-			//most browsers except IE before #9
-			return pageYOffset;
+	function getClientTop () {
+		var body = document.body
+		var docElem = document.documentElement
+		return docElem.clientTop || body.clientTop || 0;
+	}
 
-		} else {
-			var B= document.body; //IE 'quirks'
-			var D= document.documentElement; //IE with doctype
-			D= (D.clientHeight)? D: B;
-			return D.scrollTop;
-		}
+	function getScrollTop () {
+		var body = document.body
+		var docElem = document.documentElement
+		return window.pageYOffset || docElem.scrollTop || body.scrollTop;
 	}
 
 	window.addEventListener('scroll', onScroll);
