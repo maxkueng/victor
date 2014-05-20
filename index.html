@@ -124,7 +124,9 @@
 												<li> <a href="#limit"><tt>.limit</tt></a> </li>
 												<li> <a href="#unfloat"><tt>.unfloat</tt></a> </li>
 												<li> <a href="#rotate"><tt>.rotate</tt></a> </li>
-												<li> <a href="#rotateby"><tt>.rotateby</tt></a> </li>
+												<li> <a href="#rotatedeg"><tt>.rotateDeg</tt></a> </li>
+												<li> <a href="#rotateby"><tt>.rotateBy</tt></a> </li>
+												<li> <a href="#rotateby"><tt>.rotateByDeg</tt></a> </li>
 												<li> <a href="#randomizex"><tt>.randomizeX</tt></a> </li>
 												<li> <a href="#randomizey"><tt>.randomizeY</tt></a> </li>
 												<li> <a href="#randomize"><tt>.randomize</tt></a> </li>
@@ -138,17 +140,17 @@
 												<li> <a href="#length"><tt>.length</tt></a> </li>
 												<li> <a href="#magnitude"><tt>.magnitude</tt> (alias)</a> </li>
 												<li> <a href="#distancex"><tt>.distanceX</tt></a> </li>
-												<li> <a href="#distancey"><tt>.distanceY</tt></a> </li>
 												<li> <a href="#absdistancex"><tt>.absDistanceX</tt></a> </li>
+												<li> <a href="#distancey"><tt>.distanceY</tt></a> </li>
 												<li> <a href="#absdistancey"><tt>.absDistanceY</tt></a> </li>
 												<li> <a href="#distance"><tt>.distance</tt></a> </li>
 												<li> <a href="#horizontalangle"><tt>.horizontalAngle</tt></a> </li>
+												<li> <a href="#angle"><tt>.angle</tt> (alias)</a> </li>
+												<li> <a href="#direction"><tt>.direction</tt> (alias)</a> </li>
 												<li> <a href="#horizontalangledeg"><tt>.horizontalAngleDeg</tt></a> </li>
+												<li> <a href="#angleDeg"><tt>.angleDeg</tt> (alias)</a> </li>
 												<li> <a href="#verticalangle"><tt>.verticalAngle</tt></a> </li>
 												<li> <a href="#verticalangledeg"><tt>.verticalAngleDeg</tt></a> </li>
-												<li> <a href="#angle"><tt>.angle</tt> (alias)</a> </li>
-												<li> <a href="#angleDeg"><tt>.angleDeg</tt> (alias)</a> </li>
-												<li> <a href="#direction"><tt>.direction</tt> (alias)</a> </li>
 											</ul>
 										</li>
 									</ul>
@@ -167,51 +169,50 @@
 				<div class="col-sm-9 xxcol-sm-offset-3 col-md-10 xxcol-md-offset-2 main">
 					<h2><a name="installation"></a>Installation</h2>
 					<p>You can manually <a href="https://github.com/maxkueng/victor/tree/master/build">download</a> the latest build or use your favorite package manager.</p>
-					<div class="row">
-						<div class="col-md-6">
-							<h3><a name="installation-npm"></a>Node.js & Browserify</h3>
-							<pre data-src="examples/installation-node.js"></pre>
-						</div>
-						<div class="col-md-6">
-							<h3><a name="installation-bower"></a>Bower</h3>
-							<pre data-src="examples/installation-bower.js"></pre>
-						</div>
-					</div>
+
+					<h3><a name="installation-npm"></a>Node.js & Browserify</h3>
+					<pre data-src="examples/installation-node.js"></pre>
+
+					<h3><a name="installation-bower"></a>Bower</h3>
+					<pre data-src="examples/installation-bower.js"></pre>
 
 					<h3><a name="build-test"></a>Build & Test</h3>
-					<div class="row">
-						<div class="col-md-6">
-							<p class="pull-right"><a href="https://travis-ci.org/maxkueng/victor"><img src="https://api.travis-ci.org/maxkueng/victor.png?branch=master" /></a></p>
-							<p>Install <a href="http://nodejs.org/">Node.js</a> and run the build and test scripts.</p>
-						</div>
-						<div class="col-md-6">
-							<pre data-src="examples/build-1.js"></pre>
-						</div>
-					</div>
+					<p class="pull-right"><a href="https://travis-ci.org/maxkueng/victor"><img src="https://api.travis-ci.org/maxkueng/victor.png?branch=master" /></a></p>
+					<p>Install <a href="http://nodejs.org/">Node.js</a> and run the build and test scripts.</p>
+					<pre data-src="examples/build-1.js"></pre>
 
 					<h2><a name="documentation"></a>Documentation</h2>
 
 					<h3><a name="properties"></a>Properties</h3>
 
-					<div class="row">
-						<div class="col-md-6">
-
+					<!-- x -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="properties-x"></a><tt>.x</tt></h4>
 							<p>Holds the value for the X component.</p>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/x-1.js"></pre>
+						</div>
+					</div><!-- /x -->
+
+					<!-- y -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="properties-y"></a><tt>.y</tt></h4>
 							<p>Holds the value for the Y component.</p>
 						</div>
-						<div class="col-md-6">
-							<pre data-src="examples/properties-1.js"></pre>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/y-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /y -->
 
 					<h3><a name="constructors"></a>Constructors</h3>
+					<p>Different constructors allow instanciation in most practical way for the situation.</p>
 
-					<div class="row">
-						<div class="col-md-6">
-							<p>Different constructors allow instanciation in most practical way for the situation.</p>
-
+					<!-- new Victor -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="constructors-new"></a><tt>new Victor(x, y)</tt></h4>
 							<p>Can be used without the <tt>new</tt> keyword.</p>
 							<dl class="method-docs">
@@ -229,7 +230,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/cnstr-new-1.js"></pre>
+						</div>
+					</div><!-- /new Victor -->
 
+					<!-- static-fromArray -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="constructors-fromarray"></a><tt>Victor.fromArray(array)</tt></h4>
 							<dl class="method-docs">
 								<dt>Params</dt>
@@ -245,7 +254,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/cnstr-fromarray-1.js"></pre>
+						</div>
+					</div><!-- /static-fromArray -->
 
+					<!-- static-fromObject -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="constructors-fromobject"></a><tt>Victor.fromObject(obj)</tt></h4>
 							<dl class="method-docs">
 								<dt>Params</dt>
@@ -262,15 +279,16 @@
 								</dd>
 							</dl>
 						</div>
-						<div class="col-md-6">
-							<pre data-src="examples/static-constructors-1.js"></pre>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/cnstr-fromobject-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /static-fromObject -->
 
 					<h3><a name="utility"></a>Utility</h3>
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- clone -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="clone"></a><tt>.clone()</tt></h4>
 							<p>Creates a new <tt>Victor</tt> with the same X and Y components.</p>
 							<dl class="method-docs">
@@ -281,14 +299,15 @@
 									</ul>
 								</dd>
 							</dl>
-
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/clone-1.js"></pre>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
+					</div><!-- /clone -->
+
+					<!-- copyX -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="copyx"></a><tt>.copyX(vector)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Copies the X component of another vector in to itself.</p>
 							<dl class="method-docs">
@@ -305,7 +324,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/copyx-1.js"></pre>
+						</div>
+					</div><!-- /copyX -->
 
+					<!-- copyY -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="copyy"></a><tt>.copyY(vector)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Copies the Y component of another vector in to itself.</p>
 							<dl class="method-docs">
@@ -322,7 +349,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/copyy-1.js"></pre>
+						</div>
+					</div><!-- /copyY -->
 
+					<!-- copy -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="copy"></a><tt>.copy(vector)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Copies the X and Y components of another vector in to itself.</p>
 							<dl class="method-docs">
@@ -339,14 +374,15 @@
 									</ul>
 								</dd>
 							</dl>
-
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/copy-1.js"></pre>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-6">
+					</div><!-- /copy -->
+
+					<!-- toString -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="tostring"></a><tt>.toString()</tt></h4>
 							<p>Returns a string representation of the X and Y components.</p>
 							<dl class="method-docs">
@@ -357,7 +393,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/tostring-1.js"></pre>
+						</div>
+					</div><!-- /toString -->
 
+					<!-- toArray -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="toarray"></a><tt>.toArray()</tt></h4>
 							<p>Returns an array representation of the X and Y components.</p>
 							<dl class="method-docs">
@@ -368,7 +412,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/toarray-1.js"></pre>
+						</div>
+					</div><!-- /toArray -->
 
+					<!-- toObject -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="toobject"></a><tt>.toObject()</tt></h4>
 							<p>Returns an object representation of tha X and Y components.</p>
 							<dl class="method-docs">
@@ -380,16 +432,18 @@
 								</dd>
 							</dl>
 						</div>
-						<div class="col-md-6">
-							<pre data-src="examples/to-1.js"></pre>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/toarray-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /toObject -->
+
 
 					<h3><a name="manipulation"></a>Manipulation</h3>
 					<p>All manipulation functions are chainable.</p>
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- addX -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="addx"></a><tt>.addX(vector)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Adds another vector's X component to itself.</p>
 							<dl class="method-docs">
@@ -406,7 +460,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/addx-1.js"></pre>
+						</div>
+					</div><!-- /addX -->
 
+					<!-- addY -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="addy"></a><tt>.addY(vector)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Adds another vector's Y component to itself.</p>
 							<dl class="method-docs">
@@ -423,7 +485,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/addy-1.js"></pre>
+						</div>
+					</div><!-- /addY -->
 
+					<!-- add -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="add"></a><tt>.add(vector)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Adds another vector to itself.</p>
 							<dl class="method-docs">
@@ -441,13 +511,14 @@
 								</dd>
 							</dl>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/add-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /add -->
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- subtractX -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="subtractx"></a><tt>.subtractX(vector)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Subtracts another vector's X component from itself.</p>
 							<dl class="method-docs">
@@ -464,7 +535,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/subtractx-1.js"></pre>
+						</div>
+					</div><!-- /subtractX -->
 
+					<!-- subtractY -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="subtracty"></a><tt>.subtractY(vector)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Subtracts another vector's Y component from itself.</p>
 							<dl class="method-docs">
@@ -481,7 +560,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/subtracty-1.js"></pre>
+						</div>
+					</div><!-- /subtractY -->
 
+					<!-- subtract -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="subtract"></a><tt>.subtract(vector)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Subtracts another vector from itself.</p>
 							<dl class="method-docs">
@@ -499,13 +586,14 @@
 								</dd>
 							</dl>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/subtract-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /subtract -->
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- multiplyX -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="multiplyx"></a><tt>.multiplyX(scalar)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Multiplies the X component by a scalar.</p>
 							<dl class="method-docs">
@@ -522,7 +610,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/multiplyx-1.js"></pre>
+						</div>
+					</div><!-- /multiplyX -->
 
+					<!-- multiplyY -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="multiplyy"></a><tt>.multiplyY(scalar)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Multiplies the Y component by a scalar.</p>
 							<dl class="method-docs">
@@ -539,7 +635,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/multiplyy-1.js"></pre>
+						</div>
+					</div><!-- /multiplyY -->
 
+					<!-- multiply -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="multiply"></a><tt>.multiply(scalar)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Multiplies both components by a scalar.</p>
 							<dl class="method-docs">
@@ -556,15 +660,15 @@
 									</ul>
 								</dd>
 							</dl>
-
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/multiply-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /multiply -->
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- divideX -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="dividex"></a><tt>.divideX(scalar)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Divides the X component by a scalar.</p>
 							<dl class="method-docs">
@@ -581,7 +685,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/dividex-1.js"></pre>
+						</div>
+					</div><!-- /divideX -->
 
+					<!-- divideY -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="dividey"></a><tt>.divideY(scalar)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Divides the Y component by a scalar.</p>
 							<dl class="method-docs">
@@ -598,7 +710,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/dividey-1.js"></pre>
+						</div>
+					</div><!-- /divideY -->
 
+					<!-- divide -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="divide"></a><tt>.divide(scalar)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Divides both components by a scalar.</p>
 							<dl class="method-docs">
@@ -615,15 +735,15 @@
 									</ul>
 								</dd>
 							</dl>
-
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/divide-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /divide -->
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- mixX -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="mixx"></a><tt>.mixX(vector, amount)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Performs a linear blend / interpolation of the X component towards another vector.</p>
 							<dl class="method-docs">
@@ -641,7 +761,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/mixx-1.js"></pre>
+						</div>
+					</div><!-- /mixX -->
 
+					<!-- mixY -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="mixy"></a><tt>.mixY(vector, amount)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Performs a linear blend / interpolation of the Y component towards another vector.</p>
 							<dl class="method-docs">
@@ -659,7 +787,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/mixy-1.js"></pre>
+						</div>
+					</div><!-- /mixY -->
 
+					<!-- mix -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="mix"></a><tt>.mix(vector, amount)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Performs a linear blend / interpolation towards another vector.</p>
 							<dl class="method-docs">
@@ -677,15 +813,15 @@
 									</ul>
 								</dd>
 							</dl>
-
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/mix-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /mix -->
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- normalize -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="normalize"></a><tt>.normalize()</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Normalizes the vector by scaling it down to a <a href="#length">length</a> of 1 while keeping its direction.</p>
 							<dl class="method-docs">
@@ -700,13 +836,14 @@
 							<h4><a name="norm"></a><tt>.norm()</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Alias of <a href="#normalize">normalize</a>.</p>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/normalize-1.js"></pre>
 						</div>
-					</div>
-		
-					<div class="row">
-						<div class="col-md-6">
+					</div><!-- /normalize -->
+
+					<!-- limit -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="limit"></a><tt>.limit(max, multiplier)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>If either component is greater than <tt>max</tt>, multiplies the component by <tt>multiplier</tt>.</p>
 							<dl class="method-docs">
@@ -725,13 +862,14 @@
 								</dd>
 							</dl>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/limit-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /limit -->
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- unfloat -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="unfloat"></a><tt>.unfloat()</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Rounds the components to integer numbers.</p>
 							<dl class="method-docs">
@@ -743,13 +881,14 @@
 								</dd>
 							</dl>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/unfloat-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /unfloat -->
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- rotate -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="rotate"></a><tt>.rotate(angle)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Rotates the vector to a certain angle.</p>
 							<dl class="method-docs">
@@ -767,8 +906,50 @@
 								</dd>
 							</dl>
 
+							<h4><a name="rotatedeg"></a><tt>.rotateDeg(angle)</tt> <span class="label-chainable">chainable</span></h4>
+							<p>Same as <a href="#rotate">rotate</a> but uses degrees</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Number</strong> <em>angle</em> Angle in radians</li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> <tt>this</tt></li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/rotate-1.js"></pre>
+						</div>
+					</div><!-- /rotate -->
+
+					<!-- rotateBy -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="rotateby"></a><tt>.rotateBy(rotation)</tt> <span class="label-chainable">chainable</span></h4>
-							<p>Rotates the vector by a certain angle.</p>
+							<p>Rotates the vector by a rotation angle.</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Number</strong> <em>rotation</em> Rotation in radians</li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Victor</strong> <tt>this</tt></li>
+									</ul>
+								</dd>
+							</dl>
+
+							<h4><a name="rotatebydeg"></a><tt>.rotateByDeg(rotation)</tt> <span class="label-chainable">chainable</span></h4>
+							<p>Same as <a href="#rotateby">rotateBy</a> but uses degrees</p>
 							<dl class="method-docs">
 								<dt>Params</dt>
 								<dd>
@@ -784,13 +965,14 @@
 								</dd>
 							</dl>
 						</div>
-						<div class="col-md-6">
-							<pre data-src="examples/rotate-1.js"></pre>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/rotateby-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /rotateBy -->
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- randomizeX -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="randomizex"></a><tt>.randomizeX(topLeft, bottomRight)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Randomizes the X component with a value between <tt>topLeft</tt> and <tt>bottomRight</tt>.</p>
 							<dl class="method-docs">
@@ -808,7 +990,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/randomizex-1.js"></pre>
+						</div>
+					</div><!-- /randomizeX -->
 
+					<!-- randomizeY -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="randomizey"></a><tt>.randomizeY(topLeft, bottomRight)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Randomizes the Y component with a value between <tt>topLeft</tt> and <tt>bottomRight</tt>.</p>
 							<dl class="method-docs">
@@ -826,7 +1016,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/randomizey-1.js"></pre>
+						</div>
+					</div><!-- /randomizeY -->
 
+					<!-- randomize -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="randomize"></a><tt>.randomize(topLeft, bottomRight)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Randomizes the components with a value between <tt>topLeft</tt> and <tt>bottomRight</tt>.</p>
 							<dl class="method-docs">
@@ -844,7 +1042,15 @@
 									</ul>
 								</dd>
 							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/randomize-1.js"></pre>
+						</div>
+					</div><!-- /randomize -->
 
+					<!-- randomizeAny -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="randomizeany"></a><tt>.randomizeAny(topLeft, bottomRight)</tt> <span class="label-chainable">chainable</span></h4>
 							<p>Randomly randomizes either the X component or the Y component with a value between <tt>topLeft</tt> and <tt>bottomRight</tt>.</p>
 							<dl class="method-docs">
@@ -862,17 +1068,17 @@
 									</ul>
 								</dd>
 							</dl>
-
 						</div>
-						<div class="col-md-6">
-							<pre data-src="examples/randomize-1.js"></pre>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/randomizeany-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /randomizeAny -->
 
 					<h3><a name="products"></a>Products</h3>
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- dot -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="dot"></a><tt>.dot(vector)</tt></h4>
 							<p>Returns the dot product of two vectors.</p>
 							<dl class="method-docs">
@@ -889,15 +1095,15 @@
 									</ul>
 								</dd>
 							</dl>
-
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/dot-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /dot -->
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- length -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="length"></a><tt>.length()</tt></h4>
 							<p>Returns the length / magnitude.</p>
 							<dl class="method-docs">
@@ -911,15 +1117,15 @@
 
 							<h4><a name="magnitude"></a><tt>.magnitude()</tt></h4>
 							<p>Alias for <a href="#length">length</a>.</p>
-
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/length-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /length -->
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- distanceX -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="distancex"></a><tt>.distanceX(vector)</tt></h4>
 							<p>Returns the distance of the X component from another vector.</p>
 							<dl class="method-docs">
@@ -937,6 +1143,17 @@
 								</dd>
 							</dl>
 
+							<h4><a name="absdistancex"></a><tt>.absDistanceX(vector)</tt></h4>
+							<p>Same as <a href="#distancex">distanceX</a> but always returns an absolute value.</p>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/distancex-1.js"></pre>
+						</div>
+					</div><!-- /distanceX -->
+
+					<!-- distanceY -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="distancey"></a><tt>.distanceY(vector)</tt></h4>
 							<p>Returns the distance of the Y component from another vector.</p>
 							<dl class="method-docs">
@@ -954,12 +1171,17 @@
 								</dd>
 							</dl>
 
-							<h4><a name="absdistancex"></a><tt>.absDistanceX(vector)</tt></h4>
-							<p>Same as <a href="#distancex">distanceX</a> but always returns an absolute value.</p>
-
 							<h4><a name="absdistancey"></a><tt>.absDistanceY(vector)</tt></h4>
 							<p>Same as <a href="#distancey">distanceY</a> but always returns an absolute value.</p>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/distancey-1.js"></pre>
+						</div>
+					</div><!-- /distanceY -->
 
+					<!-- distance -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="distance"></a><tt>.distance(vector)</tt></h4>
 							<p>Returns the euclidean distance between two vectors.</p>
 							<dl class="method-docs">
@@ -976,15 +1198,15 @@
 									</ul>
 								</dd>
 							</dl>
-
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 doc-example">
 							<pre data-src="examples/distance-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /distance -->
 
-					<div class="row">
-						<div class="col-md-6">
+					<!-- horizontalAngle -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="horizontalangle"></a><tt>.horizontalAngle()</tt></h4>
 							<p>Returns the angle towards X in radians.</p>
 							<dl class="method-docs">
@@ -995,6 +1217,12 @@
 									</ul>
 								</dd>
 							</dl>
+
+							<h4><a name="angle"></a><tt>.angle()</tt></h4>
+							<p>Alias for <a href="#horizontalangle">horizontalAngle</a>.</p>
+
+							<h4><a name="direction"></a><tt>.direction()</tt></h4>
+							<p>Alias for <a href="#horizontalangle">horizontalAngle</a>.</p>
 
 							<h4><a name="horizontalangledeg"></a><tt>.horizontalAngleDeg()</tt></h4>
 							<p>Same as <a href="#horizontalangle">horizontalAngle</a> but returns degrees.</p>
@@ -1007,6 +1235,17 @@
 								</dd>
 							</dl>
 
+							<h4><a name="angledeg"></a><tt>.angleDeg()</tt></h4>
+							<p>Alias for <a href="#horizontalangledeg">horizontalAngleDeg</a>.</p>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/horizontalangle-1.js"></pre>
+						</div>
+					</div><!-- /horizontalAngle -->
+
+					<!-- verticalAngle -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
 							<h4><a name="verticalangle"></a><tt>.verticalAngle()</tt></h4>
 							<p>Returns the angle towards Y in radians.</p>
 							<dl class="method-docs">
@@ -1028,21 +1267,11 @@
 									</ul>
 								</dd>
 							</dl>
-
-							<h4><a name="angle"></a><tt>.angle()</tt></h4>
-							<p>Alias for <a href="#horizontalangle">horizontalAngle</a>.</p>
-
-							<h4><a name="angledeg"></a><tt>.angleDeg()</tt></h4>
-							<p>Alias for <a href="#horizontalangledeg">horizontalAngleDeg</a>.</p>
-
-							<h4><a name="direction"></a><tt>.direction()</tt></h4>
-							<p>Alias for <a href="#horizontalangle">horizontalAngle</a>.</p>
-
 						</div>
-						<div class="col-md-6">
-							<pre data-src="examples/angle-1.js"></pre>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/verticalangle-1.js"></pre>
 						</div>
-					</div>
+					</div><!-- /verticalAngle -->
 
 					<h2><a name="credits"></a>Credits</h2>
 

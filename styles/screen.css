@@ -321,7 +321,7 @@ th {
 
 html {
   font-size: 62.5%;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -2719,6 +2719,7 @@ input[type="button"].btn-block {
   src: url("bootstrap/glyphicons-halflings-regular.eot");
   src: url("bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
+
 .glyphicon {
   position: relative;
   top: 1px;
@@ -4787,10 +4788,10 @@ input[type="button"].btn-block {
   background-color: gray;
 }
 
-.label-primary, h1:hover .label-chainable, h2:hover .label-chainable, h3:hover .label-chainable, h4:hover .label-chainable, h5:hover .label-chainable, h6:hover .label-chainable {
+.label-primary, .doc-row:hover .label-chainable {
   background-color: #e06a60;
 }
-.label-primary[href]:hover, h1:hover [href].label-chainable:hover, h2:hover [href].label-chainable:hover, h3:hover [href].label-chainable:hover, h4:hover [href].label-chainable:hover, h5:hover [href].label-chainable:hover, h6:hover [href].label-chainable:hover, .label-primary[href]:focus, h1:hover [href].label-chainable:focus, h2:hover [href].label-chainable:focus, h3:hover [href].label-chainable:focus, h4:hover [href].label-chainable:focus, h5:hover [href].label-chainable:focus, h6:hover [href].label-chainable:focus {
+.label-primary[href]:hover, .doc-row:hover [href].label-chainable:hover, .label-primary[href]:focus, .doc-row:hover [href].label-chainable:focus {
   background-color: #d84235;
 }
 
@@ -5018,6 +5019,7 @@ a.thumbnail.active {
     background-position: 0 0;
   }
 }
+
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0;
@@ -5027,6 +5029,7 @@ a.thumbnail.active {
     background-position: 0 0;
   }
 }
+
 .progress {
   overflow: hidden;
   height: 25px;
@@ -6129,7 +6132,7 @@ button.close {
   border-radius: 10px;
   cursor: pointer;
   background-color: #000 \9;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
 }
 .carousel-indicators .active {
   margin: 0;
@@ -6230,6 +6233,7 @@ button.close {
 @-ms-viewport {
   width: device-width;
 }
+
 .visible-xs, .visible-sm, .visible-md, .visible-lg {
   display: none !important;
 }
@@ -6403,7 +6407,7 @@ tt {
 
 .sidebar {
   width: 200px;
-  padding-top: 30px;
+  padding: 30px 0;
   font-size: 0.85em;
 }
 .sidebar.absolute {
@@ -6437,9 +6441,13 @@ tt {
   list-style-type: none;
 }
 
+.doc-example pre[class*="language-"] {
+  margin-top: 18px;
+}
+
 h1 .label-chainable, h2 .label-chainable, h3 .label-chainable, h4 .label-chainable, h5 .label-chainable, h6 .label-chainable {
   display: inline-block;
-  margin-top: 8px;
+  margin-top: 6px;
   font-size: 10.8px;
 }
 

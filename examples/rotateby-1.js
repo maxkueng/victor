@@ -1,6 +1,6 @@
 var vec = new Victor(100, 0);
 
-vec.rotate(-Math.PI);
+vec.rotateBy(Math.PI / 2);
 
 vec.toString();
-// => x: -100, y: 0
+// => x: 0, y: 100

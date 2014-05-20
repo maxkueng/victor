@@ -3,6 +3,6 @@ var topLeft = new Victor(50, 50);
 var bottomRight = new Victor(200, 200);
 
 Victor(10, 20)
-  .randomize(topLeft, bottomRight)
+  .randomizeX(topLeft, bottomRight)
   .toString();
-// => x: 137, y: 160 (both cmponents randomized)
+// => x: 167, y: 20 (only X randomized)
