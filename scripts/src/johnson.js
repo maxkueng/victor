@@ -31,7 +31,6 @@ function johnson (el) {
 		height = parseInt(style.getPropertyValue('height'));
 
 		originalOffset = getOffsetTop();
-		console.log('ori', originalOffset);
 
 		bigMode = isBig();
 	}
