@@ -321,7 +321,7 @@ th {
 
 html {
   font-size: 62.5%;
-  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -2719,6 +2719,7 @@ input[type="button"].btn-block {
   src: url("bootstrap/glyphicons-halflings-regular.eot");
   src: url("bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
+
 .glyphicon {
   position: relative;
   top: 1px;
@@ -5018,6 +5019,7 @@ a.thumbnail.active {
     background-position: 0 0;
   }
 }
+
 @keyframes progress-bar-stripes {
   from {
     background-position: 40px 0;
@@ -5027,6 +5029,7 @@ a.thumbnail.active {
     background-position: 0 0;
   }
 }
+
 .progress {
   overflow: hidden;
   height: 25px;
@@ -6129,7 +6132,7 @@ button.close {
   border-radius: 10px;
   cursor: pointer;
   background-color: #000 \9;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0);
 }
 .carousel-indicators .active {
   margin: 0;
@@ -6230,6 +6233,7 @@ button.close {
 @-ms-viewport {
   width: device-width;
 }
+
 .visible-xs, .visible-sm, .visible-md, .visible-lg {
   display: none !important;
 }
@@ -6353,11 +6357,14 @@ button.close {
     display: none !important;
   }
 }
+body {
+  padding-bottom: 60px;
+}
+
 .header-wrapper {
   position: relative;
   margin: 0;
   padding: 0;
-  min-height: 99vh;
   background-color: black;
   background-image: url("../assets/header-bg.png");
   background-repeat: no-repeat;
@@ -6400,9 +6407,19 @@ tt {
 
 .sidebar {
   width: 200px;
-  bottom: 0;
   padding-top: 30px;
   font-size: 0.85em;
+}
+.sidebar.absolute {
+  position: static;
+}
+.sidebar.stick-bottom {
+  position: fixed;
+  bottom: 0;
+}
+.sidebar.stick-top {
+  position: fixed;
+  top: 0;
 }
 .sidebar ul {
   margin: 0;
