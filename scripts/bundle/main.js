@@ -420,7 +420,10 @@ function johnson (el) {
 	function initialize () {
 		lastScrollTop = getScrollTop();
 		recalculate();
-		onScroll();
+
+		if (bigMode && !isOriginBelowTopEdge()) {
+			stickToTop()
+		}
 
 		window.addEventListener('resize', recalculate);
 	}
