@@ -1,3 +1,5 @@
+var domready = require('domready');
+
 exports = module.exports = johnson;
 
 function johnson (el) {
@@ -13,11 +15,12 @@ function johnson (el) {
 
 	var bigMode = false;
 
-	initialize();
+	domready(initialize);
 
 	function initialize () {
 		lastScrollTop = getScrollTop();
 		recalculate();
+		onScroll();
 
 		window.addEventListener('resize', recalculate);
 	}
@@ -27,7 +30,8 @@ function johnson (el) {
 		style = window.getComputedStyle(el);
 		height = parseInt(style.getPropertyValue('height'));
 
-		originalOffset = getOffsets().top;
+		originalOffset = getOffsetTop();
+		console.log('ori', originalOffset);
 
 		bigMode = isBig();
 	}
@@ -101,8 +105,9 @@ function johnson (el) {
 	}
 
 	function restore () {
-		isStuckTop = false;
-		el.classList.remove('stick-top');
+		unabsolutize();
+		unstickFromTop();
+		unstickFromBottom();
 	}
 
 	function isBig () {
@@ -123,7 +128,13 @@ function johnson (el) {
 
 	function getOffsets () {
 		return el.getBoundingClientRect();
-	};
+	}
+
+	function getOffsetTop() {
+		var viewportOffset = el.getBoundingClientRect();
+		var offsetTop = viewportOffset.top + ((window.pageYOffset !== undefined) ? window.pageYOffset : (document.documentElement || document.body.parentNode || document.body).scrollTop);
+		return offsetTop;
+	}
 
 	function getScrollTop(){
 		if (typeof pageYOffset!= 'undefined') {
