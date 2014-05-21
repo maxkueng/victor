@@ -44,7 +44,7 @@ function animation (el) {
 		var paddingLeft = parseInt(style.getPropertyValue('padding-left'), 10);
 		var paddingRight = parseInt(style.getPropertyValue('padding-right'), 10);
 
-		var height = 200;
+		var height = 260;
 		width -= paddingLeft + paddingRight;
 
 		canvasTopLeft = new Victor(0, 0);
