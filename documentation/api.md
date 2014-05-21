@@ -262,6 +262,51 @@ Divides both vector axis by a number
 
 * **Victor** `this` for chaining capabilities
 
+## invertX()
+
+Inverts the X axis
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.invertX();
+    vec.toString();
+    // => x:-100, y:50
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## invertY()
+
+Inverts the Y axis
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.invertY();
+    vec.toString();
+    // => x:100, y:-50
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## invert()
+
+Inverts both axis
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.invert();
+    vec.toString();
+    // => x:-100, y:-50
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
 ## multiplyX(number)
 
 Multiplies the X axis by a number
