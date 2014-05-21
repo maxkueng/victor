@@ -117,18 +117,17 @@ function animation (el) {
 		ctx.strokeStyle = colors.pink;
 		ctx.stroke();
 
-
 		ctx.beginPath();
-		ctx.arc(xx(0), yy(0), 100, -Math.PI / 2, mouse.verticalAngle() - (Math.PI / 2), false);
+		ctx.arc(xx(0), yy(0), 120, -Math.PI / 2, mouse.verticalAngle() - (Math.PI / 2), false);
 		ctx.strokeStyle = colors.green;
 		ctx.stroke();
 
-		var vAlphaLabel = new Victor(70, 0);
+		var vAlphaLabel = new Victor(60, 0);
 		vAlphaLabel.rotate(mouse.angle() / 2);
 		ctx.fillStyle = colors.pink;
 		ctx.fillText('α', xx(vAlphaLabel.x), yy(vAlphaLabel.y));
 
-		var vBetaLabel = new Victor(0, 55);
+		var vBetaLabel = new Victor(0, 60);
 		vBetaLabel.rotate(mouse.verticalAngle() / 2 * -1);
 		ctx.fillStyle = colors.green;
 		ctx.fillText('β', xx(vBetaLabel.x), yy(vBetaLabel.y));
