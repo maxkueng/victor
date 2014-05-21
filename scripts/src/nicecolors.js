@@ -1,0 +1,10 @@
+exports.background = '#202224';
+exports.white = '#f8f8f2';
+exports.pink = '#f92672';
+exports.purple = '#ae81ff';
+exports.green = '#a6e22e';
+exports.yellow = '#e6db74';
+exports.blue = '#66d9ef';
+exports.orange = '#fd971f';
+exports.brand = '#e06a60';
+exports.victor = '#d83e31';
