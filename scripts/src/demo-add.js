@@ -1,7 +1,5 @@
 var domready = require('domready');
 var raf = require('raf');
-var bean = require('bean');
-var offset = require('offset');
 var Victor = require('./victor');
 var makeDrawArrow = require('./canvas-arrow');
 var colors = require('./nicecolors');
