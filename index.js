@@ -311,6 +311,61 @@ Victor.prototype.divide = function (scalar) {
 };
 
 /**
+ * Inverts the X axis
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.invertX();
+ *     vec.toString();
+ *     // => x:-100, y:50
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.invertX = function () {
+	this.x *= -1;
+	return this;
+};
+
+/**
+ * Inverts the Y axis
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.invertY();
+ *     vec.toString();
+ *     // => x:100, y:-50
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.invertY = function () {
+	this.y *= -1;
+	return this;
+};
+
+/**
+ * Inverts both axis
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.invert();
+ *     vec.toString();
+ *     // => x:-100, y:-50
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.invert = function () {
+	this.invertX();
+	this.invertY();
+	return this;
+};
+
+/**
  * Multiplies the X axis by a number
  *
  * ### Examples:
