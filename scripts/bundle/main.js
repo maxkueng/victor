@@ -289,7 +289,6 @@ function animation (el) {
 
 	canvas = document.createElement('canvas');
 	ctx = canvas.getContext('2d');
-	ctx.font = '12px sans-serif';
 
 	var drawArrow = makeDrawArrow(ctx);
 
@@ -373,6 +372,7 @@ function animation (el) {
 	}
 
 	function draw () {
+		ctx.font = '12px sans-serif';
 		ctx.fillStyle = colors.background;
 		ctx.fillRect(0, 0, canvasBottomRight.x, canvasBottomRight.y);
 
@@ -390,10 +390,10 @@ function animation (el) {
 		ctx.fillText('A = x: 100, y: 20', padding.y, padding.x / 2);
 
 		ctx.fillStyle = colors.purple;
-		ctx.fillText('B = mouse', padding.y + 90, padding.x / 2);
+		ctx.fillText('B = mouse', padding.y + 100, padding.x / 2);
 
 		ctx.fillStyle = colors.orange;
-		ctx.fillText('C = A.add( mouse ) = x: ' + Math.round(vB.x) + ', y: ' + Math.round(vB.y), padding.y + 155, padding.x / 2);
+		ctx.fillText('C = A.add( mouse ) = x: ' + Math.round(vB.x) + ', y: ' + Math.round(vB.y), padding.y + 170, padding.x / 2);
 	}
 
 
