@@ -1,6 +1,6 @@
 {
   "name": "victor",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A JavaScript 2D vector class with methods for common vector operations",
   "keywords": [
     "vector",
@@ -16,6 +16,7 @@
     "doc": "markdox index.js -o documentation/api.md",
     "test": "mocha --ui bdd --reporter spec"
   },
+  "homepage": "http://victorjs.org/",
   "author": "Max Kueng <me@maxkueng.com> (http://maxkueng.com/)",
   "contributors": [
     "Max Kueng (http://maxkueng.com/)",
