@@ -21,8 +21,6 @@ Constructor. Will also work without the `new` keyword
 
 * **Victor** 
 
-# Properties
-
 ## x
 
 The X axis
@@ -729,6 +727,25 @@ Calculates the euclidean distance between this vector and another
 
 * **Number** Distance
 
+## distanceSq(vector)
+
+Calculates the squared euclidean distance between this vector and another
+
+### Examples:
+    var vec1 = new Victor(100, 50);
+    var vec2 = new Victor(200, 60);
+
+    vec1.distanceSq(vec2);
+    // => 10100
+
+### Params: 
+
+* **Victor** *vector* The second vector
+
+### Return:
+
+* **Number** Distance
+
 ## length()
 
 Calculates the length or magnitude of the vector
@@ -738,6 +755,20 @@ Calculates the length or magnitude of the vector
 
     vec.length();
     // => 111.80339887498948
+
+### Return:
+
+* **Number** Length / Magnitude
+
+## lengthSq()
+
+Squared length / magnitude
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.lengthSq();
+    // => 12500
 
 ### Return:
 

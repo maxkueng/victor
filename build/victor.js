@@ -45,39 +45,33 @@ function Victor (x, y) {
 	if (!(this instanceof Victor)) {
 		return new Victor(x, y);
 	}
+
+	/**
+	 * The X axis
+	 *
+	 * ### Examples:
+	 *     var vec = new Victor.fromArray(42, 21);
+	 *
+	 *     vec.x;
+	 *     // => 42
+	 *
+	 * @api public
+	 */
 	this.x = x || 0;
+
+	/**
+	 * The Y axis
+	 *
+	 * ### Examples:
+	 *     var vec = new Victor.fromArray(42, 21);
+	 *
+	 *     vec.y;
+	 *     // => 21
+	 *
+	 * @api public
+	 */
 	this.y = y || 0;
 };
-
-/**
- * # Properties
- */
-
-/**
- * The X axis
- *
- * ### Examples:
- *     var vec = new Victor.fromArray(42, 21);
- *
- *     vec.x;
- *     // => 42
- *
- * @api public
- */
-Victor.prototype.x = 0;
-
-/**
- * The Y axis
- *
- * ### Examples:
- *     var vec = new Victor.fromArray(42, 21);
- *
- *     vec.y;
- *     // => 21
- *
- * @api public
- */
-Victor.prototype.y = 0;
 
 /**
  * # Static
@@ -455,11 +449,13 @@ Victor.prototype.multiply = function (scalar) {
  * @api public
  */
 Victor.prototype.normalize = function () {
-	if (this.length() === 0) {
+	var length = this.length();
+
+	if (length === 0) {
 		this.x = 1;
 		this.y = 0;
 	} else {
-		this.divide(this.length());
+		this.divide(length);
 	}
 	return this;
 };
@@ -891,10 +887,28 @@ Victor.prototype.absDistanceY = function (vec) {
  * @api public
  */
 Victor.prototype.distance = function (vec) {
+	return Math.sqrt(this.distanceSq(vec));
+};
+
+/**
+ * Calculates the squared euclidean distance between this vector and another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.distanceSq(vec2);
+ *     // => 10100
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Distance
+ * @api public
+ */
+Victor.prototype.distanceSq = function (vec) {
 	var dx = this.distanceX(vec),
 		dy = this.distanceY(vec);
 
-	return Math.sqrt(dx * dx + dy * dy);
+	return dx * dx + dy * dy;
 };
 
 /**
@@ -910,7 +924,23 @@ Victor.prototype.distance = function (vec) {
  * @api public
  */
 Victor.prototype.length = function () {
-	return Math.sqrt(this.x * this.x + this.y * this.y);
+	return Math.sqrt(this.lengthSq());
+};
+
+/**
+ * Squared length / magnitude
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.lengthSq();
+ *     // => 12500
+ *
+ * @return {Number} Length / Magnitude
+ * @api public
+ */
+Victor.prototype.lengthSq = function () {
+	return this.x * this.x + this.y * this.y;
 };
 
 Victor.prototype.magnitude = Victor.prototype.length;
