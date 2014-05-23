@@ -20,39 +20,33 @@ function Victor (x, y) {
 	if (!(this instanceof Victor)) {
 		return new Victor(x, y);
 	}
+
+	/**
+	 * The X axis
+	 *
+	 * ### Examples:
+	 *     var vec = new Victor.fromArray(42, 21);
+	 *
+	 *     vec.x;
+	 *     // => 42
+	 *
+	 * @api public
+	 */
 	this.x = x || 0;
+
+	/**
+	 * The Y axis
+	 *
+	 * ### Examples:
+	 *     var vec = new Victor.fromArray(42, 21);
+	 *
+	 *     vec.y;
+	 *     // => 21
+	 *
+	 * @api public
+	 */
 	this.y = y || 0;
 };
-
-/**
- * # Properties
- */
-
-/**
- * The X axis
- *
- * ### Examples:
- *     var vec = new Victor.fromArray(42, 21);
- *
- *     vec.x;
- *     // => 42
- *
- * @api public
- */
-Victor.prototype.x = 0;
-
-/**
- * The Y axis
- *
- * ### Examples:
- *     var vec = new Victor.fromArray(42, 21);
- *
- *     vec.y;
- *     // => 21
- *
- * @api public
- */
-Victor.prototype.y = 0;
 
 /**
  * # Static
