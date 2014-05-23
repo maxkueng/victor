@@ -424,11 +424,13 @@ Victor.prototype.multiply = function (scalar) {
  * @api public
  */
 Victor.prototype.normalize = function () {
-	if (this.length() === 0) {
+	var length = this.length();
+
+	if (length === 0) {
 		this.x = 1;
 		this.y = 0;
 	} else {
-		this.divide(this.length());
+		this.divide(length);
 	}
 	return this;
 };
