@@ -862,10 +862,28 @@ Victor.prototype.absDistanceY = function (vec) {
  * @api public
  */
 Victor.prototype.distance = function (vec) {
+	return Math.sqrt(this.distanceSq(vec));
+};
+
+/**
+ * Calculates the squared euclidean distance between this vector and another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(200, 60);
+ *
+ *     vec1.distanceSq(vec2);
+ *     // => 10100
+ *
+ * @param {Victor} vector The second vector
+ * @return {Number} Distance
+ * @api public
+ */
+Victor.prototype.distanceSq = function (vec) {
 	var dx = this.distanceX(vec),
 		dy = this.distanceY(vec);
 
-	return Math.sqrt(dx * dx + dy * dy);
+	return dx * dx + dy * dy;
 };
 
 /**
@@ -881,7 +899,23 @@ Victor.prototype.distance = function (vec) {
  * @api public
  */
 Victor.prototype.length = function () {
-	return Math.sqrt(this.x * this.x + this.y * this.y);
+	return Math.sqrt(this.lengthSq());
+};
+
+/**
+ * Squared length / magnitude
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.lengthSq();
+ *     // => 12500
+ *
+ * @return {Number} Length / Magnitude
+ * @api public
+ */
+Victor.prototype.lengthSq = function () {
+	return this.x * this.x + this.y * this.y;
 };
 
 Victor.prototype.magnitude = Victor.prototype.length;
