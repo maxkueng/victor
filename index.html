@@ -142,11 +142,13 @@
 												<li> <a href="#dot"><tt>.dot</tt></a> </li>
 												<li> <a href="#length"><tt>.length</tt></a> </li>
 												<li> <a href="#magnitude"><tt>.magnitude</tt> (alias)</a> </li>
+												<li> <a href="#lengthsq"><tt>.lengthSq</tt></a> </li>
 												<li> <a href="#distancex"><tt>.distanceX</tt></a> </li>
 												<li> <a href="#absdistancex"><tt>.absDistanceX</tt></a> </li>
 												<li> <a href="#distancey"><tt>.distanceY</tt></a> </li>
 												<li> <a href="#absdistancey"><tt>.absDistanceY</tt></a> </li>
 												<li> <a href="#distance"><tt>.distance</tt></a> </li>
+												<li> <a href="#distancesq"><tt>.distanceSq</tt></a> </li>
 												<li> <a href="#horizontalangle"><tt>.horizontalAngle</tt></a> </li>
 												<li> <a href="#angle"><tt>.angle</tt> (alias)</a> </li>
 												<li> <a href="#direction"><tt>.direction</tt> (alias)</a> </li>
@@ -1185,6 +1187,25 @@
 						</div>
 					</div><!-- /length -->
 
+					<!-- lengthSq -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
+							<h4><a name="lengthsq"></a><tt>.lengthSq()</tt></h4>
+							<p>Returns the squared length / magnitude.  If the length is only needed for comparison, this function is faster than <a href="#length">length</a>.</p>
+							<dl class="method-docs">
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Number</strong> Squared length</li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/lengthsq-1.js"></pre>
+						</div>
+					</div><!-- /lengthSq -->
+
 					<!-- distanceX -->
 					<div class="row doc-row">
 						<div class="col-md-6 doc-text">
@@ -1265,6 +1286,31 @@
 							<pre data-src="examples/distance-1.js"></pre>
 						</div>
 					</div><!-- /distance -->
+
+					<!-- distanceSq -->
+					<div class="row doc-row">
+						<div class="col-md-6 doc-text">
+							<h4><a name="distancesq"></a><tt>.distanceSq(vector)</tt></h4>
+							<p>Returns the squared euclidean distance between two vectors. If the distance is only needed for comparison, this function is faster than <a href="#distance">distance</a>.</p>
+							<dl class="method-docs">
+								<dt>Params</dt>
+								<dd>
+									<ul class="params">
+										<li><strong>Victor</strong> <em>vector</em></li>
+									</ul>
+								</dd>
+								<dt>Return</dt>
+								<dd>
+									<ul class="return">
+										<li><strong>Number</strong> Squared distance</li>
+									</ul>
+								</dd>
+							</dl>
+						</div>
+						<div class="col-md-6 doc-example">
+							<pre data-src="examples/distancesq-1.js"></pre>
+						</div>
+					</div><!-- /distanceSq -->
 
 					<!-- horizontalAngle -->
 					<div class="row doc-row">
