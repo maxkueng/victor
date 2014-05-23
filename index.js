@@ -105,7 +105,10 @@ Victor.divide = function (vec, scalar) {
 };
 
 Victor.mix = function (vecA, vecB, amount) {
-	amount = amount || 0.5
+	if (typeof amount === 'undefined') {
+		amount = 0.5;
+	}
+
 	var x = (1 - amount) * vecA.x + amount * vecB.x;
 	var y = (1 - amount) * vecA.y + amount * vecB.y;
 	return new Victor(x, y);
@@ -584,7 +587,10 @@ Victor.prototype.unfloat = function () {
  * @api public
  */
 Victor.prototype.mixX = function (vec, amount) {
-	amount = amount || 0.5;
+	if (typeof amount === 'undefined') {
+		amount = 0.5;
+	}
+
 	this.x = (1 - amount) * this.x + amount * vec.x;
 	return this;
 };
@@ -606,7 +612,10 @@ Victor.prototype.mixX = function (vec, amount) {
  * @api public
  */
 Victor.prototype.mixY = function (vec, amount) {
-	amount = amount || 0.5;
+	if (typeof amount === 'undefined') {
+		amount = 0.5;
+	}
+
 	this.y = (1 - amount) * this.y + amount * vec.y;
 	return this;
 };
@@ -628,7 +637,6 @@ Victor.prototype.mixY = function (vec, amount) {
  * @api public
  */
 Victor.prototype.mix = function (vec, amount) {
-	amount = amount || 0.5;
 	this.mixX(vec, amount);
 	this.mixY(vec, amount);
 	return this;
