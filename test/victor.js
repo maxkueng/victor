@@ -610,6 +610,19 @@ describe('regular instance methods', function () {
 		});
 	});
 
+	describe('#isVector()', function () {
+		var vec;
+
+		before(function () {
+			vec = new Victor(100, 100);
+			vec.zero();
+		});
+
+		it('should return true if the vector is zero', function () {
+			expect(vec.isZero).to.be(true);
+		});
+	});
+
 });
 
 describe('utility methods', function () {
