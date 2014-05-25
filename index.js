@@ -689,6 +689,23 @@ Victor.prototype.copy = function (vec) {
 };
 
 /**
+ * Sets the vector to zero (0,0)
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *		 var1.zero();
+ *     vec1.toString();
+ *     // => x:0, y:0
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.zero = function () {
+	this.x = this.y = 0;
+	return this;
+}
+
+/**
  * Calculates the dot product of this vector and another
  *
  * ### Examples:
