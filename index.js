@@ -913,6 +913,22 @@ Victor.prototype.lengthSq = function () {
 Victor.prototype.magnitude = Victor.prototype.length;
 
 /**
+ * Returns a true if vector is (0, 0)
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *     vec.zero();
+ *
+ *     // => true
+ *
+ * @return {Boolean} 
+ * @api public
+ */
+Victor.prototype.isZero = function() {
+	return this.x === 0 && this.y === 0;
+};
+
+/**
  * # Utility Methods
  */
 
