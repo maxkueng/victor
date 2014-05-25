@@ -929,6 +929,23 @@ Victor.prototype.isZero = function() {
 };
 
 /**
+ * Returns a true if this vector is the same as another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(100, 50);
+ *     vec1.isEqualTo(vec2);
+ *
+ *     // => true
+ *
+ * @return {Boolean} 
+ * @api public
+ */
+Victor.prototype.isEqualTo = function(vec2) {
+	return this.x === vec2.x && this.y === vec2.y;
+};
+
+/**
  * # Utility Methods
  */
 
