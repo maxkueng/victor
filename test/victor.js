@@ -641,6 +641,23 @@ describe('regular instance methods', function () {
 		});
 	});
 
+	describe('#isEqualTo()', function () {
+		var vec1, vec2, vec3;
+
+		before(function () {
+			vec1 = new Victor(100, 100);
+			vec2 = new Victor(100, 120);
+			vec3 = new Victor(100, 120);
+		});
+
+		it('should return false if the vectors are not the same', function () {
+			expect(vec1.isEqualTo(vec2)).to.equal(false);
+		});
+		it('should return true if the vectors are the same', function () {
+			expect(vec2.isEqualTo(vec3)).to.equal(true);
+		});
+	});
+
 });
 
 describe('utility methods', function () {
