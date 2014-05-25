@@ -610,7 +610,7 @@ describe('regular instance methods', function () {
 		});
 	});
 
-	describe('#isVector()', function () {
+	describe('#isZero()', function () {
 		var vec;
 
 		before(function () {
@@ -619,7 +619,7 @@ describe('regular instance methods', function () {
 		});
 
 		it('should return true if the vector is zero', function () {
-			expect(vec.isZero).to.be(true);
+			expect(vec.isZero()).to.equal(true);
 		});
 	});
 
