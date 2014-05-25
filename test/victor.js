@@ -518,6 +518,24 @@ describe('chainable instance methods', function () {
 		});
 	});
 
+	describe('#zero()', function () {
+		var vec, ret;
+
+		before(function () {
+			vec = new Victor(100, 100);
+			ret = vec.zero();
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should interpolate half way', function () {
+			expect(vec).to.have.property('x', 0);
+			expect(vec).to.have.property('y', 0);
+		});
+	});
+
 });
 
 describe('regular instance methods', function () {
