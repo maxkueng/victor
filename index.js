@@ -723,6 +723,11 @@ Victor.prototype.dot = function (vec2) {
 	return this.x * vec2.x + this.y * vec2.y;
 };
 
+Victor.prototype.cross = function (vec2) {
+	return (this.x * vec2.y ) - (this.y * vec2.x );
+};
+
+
 Victor.prototype.horizontalAngle = function () {
 	return Math.atan2(this.y, this.x);
 };
