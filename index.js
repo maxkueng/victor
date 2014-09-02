@@ -275,6 +275,27 @@ Victor.prototype.divide = function (scalar) {
 };
 
 /**
+ * Divides each vector axis by corresponding axis on given vector
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *     var vec2 = new Victor(2, 5);
+ *
+ *     vec.divideByVec(vec2);
+ *     vec.toString();
+ *     // => x:50, y:10
+ *
+ * @param {Victor} vec The vector to use for axis dividing
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.divideByVec = function (vec) {
+    this.divideX(vec.x);
+    this.divideY(vec.y);
+    return this;
+};
+
+/**
  * Inverts the X axis
  *
  * ### Examples:
@@ -385,6 +406,27 @@ Victor.prototype.multiply = function (scalar) {
 	this.multiplyX(scalar);
 	this.multiplyY(scalar);
 	return this;
+};
+
+/**
+ * Multiplies each vector axis by corresponding axis on given vector
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *     var vec2 = new Victor(2, 5);
+ *
+ *     vec.multiplyByVec(vec2);
+ *     vec.toString();
+ *     // => x:200, y:250
+ *
+ * @param {Victor} vec The vector to use for axis multiplication
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.multiplyByVec = function (vec) {
+    this.multiplyX(vec.x);
+    this.multiplyY(vec.y);
+    return this;
 };
 
 /**
