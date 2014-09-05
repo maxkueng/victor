@@ -150,8 +150,8 @@ Victor.prototype.addY = function (vec) {
  * @api public
  */
 Victor.prototype.add = function (vec) {
-    this.x += vec.x;
-    this.y += vec.y;
+	this.x += vec.x;
+	this.y += vec.y;
 	return this;
 };
 
@@ -211,8 +211,8 @@ Victor.prototype.subtractY = function (vec) {
  * @api public
  */
 Victor.prototype.subtract = function (vec) {
-    this.x -= vec.x;
-    this.y -= vec.y;
+	this.x -= vec.x;
+	this.y -= vec.y;
 	return this;
 };
 
@@ -272,8 +272,8 @@ Victor.prototype.divideY = function (vector) {
  * @api public
  */
 Victor.prototype.divide = function (vector) {
-    this.x /= vector.x;
-    this.y /= vector.y;
+	this.x /= vector.x;
+	this.y /= vector.y;
 	return this;
 };
 
@@ -388,8 +388,8 @@ Victor.prototype.multiplyY = function (vector) {
  * @api public
  */
 Victor.prototype.multiply = function (vector) {
-    this.x *= vector.x;
-    this.y *= vector.y;
+	this.x *= vector.x;
+	this.y *= vector.y;
 	return this;
 };
 
