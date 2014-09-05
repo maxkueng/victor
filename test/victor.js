@@ -182,11 +182,12 @@ describe('chainable instance methods', function () {
 	});
 
 	describe('#divideX()', function () {
-		var vec, ret;
+		var vec, vec2, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
-			ret = vec.divideX(2);
+			vec2 = new Victor(2, 2);
+			ret = vec.divideX(vec2);
 		});
 
 		it('should be chainable', function () {
@@ -200,11 +201,12 @@ describe('chainable instance methods', function () {
 	});
 
 	describe('#divideY()', function () {
-		var vec, ret;
+		var vec, vec2, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
-			ret = vec.divideY(2);
+			vec2 = new Victor(2, 2);
+			ret = vec.divideY(vec2);
 		});
 
 		it('should be chainable', function () {
@@ -218,11 +220,12 @@ describe('chainable instance methods', function () {
 	});
 
 	describe('#divide()', function () {
-		var vec, ret;
+		var vec, vec2, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
-			ret = vec.divide(2);
+			vec2 = new Victor(2, 2);
+			ret = vec.divide(vec2);
 		});
 
 		it('should be chainable', function () {
@@ -235,31 +238,13 @@ describe('chainable instance methods', function () {
 		});
 	});
 
-    describe('#divideByVec()', function () {
-        var vec, vec2, ret;
-
-        before(function () {
-            vec = new Victor(100, 50);
-            vec2 = new Victor(2, 5);
-            ret = vec.divideByVec(vec2);
-        });
-
-        it('should be chainable', function () {
-            expect(ret).to.equal(vec);
-        });
-
-        it('should divide each vector axis by corresponding axis value', function () {
-            expect(vec).to.have.property('x', 50);
-            expect(vec).to.have.property('y', 10);
-        });
-    });
-
 	describe('#multiplyX()', function () {
-		var vec, ret;
+		var vec, vec2, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
-			ret = vec.multiplyX(2);
+			vec2 = new Victor(2, 2);
+			ret = vec.multiplyX(vec2);
 		});
 
 		it('should be chainable', function () {
@@ -273,11 +258,12 @@ describe('chainable instance methods', function () {
 	});
 
 	describe('#multiplyY()', function () {
-		var vec, ret;
+		var vec, vec2, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
-			ret = vec.multiplyY(2);
+			vec2 = new Victor(2, 2);
+			ret = vec.multiplyY(vec2);
 		});
 
 		it('should be chainable', function () {
@@ -291,11 +277,12 @@ describe('chainable instance methods', function () {
 	});
 
 	describe('#multiply()', function () {
-		var vec, ret;
+		var vec, vec2, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
-			ret = vec.multiply(2);
+			vec2 = new Victor(2, 2);
+			ret = vec.multiply(vec2);
 		});
 
 		it('should be chainable', function () {
@@ -307,25 +294,6 @@ describe('chainable instance methods', function () {
 			expect(vec).to.have.property('y', 40);
 		});
 	});
-
-    describe('#multiplyByVec()', function () {
-        var vec, vec2, ret;
-
-        before(function () {
-            vec = new Victor(100, 50);
-            vec2 = new Victor(2, 5);
-            ret = vec.multiplyByVec(vec2);
-        });
-
-        it('should be chainable', function () {
-            expect(ret).to.equal(vec);
-        });
-
-        it('should multiply each vector axis by corresponding axis value', function () {
-            expect(vec).to.have.property('x', 200);
-            expect(vec).to.have.property('y', 250);
-        });
-    });
 
 	describe('#norm()', function () {
 		var vec, ret;
