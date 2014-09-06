@@ -113,36 +113,6 @@ Victor.fromObject = function (obj) {
 	return new Victor(obj.x || 0, obj.y || 0);
 };
 
-Victor.add = function (vecA, vecB) {
-	return new Victor(vecA.x + vecB.x, vecA.y + vecB.y);
-};
-
-Victor.subtract = function (vecA, vecB) {
-	return new Victor(vecA.x - vecB.x, vecA.y - vecB.y);
-};
-
-Victor.multiply = function (vec, scalar) {
-	return new Victor(vec.x * scalar, vec.y * scalar);
-};
-
-Victor.divide = function (vec, scalar) {
-	return new Victor(vec.x / scalar, vec.y / scalar);
-};
-
-Victor.mix = function (vecA, vecB, amount) {
-	amount = amount || 0.5
-	var x = (1 - amount) * vecA.x + amount * vecB.x;
-	var y = (1 - amount) * vecA.y + amount * vecB.y;
-	return new Victor(x, y);
-};
-
-Victor.random = function (maxX, maxY) {
-	var x = Math.floor(Math.random() * maxX),
-		y = Math.floor(Math.random() * maxY);
-
-	return new Victor(x, y);
-};
-
 /**
  * # Manipulation
  *
@@ -205,8 +175,8 @@ Victor.prototype.addY = function (vec) {
  * @api public
  */
 Victor.prototype.add = function (vec) {
-	this.addX(vec);
-	this.addY(vec);
+	this.x += vec.x;
+	this.y += vec.y;
 	return this;
 };
 
@@ -266,66 +236,69 @@ Victor.prototype.subtractY = function (vec) {
  * @api public
  */
 Victor.prototype.subtract = function (vec) {
-	this.subtractX(vec);
-	this.subtractY(vec);
+	this.x -= vec.x;
+	this.y -= vec.y;
 	return this;
 };
 
 /**
- * Divides the X axis by a number
+ * Divides the X axis by the x component of given vector
  *
  * ### Examples:
  *     var vec = new Victor(100, 50);
+ *     var vec2 = new Victor(2, 0);
  *
- *     vec.divideX(2);
+ *     vec.divideX(vec2);
  *     vec.toString();
  *     // => x:50, y:50
  *
- * @param {Number} number The number to divide the axis by
+ * @param {Victor} vector The other vector you want divide by
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.divideX = function (scalar) {
-	this.x /= scalar;
+Victor.prototype.divideX = function (vector) {
+	this.x /= vector.x;
 	return this;
 };
 
 /**
- * Divides the Y axis by a number
+ * Divides the Y axis by the y component of given vector
  *
  * ### Examples:
  *     var vec = new Victor(100, 50);
+ *     var vec2 = new Victor(0, 2);
  *
- *     vec.divideY(2);
+ *     vec.divideY(vec2);
  *     vec.toString();
  *     // => x:100, y:25
  *
- * @param {Number} number The number to divide the axis by
+ * @param {Victor} vector The other vector you want divide by
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.divideY = function (scalar) {
-	this.y /= scalar;
+Victor.prototype.divideY = function (vector) {
+	this.y /= vector.y;
 	return this;
 };
 
 /**
- * Divides both vector axis by a number
+ * Divides both vector axis by a axis values of given vector
  *
  * ### Examples:
  *     var vec = new Victor(100, 50);
+ *     var vec2 = new Victor(2, 2);
  *
- *     vec.divide(2);
+ *     vec.divide(vec2);
  *     vec.toString();
  *     // => x:50, y:25
  *
- * @param {Number} number The number to divide the axis by
+ * @param {Victor} vector The vector to divide by
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.divide = function (scalar) {
-	this.divideX(scalar);
-	this.divideY(scalar);
+Victor.prototype.divide = function (vector) {
+	this.x /= vector.x;
+	this.y /= vector.y;
 	return this;
 };
 
@@ -385,60 +358,63 @@ Victor.prototype.invert = function () {
 };
 
 /**
- * Multiplies the X axis by a number
+ * Multiplies the X axis by X component of given vector
  *
  * ### Examples:
  *     var vec = new Victor(100, 50);
+ *     var vec2 = new Victor(2, 0);
  *
- *     vec.multiplyX(2);
+ *     vec.multiplyX(vec2);
  *     vec.toString();
  *     // => x:200, y:50
  *
- * @param {Number} number The number to multiply the axis with
+ * @param {Victor} vector The vector to multiply the axis with
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.multiplyX = function (scalar) {
-	this.x *= scalar;
+Victor.prototype.multiplyX = function (vector) {
+	this.x *= vector.x;
 	return this;
 };
 
 /**
- * Multiplies the Y axis by a number
+ * Multiplies the Y axis by Y component of given vector
  *
  * ### Examples:
  *     var vec = new Victor(100, 50);
+ *     var vec2 = new Victor(0, 2);
  *
- *     vec.multiplyY(2);
+ *     vec.multiplyX(vec2);
  *     vec.toString();
  *     // => x:100, y:100
  *
- * @param {Number} number The number to multiply the axis with
+ * @param {Victor} vector The vector to multiply the axis with
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.multiplyY = function (scalar) {
-	this.y *= scalar;
+Victor.prototype.multiplyY = function (vector) {
+	this.y *= vector.y;
 	return this;
 };
 
 /**
- * Multiplies both vector axis by a number
+ * Multiplies both vector axis by values from a given vector
  *
  * ### Examples:
  *     var vec = new Victor(100, 50);
+ *     var vec2 = new Victor(2, 2);
  *
- *     vec.multiply(2);
+ *     vec.multiply(vec2);
  *     vec.toString();
  *     // => x:200, y:100
  *
- * @param {Number} number The number to multiply the axis with
+ * @param {Victor} vector The vector to multiply by
  * @return {Victor} `this` for chaining capabilities
  * @api public
  */
-Victor.prototype.multiply = function (scalar) {
-	this.multiplyX(scalar);
-	this.multiplyY(scalar);
+Victor.prototype.multiply = function (vector) {
+	this.x *= vector.x;
+	this.y *= vector.y;
 	return this;
 };
 
@@ -609,7 +585,10 @@ Victor.prototype.unfloat = function () {
  * @api public
  */
 Victor.prototype.mixX = function (vec, amount) {
-	amount = amount || 0.5;
+	if (typeof amount === 'undefined') {
+		amount = 0.5;
+	}
+
 	this.x = (1 - amount) * this.x + amount * vec.x;
 	return this;
 };
@@ -631,7 +610,10 @@ Victor.prototype.mixX = function (vec, amount) {
  * @api public
  */
 Victor.prototype.mixY = function (vec, amount) {
-	amount = amount || 0.5;
+	if (typeof amount === 'undefined') {
+		amount = 0.5;
+	}
+
 	this.y = (1 - amount) * this.y + amount * vec.y;
 	return this;
 };
@@ -653,7 +635,6 @@ Victor.prototype.mixY = function (vec, amount) {
  * @api public
  */
 Victor.prototype.mix = function (vec, amount) {
-	amount = amount || 0.5;
 	this.mixX(vec, amount);
 	this.mixY(vec, amount);
 	return this;
@@ -739,6 +720,23 @@ Victor.prototype.copy = function (vec) {
 };
 
 /**
+ * Sets the vector to zero (0,0)
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(10, 10);
+ *		 var1.zero();
+ *     vec1.toString();
+ *     // => x:0, y:0
+ *
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.zero = function () {
+	this.x = this.y = 0;
+	return this;
+};
+
+/**
  * Calculates the dot product of this vector and another
  *
  * ### Examples:
@@ -755,6 +753,11 @@ Victor.prototype.copy = function (vec) {
 Victor.prototype.dot = function (vec2) {
 	return this.x * vec2.x + this.y * vec2.y;
 };
+
+Victor.prototype.cross = function (vec2) {
+	return (this.x * vec2.y ) - (this.y * vec2.x );
+};
+
 
 Victor.prototype.horizontalAngle = function () {
 	return Math.atan2(this.y, this.x);
@@ -944,6 +947,39 @@ Victor.prototype.lengthSq = function () {
 };
 
 Victor.prototype.magnitude = Victor.prototype.length;
+
+/**
+ * Returns a true if vector is (0, 0)
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *     vec.zero();
+ *
+ *     // => true
+ *
+ * @return {Boolean} 
+ * @api public
+ */
+Victor.prototype.isZero = function() {
+	return this.x === 0 && this.y === 0;
+};
+
+/**
+ * Returns a true if this vector is the same as another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(100, 50);
+ *     var vec2 = new Victor(100, 50);
+ *     vec1.isEqualTo(vec2);
+ *
+ *     // => true
+ *
+ * @return {Boolean} 
+ * @api public
+ */
+Victor.prototype.isEqualTo = function(vec2) {
+	return this.x === vec2.x && this.y === vec2.y;
+};
 
 /**
  * # Utility Methods

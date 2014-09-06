@@ -203,58 +203,61 @@ Subtracts another vector from this one
 
 * **Victor** `this` for chaining capabilities
 
-## divideX(number)
+## divideX(vector)
 
-Divides the X axis by a number
+Divides the X axis by the x component of given vector
 
 ### Examples:
     var vec = new Victor(100, 50);
+    var vec2 = new Victor(2, 0);
 
-    vec.divideX(2);
+    vec.divideX(vec2);
     vec.toString();
     // => x:50, y:50
 
 ### Params: 
 
-* **Number** *number* The number to divide the axis by
+* **Victor** *vector* The other vector you want divide by
 
 ### Return:
 
 * **Victor** `this` for chaining capabilities
 
-## divideY(number)
+## divideY(vector)
 
-Divides the Y axis by a number
+Divides the Y axis by the y component of given vector
 
 ### Examples:
     var vec = new Victor(100, 50);
+    var vec2 = new Victor(0, 2);
 
-    vec.divideY(2);
+    vec.divideY(vec2);
     vec.toString();
     // => x:100, y:25
 
 ### Params: 
 
-* **Number** *number* The number to divide the axis by
+* **Victor** *vector* The other vector you want divide by
 
 ### Return:
 
 * **Victor** `this` for chaining capabilities
 
-## divide(number)
+## divide(vector)
 
-Divides both vector axis by a number
+Divides both vector axis by a axis values of given vector
 
 ### Examples:
     var vec = new Victor(100, 50);
+    var vec2 = new Victor(2, 2);
 
-    vec.divide(2);
+    vec.divide(vec2);
     vec.toString();
     // => x:50, y:25
 
 ### Params: 
 
-* **Number** *number* The number to divide the axis by
+* **Victor** *vector* The vector to divide by
 
 ### Return:
 
@@ -305,58 +308,61 @@ Inverts both axis
 
 * **Victor** `this` for chaining capabilities
 
-## multiplyX(number)
+## multiplyX(vector)
 
-Multiplies the X axis by a number
+Multiplies the X axis by X component of given vector
 
 ### Examples:
     var vec = new Victor(100, 50);
+    var vec2 = new Victor(2, 0);
 
-    vec.multiplyX(2);
+    vec.multiplyX(vec2);
     vec.toString();
     // => x:200, y:50
 
 ### Params: 
 
-* **Number** *number* The number to multiply the axis with
+* **Victor** *vector* The vector to multiply the axis with
 
 ### Return:
 
 * **Victor** `this` for chaining capabilities
 
-## multiplyY(number)
+## multiplyY(vector)
 
-Multiplies the Y axis by a number
+Multiplies the Y axis by Y component of given vector
 
 ### Examples:
     var vec = new Victor(100, 50);
+    var vec2 = new Victor(0, 2);
 
-    vec.multiplyY(2);
+    vec.multiplyX(vec2);
     vec.toString();
     // => x:100, y:100
 
 ### Params: 
 
-* **Number** *number* The number to multiply the axis with
+* **Victor** *vector* The vector to multiply the axis with
 
 ### Return:
 
 * **Victor** `this` for chaining capabilities
 
-## multiply(number)
+## multiply(vector)
 
-Multiplies both vector axis by a number
+Multiplies both vector axis by values from a given vector
 
 ### Examples:
     var vec = new Victor(100, 50);
+    var vec2 = new Victor(2, 2);
 
-    vec.multiply(2);
+    vec.multiply(vec2);
     vec.toString();
     // => x:200, y:100
 
 ### Params: 
 
-* **Number** *number* The number to multiply the axis with
+* **Victor** *vector* The vector to multiply by
 
 ### Return:
 
@@ -613,6 +619,20 @@ Copies another vector's X and Y components in to its own
 
 * **Victor** `this` for chaining capabilities
 
+## zero()
+
+Sets the vector to zero (0,0)
+
+### Examples:
+    var vec1 = new Victor(10, 10);
+		 var1.zero();
+    vec1.toString();
+    // => x:0, y:0
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
 ## dot(vector)
 
 Calculates the dot product of this vector and another
@@ -773,6 +793,35 @@ Squared length / magnitude
 ### Return:
 
 * **Number** Length / Magnitude
+
+## isZero()
+
+Returns a true if vector is (0, 0)
+
+### Examples:
+    var vec = new Victor(100, 50);
+    vec.zero();
+
+    // => true
+
+### Return:
+
+* **Boolean** 
+
+## isEqualTo()
+
+Returns a true if this vector is the same as another
+
+### Examples:
+    var vec1 = new Victor(100, 50);
+    var vec2 = new Victor(100, 50);
+    vec1.isEqualTo(vec2);
+
+    // => true
+
+### Return:
+
+* **Boolean** 
 
 # Utility Methods
 
