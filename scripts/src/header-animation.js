@@ -105,10 +105,12 @@ function animation (el) {
 
 			this.position.add(this.velocity);
 
+			var correction = new Victor(0.8, 0.8);
+
 			if (gold.length) {
 				var goldDistance = this.position.distance(gold[0]);
 				if (goldDistance < 50) {
-					this.velocity.multiply(0.8);
+					this.velocity.multiply(correction);
 				}
 
 				if (goldDistance < 5) {
