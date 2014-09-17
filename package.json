@@ -1,6 +1,6 @@
 {
   "name": "victor",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A JavaScript 2D vector class with methods for common vector operations",
   "keywords": [
     "vector",
