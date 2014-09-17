@@ -542,6 +542,77 @@ describe('chainable instance methods', function () {
 		});
 	});
 
+	describe('#rotate()', function () {
+		var vec, ret;
+
+		before(function () {
+			vec = new Victor(100, 100);
+			ret = vec.rotate(90 * Math.PI / 180);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should set the rotation angle', function () {
+			expect(vec).to.have.property('x', -100);
+			expect(vec).to.have.property('y', 100);
+		});
+	});
+
+	describe('#rotateDeg()', function () {
+		var vec, ret;
+
+		before(function () {
+			vec = new Victor(100, 100);
+			ret = vec.rotateDeg(90);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should set the rotation angle in degrees', function () {
+			expect(vec).to.have.property('x', -100);
+			expect(vec).to.have.property('y', 100);
+		});
+	});
+
+	describe('#rotateBy()', function () {
+		var vec, ret;
+
+		before(function () {
+			vec = new Victor(100, 100);
+			ret = vec.rotateBy(45 * Math.PI / 180);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should rotate by the given angle', function () {
+			expect(vec).to.have.property('x', -100);
+			expect(vec).to.have.property('y', 100);
+		});
+	});
+
+	describe('#rotateByDeg()', function () {
+		var vec, ret;
+
+		before(function () {
+			vec = new Victor(100, 100);
+			ret = vec.rotateByDeg(45);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should rotate by the given angle in degrees', function () {
+			expect(vec).to.have.property('x', -100);
+			expect(vec).to.have.property('y', 100);
+		});
+	});
 });
 
 describe('regular instance methods', function () {
