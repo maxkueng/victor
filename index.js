@@ -760,22 +760,24 @@ Victor.prototype.rotate = function (angle) {
 
 	this.x = nx;
 	this.y = ny;
+
+	return this;
 };
 
 Victor.prototype.rotateDeg = function (angle) {
 	angle = degrees2radian(angle);
-	this.rotate(angle);
+	return this.rotate(angle);
 };
 
 Victor.prototype.rotateBy = function (rotation) {
 	var angle = this.angle() + rotation;
 
-	this.rotate(angle);
+	return this.rotate(angle);
 };
 
 Victor.prototype.rotateByDeg = function (rotation) {
 	rotation = degrees2radian(rotation);
-	this.rotateBy(rotation);
+	return this.rotateBy(rotation);
 };
 
 /**
