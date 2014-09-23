@@ -431,7 +431,7 @@ Victor.prototype.normalize = function () {
 		this.x = 1;
 		this.y = 0;
 	} else {
-		this.divide(length);
+		this.divide(Victor(length, length));
 	}
 	return this;
 };
@@ -959,7 +959,7 @@ Victor.prototype.magnitude = Victor.prototype.length;
  *
  *     // => true
  *
- * @return {Boolean} 
+ * @return {Boolean}
  * @api public
  */
 Victor.prototype.isZero = function() {
@@ -976,7 +976,7 @@ Victor.prototype.isZero = function() {
  *
  *     // => true
  *
- * @return {Boolean} 
+ * @return {Boolean}
  * @api public
  */
 Victor.prototype.isEqualTo = function(vec2) {
