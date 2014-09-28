@@ -652,6 +652,26 @@ Calculates the dot product of this vector and another
 
 * **Number** Dot product
 
+## projectOnto(vector)
+
+Projects a vector onto another vector, setting itself to the result.
+
+### Examples:
+    var vec = new Victor(100, 0);
+    var vec2 = new Victor(100, 100);
+
+    vec.projectOnto(vec2);
+    vec.toString();
+    // => x:50, y:50
+
+### Params: 
+
+* **Victor** *vector* The other vector you want to project this vector onto
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
 ## distanceX(vector)
 
 Calculates the distance of the X axis between this vector and another
