@@ -623,9 +623,13 @@ describe('chainable instance methods', function () {
             vec3 = new Victor(0,100);
             vec4 = new Victor(200,0);
             selfRet = vec1.projectOnto(vec1);
-			perpRet = vec1.projectOnto(vec3);            
-            paraRet = vec1.projectOnto(vec4);
-            middleRet = vec1.projectOnto(vec2);
+			perpRet = vec1.clone().projectOnto(vec3);            
+            paraRet = vec1.clone().projectOnto(vec4);
+            middleRet = vec1.clone().projectOnto(vec2);
+		});
+		
+        it('should be chainable', function () {
+			expect(selfRet).to.equal(vec1);
 		});
 
         it('should project same vector onto itself without change', function() {
