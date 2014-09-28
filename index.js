@@ -733,6 +733,28 @@ Victor.prototype.cross = function (vec2) {
 	return (this.x * vec2.y ) - (this.y * vec2.x );
 };
 
+/**
+ * Projects a vector onto another vector, setting itself to the result.
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 0);
+ *     var vec2 = new Victor(100, 100);
+ *
+ *     vec.projectOnto(vec2);
+ *     vec.toString();
+ *     // => x:50, y:50
+ *
+ * @param {Victor} vector The other vector you want to project this vector onto
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.projectOnto = function (vec2) {
+    var coeff = ( (this.x * vec2.x)+(this.y * vec2.y) ) / ((vec2.x*vec2.x)+(vec2.y*vec2.y));
+    this.x = coeff * vec2.x;
+    this.y = coeff * vec2.y;
+    return this;
+};
+
 
 Victor.prototype.horizontalAngle = function () {
 	return Math.atan2(this.y, this.x);
