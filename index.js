@@ -413,6 +413,27 @@ Victor.prototype.multiplyScalar = function (scalar) {
 	return this;
 };
 
+
+/**
+ * Adds the given scalar to both vector axis
+ *
+ * ### Examples:
+ *     var vec = new Victor(1, 2);
+ *
+ *     vec.addScalar(2);
+ *     vec.toString();
+ *     // => x: 3, y: 4
+ *
+ * @param {Number} scalar The scalar to add
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.addScalar = function (scalar) {
+	this.x += scalar;
+	this.y += scalar;
+	return this;
+};
+
 /**
  * Normalize
  *
