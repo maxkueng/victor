@@ -295,6 +295,44 @@ describe('chainable instance methods', function () {
 		});
 	});
 
+	describe('#multiplyScalar()', function () {
+		var vec, scalar, ret;
+
+		before(function () {
+			vec = new Victor(1, 2);
+			scalar = 2;
+			ret = vec.multiplyScalar(scalar);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should multiply both vector axis by 2', function () {
+			expect(vec).to.have.property('x', 2);
+			expect(vec).to.have.property('y', 4);
+		});
+	});
+
+	describe('#addScalar()', function () {
+		var vec, scalar, ret;
+
+		before(function () {
+			vec = new Victor(1, 2);
+			scalar = 2;
+			ret = vec.addScalar(scalar);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should add 2 to both vector axis', function () {
+			expect(vec).to.have.property('x', 3);
+			expect(vec).to.have.property('y', 4);
+		});
+	});
+
 	describe('#norm()', function () {
 		var vec, ret;
 
