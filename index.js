@@ -394,6 +394,26 @@ Victor.prototype.multiply = function (vector) {
 };
 
 /**
+ * Multiplies both vector axis by the given scalar
+ *
+ * ### Examples:
+ *     var vec = new Victor(1, 2);
+ *
+ *     vec.multiplyScalar(2);
+ *     vec.toString();
+ *     // => x: 2, y: 4
+ *
+ * @param {Number} scalar The scalar to multiply by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.multiplyScalar = function (scalar) {
+	this.x *= scalar;
+	this.y *= scalar;
+	return this;
+};
+
+/**
  * Normalize
  *
  * @return {Victor} `this` for chaining capabilities
