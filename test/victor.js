@@ -1,9 +1,7 @@
-var chai = require('chai');
-var chaiStats = require('chai-stats');
+var expect = require('chai').expect;
 var Victor = require('../index');
 
-chai.use(chaiStats);
-var expect = chai.expect;
+var EPSILON = 0.0001;
 
 describe('static methods', function () {
 
@@ -547,7 +545,7 @@ describe('chainable instance methods', function () {
 	});
 	
 	describe('#horizontalAngle()', function(){
-		var PRECISION = 6;
+		
 		var angleX,angleY;
 		before(function(){
 			angleX = new Victor(100,0).horizontalAngle();
@@ -556,15 +554,15 @@ describe('chainable instance methods', function () {
 		});
 		
 		it('should x directed vector to 0°', function(){
-			expect(angleX).almost.equal(0,PRECISION);
+			expect(Math.abs(angleX - 0)).to.lte(0,EPSILON);
 		});
 		
 		it('should y directed vector to 90°', function(){
-			expect(angleY).almost.equal(Math.PI/2,PRECISION);
+			expect(Math.abs(angleY - Math.PI/2)).to.lte(EPSILON);
 		});
 		
 		it('should negative x directed vector to 180°', function(){
-			expect(angleXPi).almost.equal(Math.PI,PRECISION);
+			expect(Math.abs(angleXPi - Math.PI)).to.lte(EPSILON);
 		});
 	});
 
@@ -583,7 +581,7 @@ describe('chainable instance methods', function () {
 		it('should rotate the vector by certain degrees', function () {
 			expect(vec).to.have.property('x', -100);
 			expect(vec).to.have.property('y', 100);
-			expect(vec.horizontalAngle()).almost.equal(135 * Math.PI / 180,6);
+			expect(Math.abs(vec.horizontalAngle() - 135 * Math.PI / 180)).to.lte(EPSILON);
 		});
 	});
 	
@@ -608,7 +606,7 @@ describe('chainable instance methods', function () {
 	
 	
 	describe('#rotateTo()', function(){
-		var vecX,vecY, retX, retY, EPSILON= 0;
+		var vecX,vecY, retX, retY;
 		
 		
 		before(function(){
@@ -635,7 +633,6 @@ describe('chainable instance methods', function () {
 	});
 	
 	describe('#rotateToDeg()', function(){
-		var PRECISION = 6;
 		var vec,ret;
 		before(function(){
 			vec = new Victor(100,0);
@@ -649,7 +646,7 @@ describe('chainable instance methods', function () {
 		});
 		
 		it('should rotate any Vector to a given angle', function(){
-			expect(vec.angleDeg()).almost.equal(120,PRECISION);
+			expect(Math.abs(vec.angleDeg()-120)).to.lte(EPSILON);
 		
 		});
 		
