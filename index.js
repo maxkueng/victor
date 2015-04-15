@@ -278,6 +278,64 @@ Victor.prototype.divide = function (vector) {
 };
 
 /**
+ * Divides both vector axis by the given scalar value
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.scalarDivide(2);
+ *     vec.toString();
+ *     // => x:50, y:25
+ *
+ * @param {Victor} scalar The scalar to divide by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.scalarDivide = function (scalar) {
+	this.x /= scalar;
+	this.y /= scalar;
+	return this;
+};
+
+/**
+ * Divides the X axis by the given scalar value
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.scalarDivideX(2);
+ *     vec.toString();
+ *     // => x:100, y:25
+ *
+ * @param {Victor} scalar The scalar to divide by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.scalarDivideX = function (scalar) {
+	this.x /= scalar;
+	return this;
+};
+
+/**
+ * Divides the Y axis by the given scalar value
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.scalarDivideY(2);
+ *     vec.toString();
+ *     // => x:100, y:25
+ *
+ * @param {Victor} scalar The scalar to divide by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.scalarDivideY = function (scalar) {
+	this.y /= scalar;
+	return this;
+};
+
+/**
  * Inverts the X axis
  *
  * ### Examples:
