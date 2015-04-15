@@ -238,6 +238,63 @@ describe('chainable instance methods', function () {
 		});
 	});
 
+	describe('#scalarDivide()', function () {
+		var vec, scal, ret;
+
+		before(function () {
+			vec = new Victor(30, 20);
+			scal = 2;
+			ret = vec.scalarDivide(scal);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should divide both vector axis by 2', function () {
+			expect(vec).to.have.property('x', 15);
+			expect(vec).to.have.property('y', 10);
+		});
+	});
+
+	describe('#scalarDivideX()', function () {
+		var vec, scal, ret;
+
+		before(function () {
+			vec = new Victor(30, 20);
+			scal = 2;
+			ret = vec.scalarDivideX(scal);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should divide the X axis by 2', function () {
+			expect(vec).to.have.property('x', 15);
+			expect(vec).to.have.property('y', 20);
+		});
+	});
+
+	describe('#scalarDivideY()', function () {
+		var vec, scal, ret;
+
+		before(function () {
+			vec = new Victor(30, 20);
+			scal = 2;
+			ret = vec.scalarDivideY(scal);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should divide the Y axis by 2', function () {
+			expect(vec).to.have.property('x', 30);
+			expect(vec).to.have.property('y', 10);
+		});
+	});
+
 	describe('#multiplyX()', function () {
 		var vec, vec2, ret;
 
