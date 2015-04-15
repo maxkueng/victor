@@ -255,6 +255,15 @@ describe('chainable instance methods', function () {
 			expect(vec).to.have.property('x', 15);
 			expect(vec).to.have.property('y', 10);
 		});
+
+		it('should return a zero vector when dividing by 0', function() {
+			vec = new Victor(30, 20);
+			scal = 0;
+			ret = vec.scalarDivide(scal);
+
+			expect(vec).to.have.property('x', 0);
+			expect(vec).to.have.property('y', 0);
+		});
 	});
 
 	describe('#scalarDivideX()', function () {
@@ -274,6 +283,14 @@ describe('chainable instance methods', function () {
 			expect(vec).to.have.property('x', 15);
 			expect(vec).to.have.property('y', 20);
 		});
+
+		it('should return a zero X when dividing by 0', function() {
+			vec = new Victor(30, 20);
+			scal = 0;
+			ret = vec.scalarDivide(scal);
+
+			expect(vec).to.have.property('x', 0);
+		});
 	});
 
 	describe('#scalarDivideY()', function () {
@@ -292,6 +309,14 @@ describe('chainable instance methods', function () {
 		it('should divide the Y axis by 2', function () {
 			expect(vec).to.have.property('x', 30);
 			expect(vec).to.have.property('y', 10);
+		});
+
+		it('should return a zero Y when dividing by 0', function() {
+			vec = new Victor(30, 20);
+			scal = 0;
+			ret = vec.scalarDivide(scal);
+
+			expect(vec).to.have.property('y', 0);
 		});
 	});
 

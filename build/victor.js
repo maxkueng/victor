@@ -317,8 +317,14 @@ Victor.prototype.divide = function (vector) {
  * @api public
  */
 Victor.prototype.scalarDivide = function (scalar) {
-	this.x /= scalar;
-	this.y /= scalar;
+	if (scalar !== 0) {
+		this.x /= scalar;
+		this.y /= scalar;
+	} else {
+		this.x = 0;
+		this.y = 0;
+	}
+	
 	return this;
 };
 
@@ -337,7 +343,11 @@ Victor.prototype.scalarDivide = function (scalar) {
  * @api public
  */
 Victor.prototype.scalarDivideX = function (scalar) {
-	this.x /= scalar;
+	if (scalar !== 0) {
+		this.x /= scalar;
+	} else {
+		this.x = 0;
+	}
 	return this;
 };
 
@@ -356,7 +366,11 @@ Victor.prototype.scalarDivideX = function (scalar) {
  * @api public
  */
 Victor.prototype.scalarDivideY = function (scalar) {
-	this.y /= scalar;
+	if (scalar !== 0) {
+		this.y /= scalar;
+	} else {
+		this.y = 0;
+	}
 	return this;
 };
 
