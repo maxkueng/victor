@@ -352,6 +352,63 @@ describe('chainable instance methods', function () {
 		});
 	});
 
+	describe('#scalarMultiply()', function () {
+		var vec, scal, ret;
+
+		before(function () {
+			vec = new Victor(30, 20);
+			scal = 2;
+			ret = vec.scalarMultiply(scal);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should multiply both vector axis by 2', function () {
+			expect(vec).to.have.property('x', 60);
+			expect(vec).to.have.property('y', 40);
+		});
+	});
+
+	describe('#scalarMultiplyX()', function () {
+		var vec, scal, ret;
+
+		before(function () {
+			vec = new Victor(30, 20);
+			scal = 2;
+			ret = vec.scalarMultiplyX(scal);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should multiply the X axis by 2', function () {
+			expect(vec).to.have.property('x', 60);
+			expect(vec).to.have.property('y', 20);
+		});
+	});
+
+	describe('#scalarMultiplyY()', function () {
+		var vec, scal, ret;
+
+		before(function () {
+			vec = new Victor(30, 20);
+			scal = 2;
+			ret = vec.scalarMultiplyY(scal);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should multiply the Y axis by 2', function () {
+			expect(vec).to.have.property('x', 30);
+			expect(vec).to.have.property('y', 40);
+		});
+	});
+
 	describe('#norm()', function () {
 		var vec, ret;
 
