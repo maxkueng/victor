@@ -97,10 +97,10 @@ Victor.fromObject = function (obj) {
  *     var vec1 = new Victor(20, 30);
  *     var vec2 = new Victor(40, 50);
  *
- *     var vec3 = Victor.add(vec1, vec2);
+ *     var target = Victor.add(vec1, vec2);
  *
  *     
- *     vec3.toString();
+ *     target.toString();
  *     // => x:60, y:80
  *
  * @name Victor.sum
@@ -111,12 +111,12 @@ Victor.fromObject = function (obj) {
 
 Victor.sum = function(v1,v2,target) {
 	if (target === null) {
-    	var target = new Victor(v1.x + v2.x, v1.y + v2.y);
+    var target = new Victor(v1.x + v2.x, v1.y + v2.y);
 	} else {
-      	target.x = v1.x + v2.x; 
-      	target.y = v1.y + v2.y;
-    }
-    return target;
+    target.x = v1.x + v2.x; 
+    target.y = v1.y + v2.y;
+  }
+  return target;
 }
 
 

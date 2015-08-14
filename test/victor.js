@@ -67,12 +67,11 @@ describe('static methods', function () {
 		var vec1, vec2, target;
 
 		before(function () {
-			vec1 = { x: 100, y: 200 };
-			vec2 = { x: 100, y: 200 };
-			target = new Victor();
+			vec1 = new Victor(20, 40);
+			vec2 = new Victor(30, 20);
+			target = Victor.sum(vec1,vec2);
+
 			
-			target.x = vec1.x + vec2.x; 
-      target.y = vec1.y + vec2.y;
 		});
 
 		it('should return new instance of Victor', function () {
@@ -80,8 +79,8 @@ describe('static methods', function () {
 		});
 
 		it('should have axis from object', function () {
-			expect(target).to.have.property('x', target.x);
-			expect(target).to.have.property('y', target.y);
+			expect(target).to.have.property('x', 50);
+			expect(target).to.have.property('y', 60);
 		});
 	});
 
