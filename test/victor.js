@@ -63,6 +63,29 @@ describe('static methods', function () {
 		});
 	});
 
+	describe('#sum()', function () {
+		var vec1, vec2, target;
+
+		before(function () {
+			vec1 = { x: 100, y: 200 };
+			vec2 = { x: 100, y: 200 };
+			target = new Victor();
+			
+			target.x = vec1.x + vec2.x; 
+      target.y = vec1.y + vec2.y;
+		});
+
+		it('should return new instance of Victor', function () {
+			expect(target).to.be.an.instanceof(Victor);
+		});
+
+		it('should have axis from object', function () {
+			expect(target).to.have.property('x', target.x);
+			expect(target).to.have.property('y', target.y);
+		});
+	});
+
+
 });
 
 describe('chainable instance methods', function () {
