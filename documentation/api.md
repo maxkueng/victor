@@ -79,6 +79,58 @@ Creates a new instance from an object
 
 * **Victor** The new instance
 
+
+## Victor.sum(vector,vector)
+
+Creates a new instance from 2 vectors addition
+
+### Examples:
+    var vec1 = new Victor(20, 30);
+    var vec2 = new Victor(40, 50);
+
+    var target = Victor.add(vec1, vec2);
+
+
+    target.toString();
+    // => x:60, y:80
+
+### Params: 
+
+* **Victor** *vector* The first addend vector
+* **Victor** *vector* The second addend vector
+
+
+### Return:
+
+* **Victor** The new instance (the sum)
+
+
+## Victor.sub(vector,vector)
+
+Creates a new instance from 2 vectors substraction
+
+### Examples:
+    var vec1 = new Victor(40, 30);
+    var vec2 = new Victor(20, 60);
+
+    var target = Victor.sub(vec1, vec2);
+
+
+    target.toString();
+    // => x:20, y:-30
+
+### Params: 
+
+* **Victor** *vector* The minuend vector
+* **Victor** *vector* The subtrahend vector
+
+
+### Return:
+
+* **Victor** The new instance (the difference)
+
+
+
 # Manipulation
 
 These functions are chainable.

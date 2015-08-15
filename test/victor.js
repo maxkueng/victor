@@ -64,26 +64,42 @@ describe('static methods', function () {
 	});
 
 	describe('#sum()', function () {
-		var vec1, vec2, target;
+		var vec1, vec2, ret;
 
 		before(function () {
-			vec1 = new Victor(20, 40);
-			vec2 = new Victor(30, 20);
-			target = Victor.sum(vec1,vec2);
-
-			
+			vec1 = new Victor(20, 30);
+			vec2 = new Victor(40, 50);
+			ret = Victor.sum(vec1,vec2);		
 		});
 
 		it('should return new instance of Victor', function () {
-			expect(target).to.be.an.instanceof(Victor);
+			expect(ret).to.be.an.instanceof(Victor);
 		});
 
-		it('should have axis from object', function () {
-			expect(target).to.have.property('x', 50);
-			expect(target).to.have.property('y', 60);
+		it('should have axis from addition', function () {
+			expect(ret).to.have.property('x', 60);
+			expect(ret).to.have.property('y', 80);
 		});
 	});
 
+	describe('#sub()', function () {
+		var vec1, vec2, ret;
+
+		before(function () {
+			vec1 = new Victor(40, 30);
+			vec2 = new Victor(20, 60);
+			ret = Victor.sub(vec1,vec2);		
+		});
+
+		it('should return new instance of Victor', function () {
+			expect(ret).to.be.an.instanceof(Victor);
+		});
+
+		it('should have axis from substraction', function () {
+			expect(ret).to.have.property('x', 20);
+			expect(ret).to.have.property('y', -30);
+		});
+	});
 
 });
 

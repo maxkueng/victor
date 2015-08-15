@@ -104,21 +104,40 @@ Victor.fromObject = function (obj) {
  *     // => x:60, y:80
  *
  * @name Victor.sum
- * @param {Victor} {Victor} {Victor} 2 vectors to be sum into the target vector (if null, a new vector will be created)
+ * @param {Victor} {Victor} 2 vectors to be sum into the new instance vector
  * @return {Victor} The new instance
  * @api public
  */
 
-Victor.sum = function(v1,v2,target) {
-	if (target === null) {
-    var target = new Victor(v1.x + v2.x, v1.y + v2.y);
-	} else {
-    target.x = v1.x + v2.x; 
-    target.y = v1.y + v2.y;
-  }
-  return target;
+Victor.sum = function(v1,v2) {
+  	return new Victor(v1.x + v2.x, v1.y + v2.y);
 }
 
+
+/**
+ * Substract two vectors into target vector 
+ * This a port of stactic function "sub" from Processing's library PVector  
+ * github.com/processing/processing/blob/c83dc54c94088de6d189e0071b8d65b5f41c81e9/core/src/processing/core/PVector.java#L542
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(40, 30);
+ *     var vec2 = new Victor(20, 60);
+ *
+ *     var target = Victor.add(vec1, vec2);
+ *
+ *     
+ *     target.toString();
+ *     // => x:20, y:-30
+ *
+ * @name Victor.sub
+ * @param {Victor} {Victor} 2 vectors to be substraction into the new instance vector
+ * @return {Victor} The new instance
+ * @api public
+ */
+
+Victor.sub = function(v1,v2) {
+  	return new Victor(v1.x - v2.x, v1.y - v2.y);
+}
 
 /**
  * # Manipulation
