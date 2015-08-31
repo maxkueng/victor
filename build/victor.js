@@ -303,6 +303,78 @@ Victor.prototype.divide = function (vector) {
 };
 
 /**
+ * Divides both vector axis by the given scalar value
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.scalarDivide(2);
+ *     vec.toString();
+ *     // => x:50, y:25
+ *
+ * @param {Victor} scalar The scalar to divide by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.scalarDivide = function (scalar) {
+	if (scalar !== 0) {
+		this.x /= scalar;
+		this.y /= scalar;
+	} else {
+		this.x = 0;
+		this.y = 0;
+	}
+	
+	return this;
+};
+
+/**
+ * Divides the X axis by the given scalar value
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.scalarDivideX(2);
+ *     vec.toString();
+ *     // => x:100, y:25
+ *
+ * @param {Victor} scalar The scalar to divide by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.scalarDivideX = function (scalar) {
+	if (scalar !== 0) {
+		this.x /= scalar;
+	} else {
+		this.x = 0;
+	}
+	return this;
+};
+
+/**
+ * Divides the Y axis by the given scalar value
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.scalarDivideY(2);
+ *     vec.toString();
+ *     // => x:100, y:25
+ *
+ * @param {Victor} scalar The scalar to divide by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.scalarDivideY = function (scalar) {
+	if (scalar !== 0) {
+		this.y /= scalar;
+	} else {
+		this.y = 0;
+	}
+	return this;
+};
+
+/**
  * Inverts the X axis
  *
  * ### Examples:
@@ -415,6 +487,64 @@ Victor.prototype.multiplyY = function (vector) {
 Victor.prototype.multiply = function (vector) {
 	this.x *= vector.x;
 	this.y *= vector.y;
+	return this;
+};
+
+/**
+ * Multiplies both vector axis by the given scalar value
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.multiply(2);
+ *     vec.toString();
+ *     // => x:200, y:100
+ *
+ * @param {Victor} scalar The scalar to multiply by
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.scalarMultiply = function (scalar) {
+	this.x *= scalar;
+	this.y *= scalar;
+	return this;
+};
+
+/**
+ * Multiplies the X axis by the given scalar
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.multiplyX(2);
+ *     vec.toString();
+ *     // => x:100, y:100
+ *
+ * @param {Victor} scalar The scalar to multiply the axis with
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.scalarMultiplyX = function (scalar) {
+	this.x *= scalar;
+	return this;
+};
+
+/**
+ * Multiplies the Y axis by the given scalar
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *
+ *     vec.multiplyX(2);
+ *     vec.toString();
+ *     // => x:100, y:100
+ *
+ * @param {Victor} scalar The scalar to multiply the axis with
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.scalarMultiplyY = function (scalar) {
+	this.y *= scalar;
 	return this;
 };
 
