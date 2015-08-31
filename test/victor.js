@@ -240,13 +240,13 @@ describe('chainable instance methods', function () {
 		});
 	});
 
-	describe('#scalarDivide()', function () {
+	describe('#divideScalar()', function () {
 		var vec, scal, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
 			scal = 2;
-			ret = vec.scalarDivide(scal);
+			ret = vec.divideScalar(scal);
 		});
 
 		it('should be chainable', function () {
@@ -261,20 +261,20 @@ describe('chainable instance methods', function () {
 		it('should return a zero vector when dividing by 0', function() {
 			vec = new Victor(30, 20);
 			scal = 0;
-			ret = vec.scalarDivide(scal);
+			ret = vec.divideScalar(scal);
 
 			expect(vec).to.have.property('x', 0);
 			expect(vec).to.have.property('y', 0);
 		});
 	});
 
-	describe('#scalarDivideX()', function () {
+	describe('#divideScalarX()', function () {
 		var vec, scal, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
 			scal = 2;
-			ret = vec.scalarDivideX(scal);
+			ret = vec.divideScalarX(scal);
 		});
 
 		it('should be chainable', function () {
@@ -289,19 +289,19 @@ describe('chainable instance methods', function () {
 		it('should return a zero X when dividing by 0', function() {
 			vec = new Victor(30, 20);
 			scal = 0;
-			ret = vec.scalarDivide(scal);
+			ret = vec.divideScalarX(scal);
 
 			expect(vec).to.have.property('x', 0);
 		});
 	});
 
-	describe('#scalarDivideY()', function () {
+	describe('#divideScalarY()', function () {
 		var vec, scal, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
 			scal = 2;
-			ret = vec.scalarDivideY(scal);
+			ret = vec.divideScalarY(scal);
 		});
 
 		it('should be chainable', function () {
@@ -316,7 +316,7 @@ describe('chainable instance methods', function () {
 		it('should return a zero Y when dividing by 0', function() {
 			vec = new Victor(30, 20);
 			scal = 0;
-			ret = vec.scalarDivide(scal);
+			ret = vec.divideScalarY(scal);
 
 			expect(vec).to.have.property('y', 0);
 		});
@@ -379,13 +379,13 @@ describe('chainable instance methods', function () {
 		});
 	});
 
-	describe('#scalarMultiply()', function () {
+	describe('#multiplyScalar()', function () {
 		var vec, scal, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
 			scal = 2;
-			ret = vec.scalarMultiply(scal);
+			ret = vec.multiplyScalar(scal);
 		});
 
 		it('should be chainable', function () {
@@ -398,32 +398,32 @@ describe('chainable instance methods', function () {
 		});
 	});
 
-	describe('#scalarMultiplyX()', function () {
+	describe('#multiplyScalarX()', function () {
 		var vec, scal, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
 			scal = 2;
-			ret = vec.scalarMultiplyX(scal);
-		});
-
-		it('should be chainable', function () {
-			expect(ret).to.equal(vec);
+			ret = vec.multiplyScalarX(scal);
 		});
 
 		it('should multiply the X axis by 2', function () {
 			expect(vec).to.have.property('x', 60);
 			expect(vec).to.have.property('y', 20);
 		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
 	});
 
-	describe('#scalarMultiplyY()', function () {
+	describe('#multiplyScalarY()', function () {
 		var vec, scal, ret;
 
 		before(function () {
 			vec = new Victor(30, 20);
 			scal = 2;
-			ret = vec.scalarMultiplyY(scal);
+			ret = vec.multiplyScalarY(scal);
 		});
 
 		it('should be chainable', function () {
@@ -433,6 +433,120 @@ describe('chainable instance methods', function () {
 		it('should multiply the Y axis by 2', function () {
 			expect(vec).to.have.property('x', 30);
 			expect(vec).to.have.property('y', 40);
+		});
+	});
+
+	describe('#addScalar()', function () {
+		var vec, scalar, ret;
+
+		before(function () {
+			vec = new Victor(1, 2);
+			scalar = 2;
+			ret = vec.addScalar(scalar);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should add 2 to both vector axis', function () {
+			expect(vec).to.have.property('x', 3);
+			expect(vec).to.have.property('y', 4);
+		});
+	});
+
+	describe('#addScalarX()', function () {
+		var vec, scalar, ret;
+
+		before(function () {
+			vec = new Victor(1, 2);
+			scalar = 2;
+			ret = vec.addScalarX(scalar);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should add 2 to the x axis', function () {
+			expect(vec).to.have.property('x', 3);
+			expect(vec).to.have.property('y', 2);
+		});
+	});
+
+	describe('#addScalarY()', function () {
+		var vec, scalar, ret;
+
+		before(function () {
+			vec = new Victor(10, 20);
+			scalar = 2;
+			ret = vec.addScalarY(scalar);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should add 2 to the y axis', function () {
+			expect(vec).to.have.property('x', 10);
+			expect(vec).to.have.property('y', 22);
+		});
+	});
+
+	describe('#subtractScalar()', function () {
+		var vec, scalar, ret;
+
+		before(function () {
+			vec = new Victor(10, 20);
+			scalar = 2;
+			ret = vec.subtractScalar(scalar);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should subtract 2 from both vector axis', function () {
+			expect(vec).to.have.property('x', 8);
+			expect(vec).to.have.property('y', 18);
+		});
+	});
+
+	describe('#subtractScalarX()', function () {
+		var vec, scalar, ret;
+
+		before(function () {
+			vec = new Victor(10, 20);
+			scalar = 2;
+			ret = vec.subtractScalarX(scalar);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should subtract 2 from the x axis', function () {
+			expect(vec).to.have.property('x', 8);
+			expect(vec).to.have.property('y', 20);
+		});
+	});
+
+	describe('#subtractScalarY()', function () {
+		var vec, scalar, ret;
+
+		before(function () {
+			vec = new Victor(10, 20);
+			scalar = 2;
+			ret = vec.subtractScalarY(scalar);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should add 2 to the y axis', function () {
+			expect(vec).to.have.property('x', 10);
+			expect(vec).to.have.property('y', 18);
 		});
 	});
 
@@ -489,7 +603,7 @@ describe('chainable instance methods', function () {
 			var maxX = Math.max(topLeft.x, bottomRight.x);
 			var minY = Math.min(topLeft.y, bottomRight.y);
 			var maxY = Math.max(topLeft.y, bottomRight.y);
-			
+
 			for (i = 0; i < count; i++) {
 				vec.randomize(topLeft, bottomRight);
 
@@ -515,7 +629,7 @@ describe('chainable instance methods', function () {
 			var y = vec.y;
 			var minX = Math.min(topLeft.x, bottomRight.x);
 			var maxX = Math.max(topLeft.x, bottomRight.x);
-			
+
 			for (i = 0; i < count; i++) {
 				vec.randomizeX(topLeft, bottomRight);
 
@@ -543,7 +657,7 @@ describe('chainable instance methods', function () {
 			var x = vec.x;
 			var minY = Math.min(topLeft.y, bottomRight.y);
 			var maxY = Math.max(topLeft.y, bottomRight.y);
-			
+
 			for (i = 0; i < count; i++) {
 				vec.randomizeY(topLeft, bottomRight);
 
@@ -682,24 +796,24 @@ describe('chainable instance methods', function () {
 			expect(vec).to.have.property('y', 0);
 		});
 	});
-	
+
 	describe('#horizontalAngle()', function(){
-		
+
 		var angleX,angleY;
 		before(function(){
 			angleX = new Victor(100,0).horizontalAngle();
 			angleY = new Victor(0,100).horizontalAngle();
 			angleXPi = new Victor(-100,0).horizontalAngle();
 		});
-		
+
 		it('should x directed vector to 0°', function(){
 			expect(Math.abs(angleX - 0)).to.lte(0,EPSILON);
 		});
-		
+
 		it('should y directed vector to 90°', function(){
 			expect(Math.abs(angleY - Math.PI/2)).to.lte(EPSILON);
 		});
-		
+
 		it('should negative x directed vector to 180°', function(){
 			expect(Math.abs(angleXPi - Math.PI)).to.lte(EPSILON);
 		});
@@ -723,7 +837,7 @@ describe('chainable instance methods', function () {
 			expect(Math.abs(vec.horizontalAngle() - 135 * Math.PI / 180)).to.lte(EPSILON);
 		});
 	});
-	
+
 
 	describe('#rotateDeg()', function () {
 		var vec, ret;
@@ -742,58 +856,58 @@ describe('chainable instance methods', function () {
 			expect(vec).to.have.property('y', 100);
 		});
 	});
-	
-	
+
+
 	describe('#rotateTo()', function(){
 		var vecX,vecY, retX, retY;
-		
-		
+
+
 		before(function(){
 			vecX = new Victor(100,0);
 			vecY = new Victor(0,100);
 			retX = vecX.rotateTo(120 * Math.PI / 180);
 			retY = vecY.rotateTo(120 * Math.PI / 180);
 		});
-		
+
 		it('should be chainable', function(){
 			expect(retX).to.equal(vecX);
 		});
-		
+
 		it('should rotate any Vector to a given angle', function(){
 			expect(vecX.angle()).to.equal(120 * Math.PI /180);
 			expect(vecY.angle()).to.equal(120 * Math.PI /180);
 		});
-		
+
 		it('should keep the length', function(){
 			expect(retX.length()).to.equal(100);
 			expect(retY.length()).to.equal(100);
 		});
-		
+
 	});
-	
+
 	describe('#rotateToDeg()', function(){
 		var vec,ret;
 		before(function(){
 			vec = new Victor(100,0);
-			
+
 			ret = vec.rotateToDeg(120);
-			
+
 		});
-		
+
 		it('should be chainable', function(){
 			expect(ret).to.equal(vec);
 		});
-		
+
 		it('should rotate any Vector to a given angle', function(){
 			expect(Math.abs(vec.angleDeg()-120)).to.lte(EPSILON);
-		
+
 		});
-		
+
 		it('should keep the length', function(){
 			expect(ret.length()).to.equal(100);
-			
+
 		});
-		
+
 	});
 
 	describe('#rotateBy()', function () {
@@ -831,7 +945,7 @@ describe('chainable instance methods', function () {
 			expect(vec).to.have.property('y', 100);
 		});
 	});
-	
+
     describe('#projectOnto()', function () {
 		var vec1, vec2, var3, selfRet, perpRet, paraRet, middleRet;
 
@@ -841,11 +955,11 @@ describe('chainable instance methods', function () {
             vec3 = new Victor(0,100);
             vec4 = new Victor(200,0);
             selfRet = vec1.projectOnto(vec1);
-			perpRet = vec1.clone().projectOnto(vec3);            
+			perpRet = vec1.clone().projectOnto(vec3);
             paraRet = vec1.clone().projectOnto(vec4);
             middleRet = vec1.clone().projectOnto(vec2);
 		});
-		
+
         it('should be chainable', function () {
 			expect(selfRet).to.equal(vec1);
 		});
