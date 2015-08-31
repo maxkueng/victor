@@ -791,6 +791,15 @@ Victor.prototype.rotateDeg = function (angle) {
 	return this.rotate(angle);
 };
 
+Victor.prototype.rotateTo = function(rotation) {
+	return this.rotate(rotation-this.angle());
+};
+
+Victor.prototype.rotateToDeg = function(rotation) {
+	rotation = degrees2radian(rotation);
+	return this.rotateTo(rotation);
+};
+
 Victor.prototype.rotateBy = function (rotation) {
 	var angle = this.angle() + rotation;
 

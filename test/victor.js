@@ -1,6 +1,8 @@
 var expect = require('chai').expect;
 var Victor = require('../index');
 
+var EPSILON = 0.0001;
+
 describe('static methods', function () {
 
 	describe('new Victor', function () {
@@ -541,6 +543,28 @@ describe('chainable instance methods', function () {
 			expect(vec).to.have.property('y', 0);
 		});
 	});
+	
+	describe('#horizontalAngle()', function(){
+		
+		var angleX,angleY;
+		before(function(){
+			angleX = new Victor(100,0).horizontalAngle();
+			angleY = new Victor(0,100).horizontalAngle();
+			angleXPi = new Victor(-100,0).horizontalAngle();
+		});
+		
+		it('should x directed vector to 0°', function(){
+			expect(Math.abs(angleX - 0)).to.lte(0,EPSILON);
+		});
+		
+		it('should y directed vector to 90°', function(){
+			expect(Math.abs(angleY - Math.PI/2)).to.lte(EPSILON);
+		});
+		
+		it('should negative x directed vector to 180°', function(){
+			expect(Math.abs(angleXPi - Math.PI)).to.lte(EPSILON);
+		});
+	});
 
 	describe('#rotate()', function () {
 		var vec, ret;
@@ -554,11 +578,13 @@ describe('chainable instance methods', function () {
 			expect(ret).to.equal(vec);
 		});
 
-		it('should set the rotation angle', function () {
+		it('should rotate the vector by certain degrees', function () {
 			expect(vec).to.have.property('x', -100);
 			expect(vec).to.have.property('y', 100);
+			expect(Math.abs(vec.horizontalAngle() - 135 * Math.PI / 180)).to.lte(EPSILON);
 		});
 	});
+	
 
 	describe('#rotateDeg()', function () {
 		var vec, ret;
@@ -576,6 +602,59 @@ describe('chainable instance methods', function () {
 			expect(vec).to.have.property('x', -100);
 			expect(vec).to.have.property('y', 100);
 		});
+	});
+	
+	
+	describe('#rotateTo()', function(){
+		var vecX,vecY, retX, retY;
+		
+		
+		before(function(){
+			vecX = new Victor(100,0);
+			vecY = new Victor(0,100);
+			retX = vecX.rotateTo(120 * Math.PI / 180);
+			retY = vecY.rotateTo(120 * Math.PI / 180);
+		});
+		
+		it('should be chainable', function(){
+			expect(retX).to.equal(vecX);
+		});
+		
+		it('should rotate any Vector to a given angle', function(){
+			expect(vecX.angle()).to.equal(120 * Math.PI /180);
+			expect(vecY.angle()).to.equal(120 * Math.PI /180);
+		});
+		
+		it('should keep the length', function(){
+			expect(retX.length()).to.equal(100);
+			expect(retY.length()).to.equal(100);
+		});
+		
+	});
+	
+	describe('#rotateToDeg()', function(){
+		var vec,ret;
+		before(function(){
+			vec = new Victor(100,0);
+			
+			ret = vec.rotateToDeg(120);
+			
+		});
+		
+		it('should be chainable', function(){
+			expect(ret).to.equal(vec);
+		});
+		
+		it('should rotate any Vector to a given angle', function(){
+			expect(Math.abs(vec.angleDeg()-120)).to.lte(EPSILON);
+		
+		});
+		
+		it('should keep the length', function(){
+			expect(ret.length()).to.equal(100);
+			
+		});
+		
 	});
 
 	describe('#rotateBy()', function () {
