@@ -1,6 +1,6 @@
 {
   "name": "victor",
-  "version": "0.2.6",
+  "version": "1.0.0",
   "description": "A JavaScript 2D vector class with methods for common vector operations",
   "keywords": [
     "vector",
@@ -18,7 +18,7 @@
   },
   "homepage": "http://victorjs.org/",
   "author": "Max Kueng <me@maxkueng.com> (http://maxkueng.com/)",
-  "contributors": [
+  "maintainers": [
     "Max Kueng (http://maxkueng.com/)",
     "George Crabtree (http://georgecrabtree.com/)"
   ],

@@ -143,6 +143,63 @@ Adds another vector to this one
 
 * **Victor** `this` for chaining capabilities
 
+## addScalar(scalar)
+
+Adds the given scalar to both vector axis
+
+### Examples:
+    var vec = new Victor(1, 2);
+
+    vec.addScalar(2);
+    vec.toString();
+    // => x: 3, y: 4
+
+### Params: 
+
+* **Number** *scalar* The scalar to add
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## addScalarX(scalar)
+
+Adds the given scalar to the X axis
+
+### Examples:
+    var vec = new Victor(1, 2);
+
+    vec.addScalarX(2);
+    vec.toString();
+    // => x: 3, y: 2
+
+### Params: 
+
+* **Number** *scalar* The scalar to add
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## addScalarY(scalar)
+
+Adds the given scalar to the Y axis
+
+### Examples:
+    var vec = new Victor(1, 2);
+
+    vec.addScalarY(2);
+    vec.toString();
+    // => x: 1, y: 4
+
+### Params: 
+
+* **Number** *scalar* The scalar to add
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
 ## subtractX(vector)
 
 Subtracts the X axis of another vector from this one
@@ -203,6 +260,63 @@ Subtracts another vector from this one
 
 * **Victor** `this` for chaining capabilities
 
+## subtractScalar(scalar)
+
+Subtracts the given scalar from both axis
+
+### Examples:
+    var vec = new Victor(100, 200);
+
+    vec.subtractScalar(20);
+    vec.toString();
+    // => x: 80, y: 180
+
+### Params: 
+
+* **Number** *scalar* The scalar to subtract
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## subtractScalarX(scalar)
+
+Subtracts the given scalar from the X axis
+
+### Examples:
+    var vec = new Victor(100, 200);
+
+    vec.subtractScalarX(20);
+    vec.toString();
+    // => x: 80, y: 200
+
+### Params: 
+
+* **Number** *scalar* The scalar to subtract
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## subtractScalarY(scalar)
+
+Subtracts the given scalar from the Y axis
+
+### Examples:
+    var vec = new Victor(100, 200);
+
+    vec.subtractScalarY(20);
+    vec.toString();
+    // => x: 100, y: 180
+
+### Params: 
+
+* **Number** *scalar* The scalar to subtract
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
 ## divideX(vector)
 
 Divides the X axis by the x component of given vector
@@ -258,6 +372,63 @@ Divides both vector axis by a axis values of given vector
 ### Params: 
 
 * **Victor** *vector* The vector to divide by
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## divideScalar(The)
+
+Divides both vector axis by the given scalar value
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.divideScalar(2);
+    vec.toString();
+    // => x:50, y:25
+
+### Params: 
+
+* **Number** *The* scalar to divide by
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## divideScalarX(The)
+
+Divides the X axis by the given scalar value
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.divideScalarX(2);
+    vec.toString();
+    // => x:50, y:50
+
+### Params: 
+
+* **Number** *The* scalar to divide by
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## divideScalarY(The)
+
+Divides the Y axis by the given scalar value
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.divideScalarY(2);
+    vec.toString();
+    // => x:100, y:25
+
+### Params: 
+
+* **Number** *The* scalar to divide by
 
 ### Return:
 
@@ -363,6 +534,63 @@ Multiplies both vector axis by values from a given vector
 ### Params: 
 
 * **Victor** *vector* The vector to multiply by
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## multiplyScalar(The)
+
+Multiplies both vector axis by the given scalar value
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.multiplyScalar(2);
+    vec.toString();
+    // => x:200, y:100
+
+### Params: 
+
+* **Number** *The* scalar to multiply by
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## multiplyScalarX(The)
+
+Multiplies the X axis by the given scalar
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.multiplyScalarX(2);
+    vec.toString();
+    // => x:200, y:50
+
+### Params: 
+
+* **Number** *The* scalar to multiply the axis with
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
+## multiplyScalarY(The)
+
+Multiplies the Y axis by the given scalar
+
+### Examples:
+    var vec = new Victor(100, 50);
+
+    vec.multiplyScalarY(2);
+    vec.toString();
+    // => x:100, y:100
+
+### Params: 
+
+* **Number** *The* scalar to multiply the axis with
 
 ### Return:
 
