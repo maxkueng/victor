@@ -719,6 +719,25 @@ Rounds both axis to an integer value
 
 * **Victor** `this` for chaining capabilities
 
+## toFixed(Precision)
+
+Rounds both axis to a certain precision
+
+### Examples:
+    var vec = new Victor(100.2, 50.9);
+
+    vec.unfloat();
+    vec.toString();
+    // => x:100, y:51
+
+### Params: 
+
+* **Number** *Precision* (default: 8)
+
+### Return:
+
+* **Victor** `this` for chaining capabilities
+
 ## mixX(vector, amount)
 
 Performs a linear blend / interpolation of the X axis towards another vector

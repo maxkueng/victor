@@ -815,6 +815,27 @@ Victor.prototype.unfloat = function () {
 };
 
 /**
+ * Rounds both axis to a certain precision
+ *
+ * ### Examples:
+ *     var vec = new Victor(100.2, 50.9);
+ *
+ *     vec.unfloat();
+ *     vec.toString();
+ *     // => x:100, y:51
+ *
+ * @param {Number} Precision (default: 8)
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.toFixed = function (precision) {
+	if (typeof precision === 'undefined') { precision = 8; }
+	this.x = this.x.toFixed(precision);
+	this.y = this.y.toFixed(precision);
+	return this;
+};
+
+/**
  * Performs a linear blend / interpolation of the X axis towards another vector
  *
  * ### Examples:
