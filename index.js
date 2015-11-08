@@ -1222,7 +1222,7 @@ Victor.prototype.length = function () {
 Victor.prototype.setLength = function (scalar) {
     var length = this.length();
 
-    if (scalar > 0 && length !== 0) {
+    if (scalar >= 0 && length !== 0) {
         var sinA = this.y / length;
         var sinB = this.x / length;
         this.y = sinA * scalar;
