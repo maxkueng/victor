@@ -1076,6 +1076,38 @@ describe('regular instance methods', function () {
 		});
 	});
 
+    describe('#setLength()', function () {
+        var vec, x, y;
+
+        before(function () {
+            vec = new Victor(100, 50);
+            vec.setLength(120);
+            x = vec.x;
+            y = vec.y;
+        });
+
+        it('should return the length of the vector', function () {
+            expect(Math.round(x)).to.equal(107);
+            expect(Math.round(y)).to.equal(54);
+        });
+    });
+
+    describe('#addLength()', function () {
+        var vec, x, y;
+
+        before(function () {
+            vec = new Victor(100, 50);
+            vec.addLength(10);
+            x = vec.x;
+            y = vec.y;
+        });
+
+        it('should return the length of the vector', function () {
+            expect(Math.round(x)).to.equal(109);
+            expect(Math.round(y)).to.equal(54);
+        });
+    });
+
 	describe('#isZero()', function () {
 		var vec;
 

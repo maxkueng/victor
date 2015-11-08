@@ -1206,6 +1206,51 @@ Victor.prototype.length = function () {
 };
 
 /**
+ * Increase vector length
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *     vec.setLength(120);
+ *
+ *     vec.toString();
+ *     // => x:107.3312629199899, y:53.66563145999495
+ *
+ * @param {Number} scalar The scalar to set
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.setLength = function (scalar) {
+    var length = this.length();
+
+    if (scalar > 0 && length !== 0) {
+        var sinA = this.y / length;
+        var sinB = this.x / length;
+        this.y = sinA * scalar;
+        this.x = sinB * scalar;
+    }
+
+    return this;
+};
+
+/**
+ * Add vector length
+ *
+ * ### Examples:
+ *     var vec = new Victor(100, 50);
+ *     vec.addLength(10);
+ *
+ *     vec.toString();
+ *     // => x:108.94427190999916, y:54.47213595499958
+ *
+ * @param {Number} scalar The scalar to add
+ * @return {Victor} `this` for chaining capabilities
+ * @api public
+ */
+Victor.prototype.addLength = function (scalar) {
+    return this.setLength(this.length() + scalar);
+};
+
+/**
  * Squared length / magnitude
  *
  * ### Examples:
