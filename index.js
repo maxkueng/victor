@@ -1044,13 +1044,9 @@ Victor.prototype.angleDeg = Victor.prototype.horizontalAngleDeg;
 Victor.prototype.direction = Victor.prototype.horizontalAngle;
 
 Victor.prototype.rotate = function (angle) {
-	var nx = (this.x * Math.cos(angle)) - (this.y * Math.sin(angle));
-	var ny = (this.x * Math.sin(angle)) + (this.y * Math.cos(angle));
+    var rotation = angle - this.angle();
 
-	this.x = nx;
-	this.y = ny;
-
-	return this;
+    return this.rotateBy(rotation);
 };
 
 Victor.prototype.rotateDeg = function (angle) {
@@ -1068,9 +1064,13 @@ Victor.prototype.rotateToDeg = function(rotation) {
 };
 
 Victor.prototype.rotateBy = function (rotation) {
-	var angle = this.angle() + rotation;
+    var nx = (this.x * Math.cos(rotation)) - (this.y * Math.sin(rotation));
+    var ny = (this.x * Math.sin(rotation)) + (this.y * Math.cos(rotation));
 
-	return this.rotate(angle);
+    this.x = nx;
+    this.y = ny;
+
+    return this;
 };
 
 Victor.prototype.rotateByDeg = function (rotation) {
