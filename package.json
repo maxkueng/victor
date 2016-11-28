@@ -19,7 +19,8 @@
     "build": "cross-env BABEL_ENV=commonjs node ./script/bundle.js",
     "lint": "eslint src/*",
     "fix": "eslint --fix src/*",
-    "authors": "authors"
+    "authors": "authors",
+    "yarn": "yarn"
   },
   "homepage": "http://victorjs.org/",
   "author": "Max Kueng <me@maxkueng.com> (http://maxkueng.com/)",
@@ -49,6 +50,7 @@
     "rollup-plugin-babel": "^2.6.1",
     "rollup-plugin-json": "^2.0.2",
     "rollup-plugin-uglify": "^1.0.1",
-    "uglify-js": "^2.7.4"
+    "uglify-js": "^2.7.4",
+    "yarn": "^0.17.9"
   }
 }
