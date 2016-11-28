@@ -1,4 +1,5 @@
 {
+  "private": true,
   "name": "victor",
   "version": "0.2.6",
   "description": "A JavaScript 2D vector library for common vector operations",
@@ -12,7 +13,6 @@
     "url": "git://github.com/maxkueng/victor.git"
   },
   "scripts": {
-    "prepublish": "echo 'Do not publish'; exit 1",
     "test": "npm-run-all lint mocha",
     "mocha": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register",
     "test:watch": "npm run mocha -- --watch",
