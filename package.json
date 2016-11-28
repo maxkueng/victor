@@ -14,7 +14,7 @@
   },
   "scripts": {
     "test": "npm-run-all lint mocha",
-    "mocha": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register",
+    "mocha": "cross-env BABEL_ENV=commonjs mocha --compilers js:babel-register --recursive src/**/*.spec.js",
     "test:watch": "npm run mocha -- --watch",
     "build": "cross-env BABEL_ENV=commonjs node ./script/bundle.js",
     "lint": "eslint src/*",
