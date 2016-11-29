@@ -5,7 +5,13 @@
         "node": true,
         "mocha": true
     },
-    "extends": "airbnb",
+    "extends": [
+      "airbnb",
+      "plugin:flowtype/recommended"
+    ],
+    "plugins": [
+      "flowtype"
+    ],
     "rules": {
         "no-underscore-dangle": [
             "error",
