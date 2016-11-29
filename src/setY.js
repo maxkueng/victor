@@ -1,4 +1,6 @@
-export default function setX(a, y) {
+/* @flow */
+
+export default function setX(a: Vector, y: number): Vector {
   return {
     y,
     x: a.x,
