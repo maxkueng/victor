@@ -1,6 +1,6 @@
-export default function setX(a, b) {
+export default function setX(a, x) {
   return {
-    x: b.x,
+    x,
     y: a.y,
   };
 }
