@@ -9,6 +9,7 @@ const json = require('rollup-plugin-json');
 const babel = require('rollup-plugin-babel');
 const uglify = require('rollup-plugin-uglify');
 const { minify } = require('uglify-js');
+const flow = require('rollup-plugin-flow');
 
 const methodTypes = require('../src/method-types').default;
 
@@ -37,6 +38,7 @@ function makeBundle(entry, { outputDir, external = [], format = 'cjs', extraPlug
     entry: entryPath,
     plugins: [
       json(),
+      flow(),
       babel({
         babelrc: false,
         presets: [

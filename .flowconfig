@@ -1,4 +1,6 @@
 [ignore]
+.*/node_modules/rollup-plugin-flow/.*
+.*/node_modules/flow-remove-types/.*
 
 [include]
 src/
