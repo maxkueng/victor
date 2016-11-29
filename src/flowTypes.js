@@ -1,7 +1,7 @@
 /* @flow */
 
 export type Vector = {
-  x: number,
-  y: number,
+  x: number;
+  y: number;
 }
 
