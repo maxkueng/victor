@@ -1,12 +1,10 @@
 /* @flow */
 
-import {assert} from 'chai';
+import { assert } from 'chai';
 import Victor from '../src/mutable';
 
 describe('mutable', () => {
-
   it('should mutate and return the same instance', () => {
-
     const v1 = new Victor(100, 200);
     const v2 = new Victor(300, 400);
     const res = v1.add(v2);
@@ -20,5 +18,4 @@ describe('mutable', () => {
 
     assert.equal(v1, res);
   });
-
 });
