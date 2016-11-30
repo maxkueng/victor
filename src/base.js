@@ -8,6 +8,10 @@ class BaseVictor {
   _x: number;
   _y: number;
 
+  addX: Function;
+  addY: Function;
+  add: Function;
+
   constructor(x: number, y: number) {
     this._x = x;
     this._y = y;
