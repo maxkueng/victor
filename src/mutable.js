@@ -1,3 +1,5 @@
+/* @flow */
+
 import * as lib from './lib';
 import methodTypes from './method-types';
 import BaseVictor from './base';
@@ -5,7 +7,7 @@ import BaseVictor from './base';
 export default class Victor extends BaseVictor {
 }
 
-function addManipulationMethod(proto, name, method) {
+function addManipulationMethod(proto: Object, name: string, method: Function): void {
   const p = proto;
 
   p[name] = function add(...args) {
@@ -23,7 +25,7 @@ function addManipulationMethod(proto, name, method) {
   };
 }
 
-function addProductMethod(proto, name, method) {
+function addProductMethod(proto: Object, name: string, method: Function): void {
   const p = proto;
 
   p[name] = function add(...args) {

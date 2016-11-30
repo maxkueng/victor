@@ -1,17 +1,23 @@
+/* @flow */
+
 import { version } from '../package.json';
 
 class BaseVictor {
 
-  constructor(x, y) {
+  static VERSION: string;
+  _x: number;
+  _y: number;
+
+  constructor(x: number, y: number) {
     this._x = x;
     this._y = y;
   }
 
-  get x() {
+  get x(): number {
     return this._x;
   }
 
-  get y() {
+  get y(): number {
     return this._y;
   }
 

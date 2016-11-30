@@ -1,3 +1,5 @@
+/* @flow */
+
 import { assert } from 'chai';
 import distance from './distance';
 
