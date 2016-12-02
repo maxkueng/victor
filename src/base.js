@@ -14,9 +14,9 @@ import type { VectorComponent, Vector } from './flowTypes';
   _x: VectorComponent;
   _y: VectorComponent;
 
-    this._x = x;
-    this._y = y;
   constructor(x: VectorComponent, y: VectorComponent) {
+    this._x = x || 0;
+    this._y = y || 0;
   }
 
   get x(): VectorComponent {
