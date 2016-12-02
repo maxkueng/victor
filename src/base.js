@@ -3,25 +3,26 @@
 import { version } from '../package.json';
 
 class BaseVictor {
+import type { VectorComponent, Vector } from './flowTypes';
 
   static VERSION: string;
-  _x: number;
-  _y: number;
 
   addX: Function;
   addY: Function;
   add: Function;
+  _x: VectorComponent;
+  _y: VectorComponent;
 
-  constructor(x: number, y: number) {
     this._x = x;
     this._y = y;
+  constructor(x: VectorComponent, y: VectorComponent) {
   }
 
-  get x(): number {
+  get x(): VectorComponent {
     return this._x;
   }
 
-  get y(): number {
+  get y(): VectorComponent {
     return this._y;
   }
 

@@ -1,7 +1,8 @@
 /* @flow */
 
-export type Vector = {
-  x: number;
-  y: number;
-}
+export type VectorComponent = number;
 
+export type Vector = {
+  x: VectorComponent;
+  y: VectorComponent;
+};

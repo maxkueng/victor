@@ -1,8 +1,8 @@
 /* @flow */
 
-import type { Vector } from './flowTypes';
+import type { VectorComponent, Vector } from './flowTypes';
 
-export default function setX(a: Vector, y: number): Vector {
+export default function setY(a: Vector, y: VectorComponent): Vector {
   return {
     y,
     x: a.x,
