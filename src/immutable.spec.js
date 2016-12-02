@@ -3,7 +3,7 @@
 import { assert } from 'chai';
 import Victor from '../src/immutable';
 
-describe('immutable', () => {
+describe('Victor (immutable)', () => {
   it('should not mutate and return a new instance', () => {
     const v1 = new Victor(100, 200);
     const v2 = new Victor(300, 400);

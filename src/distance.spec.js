@@ -3,7 +3,7 @@
 import { assert } from 'chai';
 import distance from './distance';
 
-describe('#distance()', () => {
+describe('lib/distance()', () => {
   it('should calculate the distance between two vectors', () => {
     const v1 = { x: 100, y: 50 };
     const v2 = { x: 200, y: 70 };

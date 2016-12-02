@@ -3,7 +3,7 @@
 import { assert } from 'chai';
 import distanceSq from './distanceSq';
 
-describe('#distanceSq()', () => {
+describe('lib/distanceSq()', () => {
   it('should calculate the squared distance between two vectors', () => {
     const v1 = { x: 100, y: 100 };
     const v2 = { x: 100, y: 200 };

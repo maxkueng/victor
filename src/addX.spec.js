@@ -3,7 +3,7 @@
 import { assert } from 'chai';
 import addX from './addX';
 
-describe('#addX()', () => {
+describe('lib/addX()', () => {
   it('should add the X components of two vectors', () => {
     const v1 = { x: 100, y: 200 };
     const v2 = { x: 300, y: 400 };

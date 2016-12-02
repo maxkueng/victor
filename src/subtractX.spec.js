@@ -3,7 +3,7 @@
 import { assert } from 'chai';
 import subtractX from './subtractX';
 
-describe('#subtractX()', () => {
+describe('lib/subtractX()', () => {
   it('should subtract the X component of two vectors', () => {
     const v1 = { x: 500, y: 300 };
     const v2 = { x: 200, y: 100 };

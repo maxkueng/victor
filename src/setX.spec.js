@@ -3,7 +3,7 @@
 import { assert } from 'chai';
 import setX from './setX';
 
-describe('#setX()', () => {
+describe('lib/setX()', () => {
   it('should set the X component of the vector', () => {
     const v1 = { x: 100, y: 50 };
 
