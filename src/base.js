@@ -3,14 +3,11 @@
 
 import { version } from '../package.json';
 
-class BaseVictor {
 import type { VectorComponent, Vector } from './flowTypes';
 
+class BaseVictor {
   static VERSION: string;
 
-  addX: Function;
-  addY: Function;
-  add: Function;
   _x: VectorComponent;
   _y: VectorComponent;
 
@@ -38,4 +35,17 @@ import type { VectorComponent, Vector } from './flowTypes';
 
 BaseVictor.VERSION = version;
 
+function setComponents(target: Object, { x, y }: Vector): Object {
+  const t = target;
+
+  t._x = x;
+  t._y = y;
+
+  return t;
+}
+
 export default BaseVictor;
+
+export {
+  setComponents,
+};

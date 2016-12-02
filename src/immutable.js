@@ -1,48 +1,31 @@
 /* @flow */
 
 import * as lib from './lib';
-import methodTypes from './method-types';
+import { callMethod } from './utils';
 import BaseVictor from './base';
 
-export default class Victor extends BaseVictor {
+import type { VectorComponent } from './flowTypes';
+
+class Victor extends BaseVictor {
+  setX(x: VectorComponent): Victor {
+    return Victor.fromObject(callMethod(this, lib.setX, x));
+  }
+
+  setY(y: VectorComponent): Victor {
+    return Victor.fromObject(callMethod(this, lib.setX, y));
+  }
+
+  add(v: Victor): Victor {
+    return Victor.fromObject(callMethod(this, lib.add, v));
+  }
+
+  addX(v: Victor): Victor {
+    return Victor.fromObject(callMethod(this, lib.addX, v));
+  }
+
+  addY(v: Victor): Victor {
+    return Victor.fromObject(callMethod(this, lib.addY, v));
+  }
 }
 
-function addManipulationMethod(proto: Object, name: string, method: Function): void {
-  const p = proto;
-
-  p[name] = function add(...args) {
-    const funcArgs = [{
-      x: this.x,
-      y: this.y,
-    }].concat(args);
-
-    const { x, y } = method(...funcArgs);
-
-    return new Victor(x, y);
-  };
-}
-
-function addProductMethod(proto: Object, name: string, method: Function): void {
-  const p = proto;
-
-  p[name] = function add(...args) {
-    const funcArgs = [{
-      x: this.x,
-      y: this.y,
-    }].concat(args);
-
-    return method(...funcArgs);
-  };
-}
-
-Object.keys(methodTypes)
-  .filter(methodName => methodTypes[methodName] === 'manipulation')
-  .forEach((methodName) => {
-    addManipulationMethod(Victor.prototype, methodName, lib[methodName]);
-  });
-
-Object.keys(methodTypes)
-  .filter(methodName => methodTypes[methodName] === 'product')
-  .forEach((methodName) => {
-    addProductMethod(Victor.prototype, methodName, lib[methodName]);
-  });
+export default Victor;
