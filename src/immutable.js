@@ -26,6 +26,26 @@ class ImmutableVictor extends BaseVictor {
   addY(v: ImmutableVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(callMethod(this, lib.addY, v));
   }
+
+  subtract(v: ImmutableVictor): ImmutableVictor {
+    return ImmutableVictor.fromObject(callMethod(this, lib.subtract, v));
+  }
+
+  subtractX(v: ImmutableVictor): ImmutableVictor {
+    return ImmutableVictor.fromObject(callMethod(this, lib.subtractX, v));
+  }
+
+  subtractY(v: ImmutableVictor): ImmutableVictor {
+    return ImmutableVictor.fromObject(callMethod(this, lib.subtractY, v));
+  }
+
+  distance(v: ImmutableVictor): ImmutableVictor {
+    return callMethod(this, lib.distance, v);
+  }
+
+  distanceSquared(v: ImmutableVictor): ImmutableVictor {
+    return callMethod(this, lib.distanceSquared, v);
+  }
 }
 
 export default ImmutableVictor;

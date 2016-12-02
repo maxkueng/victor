@@ -18,6 +18,22 @@ class MutableVictor extends BaseVictor {
   add(v: MutableVictor): MutableVictor {
     return setComponents(this, callMethod(this, lib.add, v));
   }
+
+  addX(v: MutableVictor): MutableVictor {
+    return setComponents(this, callMethod(this, lib.addX, v));
+  }
+
+  addY(v: MutableVictor): MutableVictor {
+    return setComponents(this, callMethod(this, lib.addY, v));
+  }
+
+  distance(v: MutableVictor): MutableVictor {
+    return callMethod(this, lib.distance, v);
+  }
+
+  distanceSquared(v: MutableVictor): MutableVictor {
+    return callMethod(this, lib.distanceSquared, v);
+  }
 }
 
 export default MutableVictor;
