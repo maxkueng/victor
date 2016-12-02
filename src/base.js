@@ -1,3 +1,4 @@
+/* eslint no-underscore-dangle: "off" */
 /* @flow */
 
 import { version } from '../package.json';
