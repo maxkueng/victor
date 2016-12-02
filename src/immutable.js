@@ -6,26 +6,26 @@ import BaseVictor from './base';
 
 import type { VectorComponent } from './flowTypes';
 
-class Victor extends BaseVictor {
-  setX(x: VectorComponent): Victor {
-    return Victor.fromObject(callMethod(this, lib.setX, x));
+class ImmutableVictor extends BaseVictor {
+  setX(x: VectorComponent): ImmutableVictor {
+    return ImmutableVictor.fromObject(callMethod(this, lib.setX, x));
   }
 
-  setY(y: VectorComponent): Victor {
-    return Victor.fromObject(callMethod(this, lib.setX, y));
+  setY(y: VectorComponent): ImmutableVictor {
+    return ImmutableVictor.fromObject(callMethod(this, lib.setX, y));
   }
 
-  add(v: Victor): Victor {
-    return Victor.fromObject(callMethod(this, lib.add, v));
+  add(v: ImmutableVictor): ImmutableVictor {
+    return ImmutableVictor.fromObject(callMethod(this, lib.add, v));
   }
 
-  addX(v: Victor): Victor {
-    return Victor.fromObject(callMethod(this, lib.addX, v));
+  addX(v: ImmutableVictor): ImmutableVictor {
+    return ImmutableVictor.fromObject(callMethod(this, lib.addX, v));
   }
 
-  addY(v: Victor): Victor {
-    return Victor.fromObject(callMethod(this, lib.addY, v));
+  addY(v: ImmutableVictor): ImmutableVictor {
+    return ImmutableVictor.fromObject(callMethod(this, lib.addY, v));
   }
 }
 
-export default Victor;
+export default ImmutableVictor;

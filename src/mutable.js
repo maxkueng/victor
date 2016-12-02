@@ -6,18 +6,18 @@ import BaseVictor, { setComponents } from './base';
 
 import type { VectorComponent } from './flowTypes';
 
-class Victor extends BaseVictor {
-  setX(x: VectorComponent): Victor {
+class MutableVictor extends BaseVictor {
+  setX(x: VectorComponent): MutableVictor {
     return setComponents(this, callMethod(this, lib.setX, x));
   }
 
-  setY(y: VectorComponent): Victor {
+  setY(y: VectorComponent): MutableVictor {
     return setComponents(this, callMethod(this, lib.setY, y));
   }
 
-  add(v: Victor): Victor {
+  add(v: MutableVictor): MutableVictor {
     return setComponents(this, callMethod(this, lib.add, v));
   }
 }
 
-export default Victor;
+export default MutableVictor;
