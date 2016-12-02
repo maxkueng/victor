@@ -7,4 +7,4 @@ export { default as subtract } from './subtract';
 export { default as subtractX } from './subtractX';
 export { default as subtractY } from './subtractY';
 export { default as distance } from './distance';
-export { default as distanceSq } from './distanceSq';
+export { default as distanceSquared } from './distanceSquared';
