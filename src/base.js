@@ -28,7 +28,7 @@ class BaseVictor {
     return new this(obj.x, obj.y);
   }
 
-  static fromArray(arr: VectorComponent[]) {
+  static fromArray(arr: VectorComponent[]): this {
     return new this(arr[0], arr[1]);
   }
 }
