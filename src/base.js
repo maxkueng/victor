@@ -27,11 +27,11 @@ import type { VectorComponent, Vector } from './flowTypes';
     return this._y;
   }
 
-  static fromObject(obj) {
+  static fromObject(obj: Vector): this {
     return new this(obj.x, obj.y);
   }
 
-  static fromArray(arr) {
+  static fromArray(arr: VectorComponent[]) {
     return new this(arr[0], arr[1]);
   }
 }
