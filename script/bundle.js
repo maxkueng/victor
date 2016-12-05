@@ -11,13 +11,12 @@ const uglify = require('rollup-plugin-uglify');
 const { minify } = require('uglify-js');
 const flow = require('rollup-plugin-flow');
 
-const methodTypes = require('../src/method-types').default;
-
 const outputBaseDir = path.resolve('build');
+const libFilePath = path.resolve('src', 'lib.js')
 
-const libEntries = Object.keys(methodTypes)
+const libEntries = Object.keys(require(libFilePath))
   .map(methodName => path.resolve('src', `${methodName}.js`))
-  .concat(path.resolve('src', 'lib.js'));
+  .concat(libFilePath);
 
 const mainEntries = [
   path.resolve('src', 'immutable.js'),
