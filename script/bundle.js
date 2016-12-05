@@ -12,7 +12,7 @@ const { minify } = require('uglify-js');
 const flow = require('rollup-plugin-flow');
 
 const outputBaseDir = path.resolve('build');
-const libFilePath = path.resolve('src', 'lib.js')
+const libFilePath = path.resolve('src', 'lib.js');
 
 const libEntries = Object.keys(require(libFilePath))
   .map(methodName => path.resolve('src', `${methodName}.js`))
