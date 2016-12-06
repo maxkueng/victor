@@ -1,3 +1,6 @@
+/* eslint import/no-dynamic-require: "off" */
+/* eslint no-console: "off" */
+
 require('babel-register')({
   presets: ['es2015'],
 });
