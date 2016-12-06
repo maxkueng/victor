@@ -31,7 +31,7 @@ function makeBundle(entry, { outputDir, external = [], format = 'cjs', extraPlug
   const [ entrySource, entryDest = entrySource ] = entryData;
 
   const entryPath = path.join(sourceDir, entrySource);
-  const outputPath = path.join(outputDir, entryDest || entrySource)
+  const outputPath = path.join(outputDir, entryDest);
 
   const notSelfExternal = external
     .filter(externalPath => path.resolve(entryPath) !== path.resolve(externalPath));
