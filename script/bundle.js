@@ -32,7 +32,7 @@ const mainEntries = [
 
 function makeBundle(entry, { outputDir, external = [], format = 'cjs', extraPlugins = [] }) {
   const entryData = [].concat(entry);
-  const [ entrySource, entryDest = entrySource ] = entryData;
+  const [entrySource, entryDest = entrySource] = entryData;
 
   const entryPath = path.join(sourceDir, entrySource);
   const outputPath = path.join(outputDir, entryDest);
