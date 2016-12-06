@@ -23,8 +23,7 @@
     "flow": "flow check",
     "lint": "eslint src/*",
     "fix": "eslint --fix src/*",
-    "authors": "authors",
-    "yarn": "yarn"
+    "authors": "authors"
   },
   "homepage": "http://victorjs.org/",
   "author": "Max Kueng <me@maxkueng.com> (http://maxkueng.com/)",
