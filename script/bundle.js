@@ -58,7 +58,7 @@ function makeBundle(entry, { outputDir, external = [], format = 'cjs', extraPlug
       return bundle.write({
         format,
         moduleName: 'Victor',
-        sourceMap: false,
+        sourceMap: true,
         dest: outputPath,
       });
     });
