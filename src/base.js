@@ -24,6 +24,24 @@ class BaseVictor {
     return this._y;
   }
 
+  toObject(): Vector {
+    return {
+      x: this.x,
+      y: this.y,
+    };
+  }
+
+  toArray(): VectorComponent[] {
+    return [
+      this.x,
+      this.y,
+    ];
+  }
+
+  toString(): string {
+    return `x:${this.x}, y:${this.y}`;
+  }
+
   static fromObject(obj: Vector): this {
     return new this(obj.x, obj.y);
   }
