@@ -1,38 +1,37 @@
 /* @flow */
 
 import * as lib from './lib';
-import { callMethod } from './utils';
 import BaseVictor, { setComponents } from './base';
 
 import type { VectorComponent } from './flowTypes';
 
 class MutableVictor extends BaseVictor {
   setX(x: VectorComponent): MutableVictor {
-    return setComponents(this, callMethod(this, lib.setX, x));
+    return setComponents(this, lib.setX(this.toObject(), x));
   }
 
   setY(y: VectorComponent): MutableVictor {
-    return setComponents(this, callMethod(this, lib.setY, y));
+    return setComponents(this, lib.setY(this.toObject(), y));
   }
 
   add(v: MutableVictor): MutableVictor {
-    return setComponents(this, callMethod(this, lib.add, v));
+    return setComponents(this, lib.add(this.toObject(), v));
   }
 
   addX(v: MutableVictor): MutableVictor {
-    return setComponents(this, callMethod(this, lib.addX, v));
+    return setComponents(this, lib.addX(this.toObject(), v));
   }
 
   addY(v: MutableVictor): MutableVictor {
-    return setComponents(this, callMethod(this, lib.addY, v));
+    return setComponents(this, lib.addY(this.toObject(), v));
   }
 
   distance(v: MutableVictor): MutableVictor {
-    return callMethod(this, lib.distance, v);
+    return lib.distance(this.toObject(), v);
   }
 
   distanceSquared(v: MutableVictor): MutableVictor {
-    return callMethod(this, lib.distanceSquared, v);
+    return lib.distanceSquared(this.toObject(), v);
   }
 }
 
