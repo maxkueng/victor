@@ -74,6 +74,16 @@ function makeNodeBundle(entry) {
   });
 }
 
+function makeEsBundle(entry) {
+  makeBundle(entry, {
+    external: libEntries
+      .concat(mainEntries)
+      .map(libEntry => path.join(sourceDir, libEntry)),
+    outputDir: path.join(outputBaseDir, 'es2015'),
+    format: 'es',
+  });
+}
+
 function makeBrowserBundle(entry) {
   const entryBasename = path.basename(entry, '.js');
   const outputFilename = `victor.${entryBasename}.js`;
@@ -98,5 +108,6 @@ function makeMinifiedBrowserBundle(entry) {
 }
 
 Promise.map(mainEntries.concat(libEntries), makeNodeBundle);
+Promise.map(mainEntries.concat(libEntries), makeEsBundle);
 Promise.map(mainEntries, makeBrowserBundle);
 Promise.map(mainEntries, makeMinifiedBrowserBundle);

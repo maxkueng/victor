@@ -8,6 +8,7 @@
     "2d"
   ],
   "main": "build/node/index.js",
+  "jsnext:main": "build/es2015/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/maxkueng/victor.git"
