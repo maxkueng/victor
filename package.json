@@ -7,7 +7,7 @@
     "vector",
     "2d"
   ],
-  "main": "index.js",
+  "main": "build/node/index.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/maxkueng/victor.git"
