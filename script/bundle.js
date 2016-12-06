@@ -19,7 +19,7 @@ const libFilePath = path.join('lib', 'index.js');
 
 const libEntries = Object.keys(require(path.join(sourceDir, libFilePath)))
   .map(methodName => path.join('lib', `${methodName}.js`))
-  .concat([ path.join(libFilePath)]);
+  .concat([path.join(libFilePath)]);
 
 const mainEntries = [
   'immutable.js',
