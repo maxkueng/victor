@@ -10,24 +10,28 @@ const babel = require('rollup-plugin-babel');
 const uglify = require('rollup-plugin-uglify');
 const { minify } = require('uglify-js');
 const flow = require('rollup-plugin-flow');
+const nodeResolve = require('rollup-plugin-node-resolve');
 
+const sourceDir = path.resolve('src');
 const outputBaseDir = path.resolve('build');
-const libFilePath = path.resolve('src', 'lib.js');
 
-const libEntries = Object.keys(require(libFilePath))
-  .map(methodName => path.resolve('src', `${methodName}.js`))
-  .concat(libFilePath);
+const libFilePath = path.join('lib', 'index.js');
+
+const libEntries = Object.keys(require(path.join(sourceDir, libFilePath)))
+  .map(methodName => path.join('lib', `${methodName}.js`))
+  .concat([ path.join(libFilePath)]);
 
 const mainEntries = [
-  path.resolve('src', 'immutable.js'),
-  path.resolve('src', 'mutable.js'),
+  'immutable.js',
+  'mutable.js',
 ];
 
 function makeBundle(entry, { outputDir, external = [], format = 'cjs', extraPlugins = [] }) {
   const entryData = [].concat(entry);
-  const [entryPath, entryOutputFilename] = entryData;
-  const entryFilename = path.basename(entryPath);
-  const outputFilename = entryOutputFilename || entryFilename;
+  const [ entrySource, entryDest = entrySource ] = entryData;
+
+  const entryPath = path.join(sourceDir, entrySource);
+  const outputPath = path.join(outputDir, entryDest || entrySource)
 
   const notSelfExternal = external
     .filter(externalPath => path.resolve(entryPath) !== path.resolve(externalPath));
@@ -36,6 +40,7 @@ function makeBundle(entry, { outputDir, external = [], format = 'cjs', extraPlug
     external: notSelfExternal,
     entry: entryPath,
     plugins: [
+      nodeResolve(),
       json(),
       flow(),
       babel({
@@ -47,20 +52,20 @@ function makeBundle(entry, { outputDir, external = [], format = 'cjs', extraPlug
     ].concat(extraPlugins),
   })
     .then((bundle) => {
-      console.log(`${format} bundle: ${entryFilename} » ${outputFilename}`);
+      console.log(`[${format}] bundle: ${entrySource} » ${entryDest}`);
 
       return bundle.write({
         format,
         moduleName: 'Victor',
         sourceMap: false,
-        dest: path.join(outputDir, outputFilename),
+        dest: outputPath,
       });
     });
 }
 
 function makeNodeBundle(entry) {
   makeBundle(entry, {
-    external: libEntries,
+    external: libEntries.map(libEntry => path.join(sourceDir, libEntry)),
     outputDir: path.join(outputBaseDir, 'node'),
     format: 'cjs',
   });
