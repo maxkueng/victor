@@ -22,6 +22,7 @@ const libEntries = Object.keys(require(path.join(sourceDir, libFilePath)))
   .concat([path.join(libFilePath)]);
 
 const mainEntries = [
+  'index.js',
   'immutable.js',
   'mutable.js',
 ];
@@ -65,7 +66,9 @@ function makeBundle(entry, { outputDir, external = [], format = 'cjs', extraPlug
 
 function makeNodeBundle(entry) {
   makeBundle(entry, {
-    external: libEntries.map(libEntry => path.join(sourceDir, libEntry)),
+    external: libEntries
+      .concat(mainEntries)
+      .map(libEntry => path.join(sourceDir, libEntry)),
     outputDir: path.join(outputBaseDir, 'node'),
     format: 'cjs',
   });
