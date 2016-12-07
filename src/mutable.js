@@ -6,6 +6,10 @@ import BaseVictor, { setComponents } from './base';
 import type { VectorComponent } from './flowTypes';
 
 class MutableVictor extends BaseVictor {
+  set(x: VectorComponent, y: VectorComponent): MutableVictor {
+    return setComponents(this, lib.set(this.toObject(), x, y));
+  }
+
   setX(x: VectorComponent): MutableVictor {
     return setComponents(this, lib.setX(this.toObject(), x));
   }

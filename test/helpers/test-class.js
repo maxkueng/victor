@@ -24,6 +24,18 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('set()', () => {
+        it('should set the x and y component', () => {
+          const v1 = new Victor(100, 200);
+          const res = v1.set(42, 24);
+
+          assert.equal(res.x, 42);
+          assert.equal(res.y, 24);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
       describe('setX()', () => {
         it('should set the x component', () => {
           const v1 = new Victor(100, 200);

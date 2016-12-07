@@ -1,3 +1,4 @@
+export { default as set } from './set';
 export { default as setX } from './setX';
 export { default as setY } from './setY';
 export { default as add } from './add';
