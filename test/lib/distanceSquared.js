@@ -1,7 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
-import distanceSquared from './distanceSquared';
+import distanceSquared from '../../src/lib/distanceSquared';
 
 describe('lib/distanceSquared()', () => {
   it('should calculate the squared distance between two vectors', () => {

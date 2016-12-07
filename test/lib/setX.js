@@ -1,7 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
-import setX from './setX';
+import setX from '../../src/lib/setX';
 
 describe('lib/setX()', () => {
   it('should set the X component of the vector', () => {

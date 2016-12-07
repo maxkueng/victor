@@ -1,7 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
-import subtractX from './subtractX';
+import subtractX from '../../src/lib/subtractX';
 
 describe('lib/subtractX()', () => {
   it('should subtract the X component of two vectors', () => {

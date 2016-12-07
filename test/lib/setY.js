@@ -1,7 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
-import setY from './setY';
+import setY from '../../src/lib/setY';
 
 describe('lib/setY()', () => {
   it('should set the Y component of the vector', () => {

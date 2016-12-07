@@ -1,7 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
-import add from './add';
+import add from '../../src/lib/add';
 
 describe('lib/add()', () => {
   it('should add two vectors', () => {

@@ -1,7 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
-import distance from './distance';
+import distance from '../../src/lib/distance';
 
 describe('lib/distance()', () => {
   it('should calculate the distance between two vectors', () => {

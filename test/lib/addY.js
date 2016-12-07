@@ -1,7 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
-import addY from './addY';
+import addY from '../../src/lib/addY';
 
 describe('lib/addY()', () => {
   it('should add the Y components of two vectors', () => {
