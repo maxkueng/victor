@@ -1,3 +1,4 @@
+/* eslint import/no-extraneous-dependencies: "off" */
 /* eslint import/no-dynamic-require: "off" */
 /* eslint no-console: "off" */
 

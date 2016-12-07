@@ -11,19 +11,5 @@
     ],
     "plugins": [
       "flowtype"
-    ],
-    "rules": {
-        "no-underscore-dangle": [
-            "error",
-            {
-                "allowAfterThis": true
-            }
-        ],
-        "import/no-extraneous-dependencies": [
-            "error",
-            {
-                "devDependencies": true
-            }
-        ]
-    }
+    ]
 }
