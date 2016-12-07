@@ -7,5 +7,8 @@ export { default as addY } from './addY';
 export { default as subtract } from './subtract';
 export { default as subtractX } from './subtractX';
 export { default as subtractY } from './subtractY';
+export { default as multiply } from './multiply';
+export { default as multiplyX } from './multiplyX';
+export { default as multiplyY } from './multiplyY';
 export { default as distance } from './distance';
 export { default as distanceSquared } from './distanceSquared';

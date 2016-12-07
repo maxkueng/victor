@@ -138,6 +138,45 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('multiply()', () => {
+        it('should do a multiplication of both vector components', () => {
+          const v1 = new Victor(500, 600);
+          const v2 = new Victor(3, 10);
+          const res = v1.multiply(v2);
+
+          assert.equal(res.x, 1500);
+          assert.equal(res.y, 6000);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
+      describe('multiplyX()', () => {
+        it('should do a multiplication of the x component', () => {
+          const v1 = new Victor(500, 600);
+          const v2 = new Victor(3, 10);
+          const res = v1.multiplyX(v2);
+
+          assert.equal(res.x, 1500);
+          assert.equal(res.y, 600);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
+      describe('multiplyY()', () => {
+        it('should do a multiplication of the y component', () => {
+          const v1 = new Victor(500, 600);
+          const v2 = new Victor(3, 10);
+          const res = v1.multiplyY(v2);
+
+          assert.equal(res.x, 500);
+          assert.equal(res.y, 6000);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
       describe('distance()', () => {
         it('should return the distance to another vector', () => {
           const v1 = new Victor(100, 50);
