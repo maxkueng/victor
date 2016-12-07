@@ -21,8 +21,8 @@
     "bundle": "cross-env BABEL_ENV=commonjs node ./script/bundle.js",
     "build": "npm-run-all -s clean bundle",
     "flow": "flow check",
-    "lint": "eslint src/ script/",
-    "fix": "eslint --fix src/ script/",
+    "lint": "eslint src/ script/ test/",
+    "fix": "eslint --fix src/ script/ test/",
     "authors": "authors"
   },
   "homepage": "http://victorjs.org/",
