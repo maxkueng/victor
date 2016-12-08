@@ -262,6 +262,26 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('distanceX()', () => {
+        it('should return the distance of the x components to another vector', () => {
+          const v1 = new Victor(100, 50);
+          const v2 = new Victor(200, 70);
+          const res = v1.distanceX(v2);
+
+          assert.equal(res, 100);
+        });
+      });
+
+      describe('distanceY()', () => {
+        it('should return the distance of the y components to another vector', () => {
+          const v1 = new Victor(100, 50);
+          const v2 = new Victor(200, 70);
+          const res = v1.distanceY(v2);
+
+          assert.equal(res, 20);
+        });
+      });
+
       describe('distanceSquared()', () => {
         it('should return the squared distance to another vector', () => {
           const v1 = new Victor(100, 100);

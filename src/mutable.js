@@ -82,6 +82,14 @@ class MutableVictor extends BaseVictor {
     return lib.distance(this.toObject(), v);
   }
 
+  distanceX(v: MutableVictor): MutableVictor {
+    return lib.distanceX(this.toObject(), v);
+  }
+
+  distanceY(v: MutableVictor): MutableVictor {
+    return lib.distanceY(this.toObject(), v);
+  }
+
   distanceSquared(v: MutableVictor): MutableVictor {
     return lib.distanceSquared(this.toObject(), v);
   }

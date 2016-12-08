@@ -17,4 +17,6 @@ export { default as invert } from './invert';
 export { default as invertX } from './invertX';
 export { default as invertY } from './invertY';
 export { default as distance } from './distance';
+export { default as distanceX } from './distanceX';
+export { default as distanceY } from './distanceY';
 export { default as distanceSquared } from './distanceSquared';
