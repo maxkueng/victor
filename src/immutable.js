@@ -78,19 +78,19 @@ class ImmutableVictor extends BaseVictor {
     return ImmutableVictor.fromObject(lib.invertY(this.toObject()));
   }
 
-  distance(v: ImmutableVictor): ImmutableVictor {
+  distance(v: ImmutableVictor): number {
     return lib.distance(this.toObject(), v);
   }
 
-  distanceX(v: ImmutableVictor): ImmutableVictor {
+  distanceX(v: ImmutableVictor): number {
     return lib.distanceX(this.toObject(), v);
   }
 
-  distanceY(v: ImmutableVictor): ImmutableVictor {
+  distanceY(v: ImmutableVictor): number {
     return lib.distanceY(this.toObject(), v);
   }
 
-  distanceSquared(v: ImmutableVictor): ImmutableVictor {
+  distanceSquared(v: ImmutableVictor): number {
     return lib.distanceSquared(this.toObject(), v);
   }
 
