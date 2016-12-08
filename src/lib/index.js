@@ -20,3 +20,5 @@ export { default as distance } from './distance';
 export { default as distanceX } from './distanceX';
 export { default as distanceY } from './distanceY';
 export { default as distanceSquared } from './distanceSquared';
+export { default as length } from './length';
+export { default as lengthSquared } from './lengthSquared';

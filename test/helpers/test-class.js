@@ -292,6 +292,24 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('length()', () => {
+        it('should return the length', () => {
+          const v1 = new Victor(100, 100);
+          const res = v1.length();
+
+          assert.approximately(res, 141.42135623, 0.00000001);
+        });
+      });
+
+      describe('lengthSquared()', () => {
+        it('should return the squared length', () => {
+          const v1 = new Victor(100, 100);
+          const res = v1.lengthSquared();
+
+          assert.equal(res, 20000);
+        });
+      });
+
       describe('toObject()', () => {
         it('should return an object with its x and y components', () => {
           const x = 123;
