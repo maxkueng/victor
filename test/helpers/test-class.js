@@ -177,6 +177,45 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('divide()', () => {
+        it('should do a division of both vector components', () => {
+          const v1 = new Victor(500, 600);
+          const v2 = new Victor(5, 10);
+          const res = v1.divide(v2);
+
+          assert.equal(res.x, 100);
+          assert.equal(res.y, 60);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
+      describe('divideX()', () => {
+        it('should do a division of the x component', () => {
+          const v1 = new Victor(500, 600);
+          const v2 = new Victor(5, 10);
+          const res = v1.divideX(v2);
+
+          assert.equal(res.x, 100);
+          assert.equal(res.y, 600);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
+      describe('divideY()', () => {
+        it('should do a division of the y component', () => {
+          const v1 = new Victor(500, 600);
+          const v2 = new Victor(5, 10);
+          const res = v1.divideY(v2);
+
+          assert.equal(res.x, 500);
+          assert.equal(res.y, 60);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
       describe('distance()', () => {
         it('should return the distance to another vector', () => {
           const v1 = new Victor(100, 50);
