@@ -66,6 +66,18 @@ class MutableVictor extends BaseVictor {
     return setComponents(this, lib.divideY(this.toObject(), v));
   }
 
+  invert(): MutableVictor {
+    return setComponents(this, lib.invert(this.toObject()));
+  }
+
+  invertX(): MutableVictor {
+    return setComponents(this, lib.invertX(this.toObject()));
+  }
+
+  invertY(): MutableVictor {
+    return setComponents(this, lib.invertY(this.toObject()));
+  }
+
   distance(v: MutableVictor): MutableVictor {
     return lib.distance(this.toObject(), v);
   }

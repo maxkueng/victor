@@ -13,5 +13,8 @@ export { default as multiplyY } from './multiplyY';
 export { default as divide } from './divide';
 export { default as divideX } from './divideX';
 export { default as divideY } from './divideY';
+export { default as invert } from './invert';
+export { default as invertX } from './invertX';
+export { default as invertY } from './invertY';
 export { default as distance } from './distance';
 export { default as distanceSquared } from './distanceSquared';

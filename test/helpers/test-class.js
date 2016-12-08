@@ -216,6 +216,42 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('invert()', () => {
+        it('should invert the components', () => {
+          const v1 = new Victor(500, 600);
+          const res = v1.invert();
+
+          assert.equal(res.x, -500);
+          assert.equal(res.y, -600);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
+      describe('invertX()', () => {
+        it('should invert the x component', () => {
+          const v1 = new Victor(500, 600);
+          const res = v1.invertX();
+
+          assert.equal(res.x, -500);
+          assert.equal(res.y, 600);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
+      describe('invertY()', () => {
+        it('should invert the y component', () => {
+          const v1 = new Victor(500, 600);
+          const res = v1.invertY();
+
+          assert.equal(res.x, 500);
+          assert.equal(res.y, -600);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
       describe('distance()', () => {
         it('should return the distance to another vector', () => {
           const v1 = new Victor(100, 50);
