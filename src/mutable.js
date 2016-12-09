@@ -19,51 +19,51 @@ class MutableVictor extends BaseVictor {
   }
 
   add(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.add(this.toObject(), v));
+    return setComponents(this, lib.add(this.toObject(), v.toObject()));
   }
 
   addX(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.addX(this.toObject(), v));
+    return setComponents(this, lib.addX(this.toObject(), v.toObject()));
   }
 
   addY(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.addY(this.toObject(), v));
+    return setComponents(this, lib.addY(this.toObject(), v.toObject()));
   }
 
   subtract(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.subtract(this.toObject(), v));
+    return setComponents(this, lib.subtract(this.toObject(), v.toObject()));
   }
 
   subtractX(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.subtractX(this.toObject(), v));
+    return setComponents(this, lib.subtractX(this.toObject(), v.toObject()));
   }
 
   subtractY(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.subtractY(this.toObject(), v));
+    return setComponents(this, lib.subtractY(this.toObject(), v.toObject()));
   }
 
   multiply(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.multiply(this.toObject(), v));
+    return setComponents(this, lib.multiply(this.toObject(), v.toObject()));
   }
 
   multiplyX(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.multiplyX(this.toObject(), v));
+    return setComponents(this, lib.multiplyX(this.toObject(), v.toObject()));
   }
 
   multiplyY(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.multiplyY(this.toObject(), v));
+    return setComponents(this, lib.multiplyY(this.toObject(), v.toObject()));
   }
 
   divide(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.divide(this.toObject(), v));
+    return setComponents(this, lib.divide(this.toObject(), v.toObject()));
   }
 
   divideX(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.divideX(this.toObject(), v));
+    return setComponents(this, lib.divideX(this.toObject(), v.toObject()));
   }
 
   divideY(v: MutableVictor): MutableVictor {
-    return setComponents(this, lib.divideY(this.toObject(), v));
+    return setComponents(this, lib.divideY(this.toObject(), v.toObject()));
   }
 
   invert(): MutableVictor {
@@ -79,19 +79,19 @@ class MutableVictor extends BaseVictor {
   }
 
   distance(v: MutableVictor): number {
-    return lib.distance(this.toObject(), v);
+    return lib.distance(this.toObject(), v.toObject());
   }
 
   distanceX(v: MutableVictor): number {
-    return lib.distanceX(this.toObject(), v);
+    return lib.distanceX(this.toObject(), v.toObject());
   }
 
   distanceY(v: MutableVictor): number {
-    return lib.distanceY(this.toObject(), v);
+    return lib.distanceY(this.toObject(), v.toObject());
   }
 
   distanceSquared(v: MutableVictor): number {
-    return lib.distanceSquared(this.toObject(), v);
+    return lib.distanceSquared(this.toObject(), v.toObject());
   }
 
   length(): MutableVictor {
