@@ -1,9 +1,10 @@
 /* eslint no-underscore-dangle: "off" */
 /* @flow */
 
+import * as lib from './lib';
 import { version } from '../package.json';
 
-import type { VectorComponent, Vector } from './flowTypes';
+import type { IVictor, VectorComponent, Vector } from './flowTypes';
 
 class BaseVictor {
   static VERSION: string;
@@ -22,6 +23,50 @@ class BaseVictor {
 
   get y(): VectorComponent {
     return this._y;
+  }
+
+  distance(v: IVictor): number {
+    return lib.distance(this.toObject(), v.toObject());
+  }
+
+  distanceX(v: IVictor): number {
+    return lib.distanceX(this.toObject(), v.toObject());
+  }
+
+  distanceY(v: IVictor): number {
+    return lib.distanceY(this.toObject(), v.toObject());
+  }
+
+  distanceSquared(v: IVictor): number {
+    return lib.distanceSquared(this.toObject(), v.toObject());
+  }
+
+  length(): number {
+    return lib.length(this.toObject());
+  }
+
+  lengthSquared(): number {
+    return lib.lengthSquared(this.toObject());
+  }
+
+  isLeftOf(v: IVictor): boolean {
+    return lib.isLeftOf(this.toObject(), v.toObject());
+  }
+
+  isRightOf(v: IVictor): boolean {
+    return lib.isRightOf(this.toObject(), v.toObject());
+  }
+
+  isAbove(v: IVictor): boolean {
+    return lib.isAbove(this.toObject(), v.toObject());
+  }
+
+  isBelow(v: IVictor): boolean {
+    return lib.isBelow(this.toObject(), v.toObject());
+  }
+
+  isWithin(bottomLeft: IVictor, topRight: IVictor): boolean {
+    return lib.isWithin(this.toObject(), bottomLeft.toObject(), topRight.toObject());
   }
 
   toObject(): Vector {

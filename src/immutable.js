@@ -3,7 +3,7 @@
 import * as lib from './lib';
 import BaseVictor from './base';
 
-import type { VectorComponent } from './flowTypes';
+import type { IVictor, VectorComponent } from './flowTypes';
 
 class ImmutableVictor extends BaseVictor {
   set(x: VectorComponent, y: VectorComponent): ImmutableVictor {
@@ -18,109 +18,67 @@ class ImmutableVictor extends BaseVictor {
     return ImmutableVictor.fromObject(lib.setY(this.toObject(), y));
   }
 
-  add(v: ImmutableVictor): ImmutableVictor {
+  add(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.add(this.toObject(), v.toObject()));
   }
 
-  addX(v: ImmutableVictor): ImmutableVictor {
+  addX(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.addX(this.toObject(), v.toObject()));
   }
 
-  addY(v: ImmutableVictor): ImmutableVictor {
+  addY(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.addY(this.toObject(), v.toObject()));
   }
 
-  subtract(v: ImmutableVictor): ImmutableVictor {
+  subtract(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.subtract(this.toObject(), v.toObject()));
   }
 
-  subtractX(v: ImmutableVictor): ImmutableVictor {
+  subtractX(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.subtractX(this.toObject(), v.toObject()));
   }
 
-  subtractY(v: ImmutableVictor): ImmutableVictor {
+  subtractY(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.subtractY(this.toObject(), v.toObject()));
   }
 
-  multiply(v: ImmutableVictor): ImmutableVictor {
+  multiply(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.multiply(this.toObject(), v.toObject()));
   }
 
-  multiplyX(v: ImmutableVictor): ImmutableVictor {
+  multiplyX(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.multiplyX(this.toObject(), v.toObject()));
   }
 
-  multiplyY(v: ImmutableVictor): ImmutableVictor {
+  multiplyY(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.multiplyY(this.toObject(), v.toObject()));
   }
 
-  divide(v: ImmutableVictor): ImmutableVictor {
+  divide(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.divide(this.toObject(), v.toObject()));
   }
 
-  divideX(v: ImmutableVictor): ImmutableVictor {
+  divideX(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.divideX(this.toObject(), v.toObject()));
   }
 
-  divideY(v: ImmutableVictor): ImmutableVictor {
+  divideY(v: IVictor): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.divideY(this.toObject(), v.toObject()));
   }
 
-  invert(): ImmutableVictor {
+  invert(): IVictor {
     return ImmutableVictor.fromObject(lib.invert(this.toObject()));
   }
 
-  invertX(): ImmutableVictor {
+  invertX(): IVictor {
     return ImmutableVictor.fromObject(lib.invertX(this.toObject()));
   }
 
-  invertY(): ImmutableVictor {
+  invertY(): IVictor {
     return ImmutableVictor.fromObject(lib.invertY(this.toObject()));
   }
-
-  distance(v: ImmutableVictor): number {
-    return lib.distance(this.toObject(), v.toObject());
-  }
-
-  distanceX(v: ImmutableVictor): number {
-    return lib.distanceX(this.toObject(), v.toObject());
-  }
-
-  distanceY(v: ImmutableVictor): number {
-    return lib.distanceY(this.toObject(), v.toObject());
-  }
-
-  distanceSquared(v: ImmutableVictor): number {
-    return lib.distanceSquared(this.toObject(), v.toObject());
-  }
-
-  length(): number {
-    return lib.length(this.toObject());
-  }
-
-  lengthSquared(): number {
-    return lib.lengthSquared(this.toObject());
-  }
-
-  isLeftOf(v: ImmutableVictor): boolean {
-    return lib.isLeftOf(this.toObject(), v.toObject());
-  }
-
-  isRightOf(v: ImmutableVictor): boolean {
-    return lib.isRightOf(this.toObject(), v.toObject());
-  }
-
-  isAbove(v: ImmutableVictor): boolean {
-    return lib.isAbove(this.toObject(), v.toObject());
-  }
-
-  isBelow(v: ImmutableVictor): boolean {
-    return lib.isBelow(this.toObject(), v.toObject());
-  }
-
-  isWithin(bottomLeft: ImmutableVictor, topRight: ImmutableVictor): boolean {
-    return lib.isWithin(this.toObject(), bottomLeft.toObject(), topRight.toObject());
-  }
 }
+
+/* :: (ImmutableVictor: Class<IVictor>); */
 
 export default ImmutableVictor;
