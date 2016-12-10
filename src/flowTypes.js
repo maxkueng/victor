@@ -29,6 +29,7 @@ export interface IVictor {
   invert(): IVictor;
   invertX(): IVictor;
   invertY(): IVictor;
+  normalize(v: IVictor): IVictor;
   distance(v: IVictor): number;
   distanceX(v: IVictor): number;
   distanceY(v: IVictor): number;

@@ -77,6 +77,10 @@ class ImmutableVictor extends BaseVictor {
   invertY(): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.invertY(this.toObject()));
   }
+
+  normalize(): ImmutableVictor {
+    return ImmutableVictor.fromObject(lib.normalize(this.toObject()));
+  }
 }
 
 /* :: (ImmutableVictor: Class<IVictor>); */

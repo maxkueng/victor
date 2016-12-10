@@ -77,6 +77,10 @@ class MutableVictor extends BaseVictor {
   invertY(): MutableVictor {
     return setComponents(this, lib.invertY(this.toObject()));
   }
+
+  normalize(): MutableVictor {
+    return setComponents(this, lib.normalize(this.toObject()));
+  }
 }
 
 /* :: (MutableVictor: Class<IVictor>); */

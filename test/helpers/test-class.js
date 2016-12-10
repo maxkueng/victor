@@ -252,6 +252,17 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('normalize()', () => {
+        it('should normalize the vector', () => {
+          const v1 = new Victor(500, 600);
+          const res = v1.normalize();
+
+          assert.equal(res.length(), 1);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
       describe('distance()', () => {
         it('should return the distance to another vector', () => {
           const v1 = new Victor(100, 50);
