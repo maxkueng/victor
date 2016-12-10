@@ -87,12 +87,12 @@ class BaseVictor {
     return `x:${this.x}, y:${this.y}`;
   }
 
-  static fromObject(obj: Vector): this {
-    return new this(obj.x, obj.y);
+  static fromObject({ x, y }: Vector): this {
+    return new this(x, y);
   }
 
-  static fromArray(arr: VectorComponent[]): this {
-    return new this(arr[0], arr[1]);
+  static fromArray([ x, y ]: VectorComponent[]): this {
+    return new this(x, y);
   }
 }
 
