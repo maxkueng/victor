@@ -91,7 +91,7 @@ class BaseVictor {
     return new this(x, y);
   }
 
-  static fromArray([ x, y ]: VectorComponent[]): this {
+  static fromArray([x, y]: VectorComponent[]): this {
     return new this(x, y);
   }
 }
