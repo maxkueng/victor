@@ -66,15 +66,15 @@ class ImmutableVictor extends BaseVictor {
     return ImmutableVictor.fromObject(lib.divideY(this.toObject(), v.toObject()));
   }
 
-  invert(): IVictor {
+  invert(): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.invert(this.toObject()));
   }
 
-  invertX(): IVictor {
+  invertX(): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.invertX(this.toObject()));
   }
 
-  invertY(): IVictor {
+  invertY(): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.invertY(this.toObject()));
   }
 }
