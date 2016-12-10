@@ -101,6 +101,26 @@ class MutableVictor extends BaseVictor {
   lengthSquared(): MutableVictor {
     return lib.lengthSquared(this.toObject());
   }
+
+  isLeftOf(v: MutableVictor): boolean {
+    return lib.isLeftOf(this.toObject(), v.toObject());
+  }
+
+  isRightOf(v: MutableVictor): boolean {
+    return lib.isRightOf(this.toObject(), v.toObject());
+  }
+
+  isAbove(v: MutableVictor): boolean {
+    return lib.isAbove(this.toObject(), v.toObject());
+  }
+
+  isBelow(v: MutableVictor): boolean {
+    return lib.isBelow(this.toObject(), v.toObject());
+  }
+
+  isWithin(bottomLeft: MutableVictor, topRight: MutableVictor): boolean {
+    return lib.isWithin(this.toObject(), bottomLeft.toObject(), topRight.toObject());
+  }
 }
 
 export default MutableVictor;

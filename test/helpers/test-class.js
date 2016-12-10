@@ -310,6 +310,61 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('isLeftOf()', () => {
+        it('should return true if is left of another vector', () => {
+          const v1 = new Victor(100, 100);
+          const v2 = new Victor(200, 300);
+
+          assert.isTrue(v1.isLeftOf(v2));
+          assert.isFalse(v2.isLeftOf(v1));
+        });
+      });
+
+      describe('isRightOf()', () => {
+        it('should return true if is right of another vector', () => {
+          const v1 = new Victor(100, 100);
+          const v2 = new Victor(200, 300);
+
+          assert.isFalse(v1.isRightOf(v2));
+          assert.isTrue(v2.isRightOf(v1));
+        });
+      });
+
+      describe('isAbove()', () => {
+        it('should return true if is above another vector', () => {
+          const v1 = new Victor(100, 100);
+          const v2 = new Victor(200, 300);
+
+          assert.isFalse(v1.isAbove(v2));
+          assert.isTrue(v2.isAbove(v1));
+        });
+      });
+
+      describe('isBelow()', () => {
+        it('should return true if is below another vector', () => {
+          const v1 = new Victor(100, 100);
+          const v2 = new Victor(200, 300);
+
+          assert.isTrue(v1.isBelow(v2));
+          assert.isFalse(v2.isBelow(v1));
+        });
+      });
+
+      describe('isBelow()', () => {
+        it('should return true if is within the bounds of two vectors', () => {
+          const bottomLeft = new Victor(-100, -50);
+          const topRight = new Victor(300, 400);
+
+          const v1 = new Victor(-50, 100);
+          const v2 = new Victor(100, -55);
+          const v3 = new Victor(100, -25);
+
+          assert.isTrue(v1.isWithin(bottomLeft, topRight));
+          assert.isFalse(v2.isWithin(bottomLeft, topRight));
+          assert.isTrue(v3.isWithin(bottomLeft, topRight));
+        });
+      });
+
       describe('toObject()', () => {
         it('should return an object with its x and y components', () => {
           const x = 123;

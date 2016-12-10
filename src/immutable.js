@@ -101,6 +101,26 @@ class ImmutableVictor extends BaseVictor {
   lengthSquared(): number {
     return lib.lengthSquared(this.toObject());
   }
+
+  isLeftOf(v: ImmutableVictor): boolean {
+    return lib.isLeftOf(this.toObject(), v.toObject());
+  }
+
+  isRightOf(v: ImmutableVictor): boolean {
+    return lib.isRightOf(this.toObject(), v.toObject());
+  }
+
+  isAbove(v: ImmutableVictor): boolean {
+    return lib.isAbove(this.toObject(), v.toObject());
+  }
+
+  isBelow(v: ImmutableVictor): boolean {
+    return lib.isBelow(this.toObject(), v.toObject());
+  }
+
+  isWithin(bottomLeft: ImmutableVictor, topRight: ImmutableVictor): boolean {
+    return lib.isWithin(this.toObject(), bottomLeft.toObject(), topRight.toObject());
+  }
 }
 
 export default ImmutableVictor;

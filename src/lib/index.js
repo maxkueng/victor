@@ -22,3 +22,8 @@ export { default as distanceY } from './distanceY';
 export { default as distanceSquared } from './distanceSquared';
 export { default as length } from './length';
 export { default as lengthSquared } from './lengthSquared';
+export { default as isLeftOf } from './isLeftOf';
+export { default as isRightOf } from './isRightOf';
+export { default as isAbove } from './isAbove';
+export { default as isBelow } from './isBelow';
+export { default as isWithin } from './isWithin';
