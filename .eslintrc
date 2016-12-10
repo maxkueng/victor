@@ -1,15 +1,15 @@
 {
-    "parser": "babel-eslint",
-    "env": {
-        "browser": true,
-        "node": true,
-        "mocha": true
-    },
-    "extends": [
-      "airbnb-base",
-      "plugin:flowtype/recommended"
-    ],
-    "plugins": [
-      "flowtype"
-    ]
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "mocha": true
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:flowtype/recommended"
+  ],
+  "plugins": [
+    "flowtype"
+  ]
 }
