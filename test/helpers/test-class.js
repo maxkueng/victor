@@ -263,6 +263,26 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('dot()', () => {
+        it('should return the dot product', () => {
+          const v1 = new Victor(10, 20);
+          const v2 = new Victor(250, 160);
+          const res = v1.dot(v2);
+
+          assert.equal(res, 5700);
+        });
+      });
+
+      describe('cross()', () => {
+        it('should return the cross product', () => {
+          const v1 = new Victor(10, 20);
+          const v2 = new Victor(60, 80);
+          const res = v1.cross(v2);
+
+          assert.equal(res, -400);
+        });
+      });
+
       describe('distance()', () => {
         it('should return the distance to another vector', () => {
           const v1 = new Victor(100, 50);

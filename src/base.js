@@ -25,6 +25,14 @@ class BaseVictor {
     return this._y;
   }
 
+  dot(v: IVictor): number {
+    return lib.dot(this.toObject(), v.toObject());
+  }
+
+  cross(v: IVictor): number {
+    return lib.cross(this.toObject(), v.toObject());
+  }
+
   distance(v: IVictor): number {
     return lib.distance(this.toObject(), v.toObject());
   }

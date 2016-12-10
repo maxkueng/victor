@@ -30,6 +30,8 @@ export interface IVictor {
   invertX(): IVictor;
   invertY(): IVictor;
   normalize(v: IVictor): IVictor;
+  dot(v: IVictor): number;
+  cross(v: IVictor): number;
   distance(v: IVictor): number;
   distanceX(v: IVictor): number;
   distanceY(v: IVictor): number;
