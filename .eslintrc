@@ -6,7 +6,7 @@
         "mocha": true
     },
     "extends": [
-      "airbnb",
+      "airbnb-base",
       "plugin:flowtype/recommended"
     ],
     "plugins": [
