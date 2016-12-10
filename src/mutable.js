@@ -94,11 +94,11 @@ class MutableVictor extends BaseVictor {
     return lib.distanceSquared(this.toObject(), v.toObject());
   }
 
-  length(): MutableVictor {
+  length(): number {
     return lib.length(this.toObject());
   }
 
-  lengthSquared(): MutableVictor {
+  lengthSquared(): number {
     return lib.lengthSquared(this.toObject());
   }
 
