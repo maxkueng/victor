@@ -8,6 +8,9 @@ export type Vector = {
 };
 
 export interface IVictor {
+  _x: VectorComponent;
+  _y: VectorComponent;
+
   set(x: VectorComponent, y: VectorComponent): IVictor;
   setX(x: VectorComponent): IVictor;
   setY(y: VectorComponent): IVictor;
