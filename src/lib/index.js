@@ -17,6 +17,8 @@ export { default as invert } from './invert';
 export { default as invertX } from './invertX';
 export { default as invertY } from './invertY';
 export { default as normalize } from './normalize';
+export { default as setLength } from './setLength';
+export { default as addLength } from './addLength';
 export { default as dot } from './dot';
 export { default as cross } from './cross';
 export { default as distance } from './distance';

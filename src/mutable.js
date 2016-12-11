@@ -81,6 +81,14 @@ class MutableVictor extends BaseVictor {
   normalize(): MutableVictor {
     return setComponents(this, lib.normalize(this.toObject()));
   }
+
+  setLength(newLength: number): MutableVictor {
+    return setComponents(this, lib.setLength(this.toObject(), newLength));
+  }
+
+  addLength(addedLength: number): MutableVictor {
+    return setComponents(this, lib.addLength(this.toObject(), addedLength));
+  }
 }
 
 /* :: (MutableVictor: Class<IVictor>); */

@@ -81,6 +81,14 @@ class ImmutableVictor extends BaseVictor {
   normalize(): ImmutableVictor {
     return ImmutableVictor.fromObject(lib.normalize(this.toObject()));
   }
+
+  setLength(newLength: number): ImmutableVictor {
+    return ImmutableVictor.fromObject(lib.setLength(this.toObject(), newLength));
+  }
+
+  addLength(addedLength: number): ImmutableVictor {
+    return ImmutableVictor.fromObject(lib.addLength(this.toObject(), addedLength));
+  }
 }
 
 /* :: (ImmutableVictor: Class<IVictor>); */

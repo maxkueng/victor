@@ -263,6 +263,29 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('setLength()', () => {
+        it('should set the length of the vector', () => {
+          const v1 = new Victor(500, 600);
+          const res = v1.setLength(10);
+
+          assert.equal(res.length(), 10);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
+      describe('addLength()', () => {
+        it('should add length to the vector', () => {
+          const v1 = new Victor(500, 600);
+          const v1Length = v1.length();
+          const res = v1.addLength(10);
+
+          assert.equal(res.length(), v1Length + 10);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
       describe('dot()', () => {
         it('should return the dot product', () => {
           const v1 = new Victor(10, 20);
