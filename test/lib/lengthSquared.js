@@ -1,6 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
+import { describe, it } from 'mocha';
 import lengthSquared from '../../src/lib/lengthSquared';
 
 describe('lib/lengthSquared()', () => {

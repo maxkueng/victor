@@ -1,6 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
+import { describe, it } from 'mocha';
 import randomize from '../../src/lib/randomize';
 
 describe('lib/randomize()', () => {

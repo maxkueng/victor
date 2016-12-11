@@ -1,6 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
+import { describe, it } from 'mocha';
 import normalize from '../../src/lib/normalize';
 import length from '../../src/lib/length';
 

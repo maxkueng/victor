@@ -1,6 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
+import { describe, it } from 'mocha';
 import invert from '../../src/lib/invert';
 
 describe('lib/invert()', () => {

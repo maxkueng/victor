@@ -1,6 +1,7 @@
 /* @flow */
 
 import { assert } from 'chai';
+import { describe, it } from 'mocha';
 import add from '../../src/lib/add';
 
 describe('lib/add()', () => {
