@@ -7,6 +7,8 @@ export type Vector = {
   y: VectorComponent;
 };
 
+export type Randomizer = () => VectorComponent;
+
 export interface IVictor {
   _x: VectorComponent;
   _y: VectorComponent;
@@ -32,6 +34,9 @@ export interface IVictor {
   normalize(v: IVictor): IVictor;
   setLength(newLength: number): IVictor;
   addLength(addedLength: number): IVictor;
+  randomize(topLeft: IVictor, bottomRight: IVictor, randomizer: Randomizer): IVictor;
+  randomizeX(topLeft: IVictor, bottomRight: IVictor, randomizer: Randomizer): IVictor;
+  randomizeY(topLeft: IVictor, bottomRight: IVictor, randomizer: Randomizer): IVictor;
   dot(v: IVictor): number;
   cross(v: IVictor): number;
   distance(v: IVictor): number;

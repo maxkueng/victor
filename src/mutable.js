@@ -3,7 +3,7 @@
 import * as lib from './lib';
 import BaseVictor, { setComponents } from './base';
 
-import type { IVictor, VectorComponent } from './flowTypes';
+import type { Randomizer, IVictor, VectorComponent } from './flowTypes';
 
 class MutableVictor extends BaseVictor {
   set(x: VectorComponent, y: VectorComponent): MutableVictor {
@@ -88,6 +88,18 @@ class MutableVictor extends BaseVictor {
 
   addLength(addedLength: number): MutableVictor {
     return setComponents(this, lib.addLength(this.toObject(), addedLength));
+  }
+
+  randomize(bottomLeft: IVictor, topRight: IVictor, randomizer: Randomizer): MutableVictor {
+    return setComponents(this, lib.randomize(this.toObject(), bottomLeft, topRight, randomizer));
+  }
+
+  randomizeX(bottomLeft: IVictor, topRight: IVictor, randomizer: Randomizer): MutableVictor {
+    return setComponents(this, lib.randomizeX(this.toObject(), bottomLeft, topRight, randomizer));
+  }
+
+  randomizeY(bottomLeft: IVictor, topRight: IVictor, randomizer: Randomizer): MutableVictor {
+    return setComponents(this, lib.randomizeY(this.toObject(), bottomLeft, topRight, randomizer));
   }
 }
 

@@ -274,6 +274,48 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('randomize()', () => {
+        it('should randomize both components of the vector', () => {
+          const bottomLeft = new Victor(1000, 1000);
+          const topRight = new Victor(2000, 2000);
+          const v1 = new Victor(500, 600);
+          const res = v1.randomize(bottomLeft, topRight, Math.random);
+
+          assert.notEqual(res.x, 500);
+          assert.notEqual(res.y, 600);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
+      describe('randomizeX()', () => {
+        it('should randomize x component of the vector', () => {
+          const bottomLeft = new Victor(1000, 1000);
+          const topRight = new Victor(2000, 2000);
+          const v1 = new Victor(500, 600);
+          const res = v1.randomizeX(bottomLeft, topRight, Math.random);
+
+          assert.notEqual(res.x, 500);
+          assert.equal(res.y, 600);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
+      describe('randomizeY()', () => {
+        it('should randomize y component of the vector', () => {
+          const bottomLeft = new Victor(1000, 1000);
+          const topRight = new Victor(2000, 2000);
+          const v1 = new Victor(500, 600);
+          const res = v1.randomizeY(bottomLeft, topRight, Math.random);
+
+          assert.equal(res.x, 500);
+          assert.notEqual(res.y, 600);
+
+          runExtraChecks(v1, res);
+        });
+      });
+
       describe('addLength()', () => {
         it('should add length to the vector', () => {
           const v1 = new Victor(500, 600);

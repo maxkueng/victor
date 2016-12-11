@@ -32,3 +32,6 @@ export { default as isRightOf } from './isRightOf';
 export { default as isAbove } from './isAbove';
 export { default as isBelow } from './isBelow';
 export { default as isWithin } from './isWithin';
+export { default as randomize } from './randomize';
+export { default as randomizeX } from './randomizeX';
+export { default as randomizeY } from './randomizeY';
