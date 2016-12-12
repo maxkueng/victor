@@ -57,6 +57,22 @@ class BaseVictor {
     return lib.lengthSquared(this.toObject());
   }
 
+  horizontalAngle(): number {
+    return lib.horizontalAngle(this.toObject());
+  }
+
+  horizontalAngleDeg(): number {
+    return lib.horizontalAngleDeg(this.toObject());
+  }
+
+  verticalAngle(): number {
+    return lib.verticalAngle(this.toObject());
+  }
+
+  verticalAngleDeg(): number {
+    return lib.verticalAngleDeg(this.toObject());
+  }
+
   isLeftOf(v: IVictor): boolean {
     return lib.isLeftOf(this.toObject(), v.toObject());
   }

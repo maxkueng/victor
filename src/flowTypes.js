@@ -45,6 +45,10 @@ export interface IVictor {
   distanceSquared(v: IVictor): number;
   length(): number;
   lengthSquared(): number;
+  horizontalAngle(): number;
+  horizontalAngleDeg(): number;
+  verticalAngle(): number;
+  verticalAngleDeg(): number;
   isLeftOf(v: IVictor): boolean;
   isRightOf(v: IVictor): boolean;
   isAbove(v: IVictor): boolean;

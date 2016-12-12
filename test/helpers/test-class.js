@@ -406,6 +406,42 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('horizontalAngle()', () => {
+        it('should return the horizontal angle', () => {
+          const v1 = new Victor(100, 100);
+          const res = v1.horizontalAngle();
+
+          assert.equal(res, Math.PI / 4);
+        });
+      });
+
+      describe('horizontalAngleDeg()', () => {
+        it('should return the horizontal angle in degrees', () => {
+          const v1 = new Victor(100, 100);
+          const res = v1.horizontalAngleDeg();
+
+          assert.equal(res, 45);
+        });
+      });
+
+      describe('verticalAngle()', () => {
+        it('should return the vertical angle', () => {
+          const v1 = new Victor(100, 100);
+          const res = v1.verticalAngle();
+
+          assert.equal(res, Math.PI / 4);
+        });
+      });
+
+      describe('verticalAngleDeg()', () => {
+        it('should return the vertical angle in degrees', () => {
+          const v1 = new Victor(100, 100);
+          const res = v1.verticalAngleDeg();
+
+          assert.equal(res, 45);
+        });
+      });
+
       describe('isLeftOf()', () => {
         it('should return true if is left of another vector', () => {
           const v1 = new Victor(100, 100);
