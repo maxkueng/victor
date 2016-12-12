@@ -39,5 +39,7 @@ export { default as horizontalAngle } from './horizontalAngle';
 export { default as horizontalAngleDeg } from './horizontalAngleDeg';
 export { default as verticalAngle } from './verticalAngle';
 export { default as verticalAngleDeg } from './verticalAngleDeg';
+export { default as angleBetween } from './angleBetween';
+export { default as angleBetweenDeg } from './angleBetweenDeg';
 export { default as radiansToDegrees } from './radiansToDegrees';
 export { default as degreesToRadians } from './degreesToRadians';

@@ -49,6 +49,8 @@ export interface IVictor {
   horizontalAngleDeg(): number;
   verticalAngle(): number;
   verticalAngleDeg(): number;
+  angleBetween(v: IVictor): number;
+  angleBetweenDeg(v: IVictor): number;
   isLeftOf(v: IVictor): boolean;
   isRightOf(v: IVictor): boolean;
   isAbove(v: IVictor): boolean;
