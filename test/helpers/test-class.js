@@ -1,6 +1,8 @@
 import { assert } from 'chai';
 import { describe, it } from 'mocha';
 
+const EPSILON = 1e-12;
+
 export default function testClass(Victor, description, extraChecks = []) {
   function runExtraChecks(...args) {
     extraChecks.forEach((check) => {
@@ -629,6 +631,20 @@ export default function testClass(Victor, description, extraChecks = []) {
         it('should convert turns to radians', () => {
           assert.equal(Victor.turnsToRadians(0.5), Math.PI);
           assert.equal(Victor.turnsToRadians(1), Math.PI * 2);
+        });
+      });
+
+      describe('radiansToGradians()', () => {
+        it('should convert radians to gradians', () => {
+          assert.equal(Victor.radiansToGradians(Math.PI), 200);
+          assert.equal(Victor.radiansToGradians(Math.PI * 2), 400);
+        });
+      });
+
+      describe('gradiansToRadians()', () => {
+        it('should convert gradians to radians', () => {
+          assert.approximately(Victor.gradiansToRadians(200), Math.PI, EPSILON);
+          assert.approximately(Victor.gradiansToRadians(400), Math.PI * 2, EPSILON);
         });
       });
     });

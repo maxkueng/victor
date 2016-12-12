@@ -47,3 +47,6 @@ export { default as radiansToDegrees } from './radiansToDegrees';
 export { default as degreesToRadians } from './degreesToRadians';
 export { default as radiansToTurns } from './radiansToTurns';
 export { default as turnsToRadians } from './turnsToRadians';
+export { default as radiansToGradians } from './radiansToGradians';
+export { default as gradiansToRadians } from './gradiansToRadians';
+

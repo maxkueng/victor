@@ -150,6 +150,14 @@ class BaseVictor {
   static turnsToRadians(turns: number): number {
     return lib.turnsToRadians(turns);
   }
+
+  static radiansToGradians(radians: number): number {
+    return lib.radiansToGradians(radians);
+  }
+
+  static gradiansToRadians(gradians: number): number {
+    return lib.gradiansToRadians(gradians);
+  }
 }
 
 BaseVictor.VERSION = version;
