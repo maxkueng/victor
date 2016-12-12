@@ -102,6 +102,14 @@ class BaseVictor {
   static fromArray([x, y]: VectorComponent[]): this {
     return new this(x, y);
   }
+
+  static radiansToDegrees(radians: number): number {
+    return lib.radiansToDegrees(radians);
+  }
+
+  static degreesToRadians(degrees: number): number {
+    return lib.degreesToRadians(degrees);
+  }
 }
 
 BaseVictor.VERSION = version;

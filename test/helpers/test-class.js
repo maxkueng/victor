@@ -527,6 +527,20 @@ export default function testClass(Victor, description, extraChecks = []) {
           assert.equal(v1.y, y);
         });
       });
+
+      describe('radiansToDegrees()', () => {
+        it('should convert radians to degrees', () => {
+          assert.equal(Victor.radiansToDegrees(Math.PI), 180);
+          assert.equal(Victor.radiansToDegrees(Math.PI * 2), 360);
+        });
+      });
+
+      describe('degreesToRadians()', () => {
+        it('should convert degrees to radians', () => {
+          assert.equal(Victor.degreesToRadians(180), Math.PI);
+          assert.equal(Victor.degreesToRadians(360), Math.PI * 2);
+        });
+      });
     });
   });
 }

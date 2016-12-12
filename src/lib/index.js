@@ -35,3 +35,5 @@ export { default as isWithin } from './isWithin';
 export { default as randomize } from './randomize';
 export { default as randomizeX } from './randomizeX';
 export { default as randomizeY } from './randomizeY';
+export { default as radiansToDegrees } from './radiansToDegrees';
+export { default as degreesToRadians } from './degreesToRadians';
