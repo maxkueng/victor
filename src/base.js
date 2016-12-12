@@ -81,6 +81,14 @@ class BaseVictor {
     return lib.angleBetweenDeg(this.toObject(), v.toObject());
   }
 
+  outerAngleBetween(v: IVictor): number {
+    return lib.outerAngleBetween(this.toObject(), v.toObject());
+  }
+
+  outerAngleBetweenDeg(v: IVictor): number {
+    return lib.outerAngleBetweenDeg(this.toObject(), v.toObject());
+  }
+
   isLeftOf(v: IVictor): boolean {
     return lib.isLeftOf(this.toObject(), v.toObject());
   }

@@ -41,5 +41,7 @@ export { default as verticalAngle } from './verticalAngle';
 export { default as verticalAngleDeg } from './verticalAngleDeg';
 export { default as angleBetween } from './angleBetween';
 export { default as angleBetweenDeg } from './angleBetweenDeg';
+export { default as outerAngleBetween } from './outerAngleBetween';
+export { default as outerAngleBetweenDeg } from './outerAngleBetweenDeg';
 export { default as radiansToDegrees } from './radiansToDegrees';
 export { default as degreesToRadians } from './degreesToRadians';

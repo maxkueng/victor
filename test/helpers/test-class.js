@@ -462,6 +462,26 @@ export default function testClass(Victor, description, extraChecks = []) {
         });
       });
 
+      describe('outerAngleBetween()', () => {
+        it('should return the outer angle between this and another vector', () => {
+          const v1 = new Victor(100, 100);
+          const v2 = new Victor(100, 0);
+          const res = v1.outerAngleBetween(v2);
+
+          assert.equal(res, Math.PI * 1.75);
+        });
+      });
+
+      describe('outerAngleBetweenDeg()', () => {
+        it('should return the outer angle in degrees between this and another vector', () => {
+          const v1 = new Victor(100, 100);
+          const v2 = new Victor(100, 0);
+          const res = v1.outerAngleBetweenDeg(v2);
+
+          assert.equal(res, 315);
+        });
+      });
+
       describe('isLeftOf()', () => {
         it('should return true if is left of another vector', () => {
           const v1 = new Victor(100, 100);
