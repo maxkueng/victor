@@ -142,6 +142,14 @@ class BaseVictor {
   static degreesToRadians(degrees: number): number {
     return lib.degreesToRadians(degrees);
   }
+
+  static radiansToTurns(radians: number): number {
+    return lib.radiansToTurns(radians);
+  }
+
+  static turnsToRadians(turns: number): number {
+    return lib.turnsToRadians(turns);
+  }
 }
 
 BaseVictor.VERSION = version;

@@ -617,6 +617,20 @@ export default function testClass(Victor, description, extraChecks = []) {
           assert.equal(Victor.degreesToRadians(360), Math.PI * 2);
         });
       });
+
+      describe('radiansToTurns()', () => {
+        it('should convert radians to turns', () => {
+          assert.equal(Victor.radiansToTurns(Math.PI), 0.5);
+          assert.equal(Victor.radiansToTurns(Math.PI * 2), 1);
+        });
+      });
+
+      describe('turnsToRadians()', () => {
+        it('should convert turns to radians', () => {
+          assert.equal(Victor.turnsToRadians(0.5), Math.PI);
+          assert.equal(Victor.turnsToRadians(1), Math.PI * 2);
+        });
+      });
     });
   });
 }

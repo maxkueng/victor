@@ -45,3 +45,5 @@ export { default as outerAngleBetween } from './outerAngleBetween';
 export { default as outerAngleBetweenDeg } from './outerAngleBetweenDeg';
 export { default as radiansToDegrees } from './radiansToDegrees';
 export { default as degreesToRadians } from './degreesToRadians';
+export { default as radiansToTurns } from './radiansToTurns';
+export { default as turnsToRadians } from './turnsToRadians';
