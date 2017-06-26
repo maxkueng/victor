@@ -684,6 +684,24 @@ Victor.prototype.normalize = function () {
 
 Victor.prototype.norm = Victor.prototype.normalize;
 
+/*
+* allows for coder to set the length of their vector to whatever they wish.
+*
+* Normalizes the vector, then multiplies it by the desired length.
+* 
+* Example:
+*	var vec = new Victor(100,100);
+*
+*	vec.setLength(20);
+*
+*/
+	
+Victor.prototype.setLength = function (length) {
+	this.divide(Victor(this.length, this.length));
+	this.x *= length;
+	this.y *= length;
+}
+	
 /**
  * If the absolute vector axis is greater than `max`, multiplies the axis by `factor`
  *
