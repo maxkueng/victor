@@ -34,5 +34,10 @@
     "chai": "~1.9.1",
     "mocha": "~1.18.2",
     "markdox": "^0.1.4"
+  },
+  "dependencies": {
+    "browserify": "^3.46.1",
+    "chai": "^1.9.2",
+    "mocha": "^1.18.2"
   }
 }
