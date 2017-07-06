@@ -65,6 +65,57 @@ describe('static methods', function () {
 		});
 	});
 
+	describe('#fromPolar()', function () {
+		var obj, vec;
+
+		before(function () {
+			angle = Math.PI/2;
+			magnitude = 2;
+			vec = Victor.fromPolar(angle, magnitude);
+
+			angle2 = Math.PI/4;
+			vec2 = Victor.fromPolar(angle2);
+		});
+
+		it('should return an instance of Victor', function () {
+			expect(vec).to.be.an.instanceof(Victor);
+		});
+
+		it('should have angle from initialization', function () {
+			expect(vec.angle()).to.be.closeTo(angle, EPSILON);
+		});
+
+		it('should have magnitude from initialization', function () {
+			expect(vec.magnitude()).to.be.closeTo(magnitude, EPSILON);
+		});
+
+		it('should have a default magnitude of 1', function () {
+			expect(vec2.magnitude()).to.be.closeTo(1, EPSILON);
+		});
+	});
+
+	describe('#randomDirection()', function () {
+		var obj, vec;
+
+		before(function () {
+			magnitude = 2.5;
+			vec = Victor.randomDirection(magnitude);
+
+			vec2 = Victor.randomDirection();
+		});
+
+		it('should return an instance of Victor', function () {
+			expect(vec).to.be.an.instanceof(Victor);
+		});
+
+		it('should have magnitude from initialization', function () {
+			expect(vec.magnitude()).to.be.closeTo(magnitude, EPSILON);
+		});
+
+		it('should have a default magnitude of 1', function () {
+			expect(vec2.magnitude()).to.be.closeTo(1, EPSILON);
+		});
+	});
 });
 
 describe('chainable instance methods', function () {
@@ -583,6 +634,24 @@ describe('chainable instance methods', function () {
 		it('should limit both vector axis by limit', function () {
 			expect(vec).to.have.property('x', 15);
 			expect(vec).to.have.property('y', 20);
+		});
+	});
+
+	describe('#boundMagnitude()', function () {
+		var vec, ret;
+
+		before(function () {
+			vec = new Victor(12, 13);
+			magnitude = 5;
+			ret = vec.boundMagnitude(magnitude);
+		});
+
+		it('should be chainable', function () {
+			expect(ret).to.equal(vec);
+		});
+
+		it('should limit magnitude', function () {
+			expect(vec.magnitude()).to.be.closeTo(magnitude, EPSILON);
 		});
 	});
 
