@@ -1223,6 +1223,23 @@ Victor.prototype.lengthSq = function () {
 
 Victor.prototype.magnitude = Victor.prototype.length;
 
+
+/**
+ *Changes Vector length or magnitude while maintaining direction
+ *@param {Number}
+ *@return {Victor}
+ *api public
+*/
+Victor.prototype.setLength = function( s ){
+	let temp = new Victor();
+	temp = this.normalize();
+	let theta = this.angle();
+	this.x = Math.cos(theta) * s;
+	this.y = Math.sin(theta) * s;
+	return this;
+}
+
+Victor.prototype.setMagnitude = Victor.prototype.setLength;
 /**
  * Returns a true if vector is (0, 0)
  *
