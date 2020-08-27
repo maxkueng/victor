@@ -1261,6 +1261,7 @@ Victor.prototype.setLength = function( s ){
 	let theta = this.angle();
 	this.x = Math.cos(theta) * s;
 	this.y = Math.sin(theta) * s;
+	return this;
 }
 
 Victor.prototype.setMagnitude = Victor.prototype.setLength;
