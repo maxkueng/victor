@@ -1061,6 +1061,20 @@ Squared length / magnitude
 
 * **Number** Length / Magnitude
 
+## setLength()
+
+Sets length of vector while maintaining direction
+
+### Examples:
+    var vec = new Victor(0, 10);
+
+    vec.setLength(1);
+    // => x: 0, y: 1
+
+### Return:
+
+* **Victor** *Vector*
+
 ## isZero()
 
 Returns a true if vector is (0, 0)
