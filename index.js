@@ -652,7 +652,7 @@ Victor.prototype.normalize = function () {
 		this.x = 1;
 		this.y = 0;
 	} else {
-		this.divide(Victor(length, length));
+		this.divideScalar(length);
 	}
 	return this;
 };
