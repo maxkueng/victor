@@ -1257,6 +1257,47 @@ Victor.prototype.isEqualTo = function(vec2) {
 };
 
 /**
+ * Returns a true if this vector is parallel to another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(20, 40);
+ *     var vec2 = new Victor(60, 120);
+ *     vec1.isParallelTo(vec2);
+ *
+ *     // => true
+ *
+ * @return {Boolean}
+ * @api public
+ */
+ Victor.prototype.isParallelTo = function(vec2) {
+    if (vec2.x === 0) return this.x === 0;
+    if (vec2.y === 0) return this.y === 0;
+
+    var kx = this.x / vec2.x;
+    var ky = this.y / vec2.y;
+    
+    if (kx !== ky || ky !== 0) return false;
+    else return true;
+};
+
+/**
+ * Returns a true if this vector is perpendicular to another
+ *
+ * ### Examples:
+ *     var vec1 = new Victor(30, 30);
+ *     var vec2 = new Victor(-20, 20);
+ *     vec1.isPerpendicularTo(vec2);
+ *
+ *     // => true
+ *
+ * @return {Boolean}
+ * @api public
+ */
+ Victor.prototype.isPerpendicularTo = function(vec2) {
+	return this.dot(vec2) === 0;
+};
+
+/**
  * # Utility Methods
  */
 
