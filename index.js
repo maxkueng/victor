@@ -110,8 +110,7 @@ Victor.fromObject = function (obj) {
  * @api public
  */
 Victor.prototype.addX = function (vec) {
-	this.x += vec.x;
-	return this;
+	return Victor(this.x + vec.x, this.y);
 };
 
 /**
@@ -130,8 +129,7 @@ Victor.prototype.addX = function (vec) {
  * @api public
  */
 Victor.prototype.addY = function (vec) {
-	this.y += vec.y;
-	return this;
+	return Victor(this.x, this.y + vec.y);
 };
 
 /**
@@ -150,9 +148,7 @@ Victor.prototype.addY = function (vec) {
  * @api public
  */
 Victor.prototype.add = function (vec) {
-	this.x += vec.x;
-	this.y += vec.y;
-	return this;
+	return Victor(this.x + vec.x, this.y + vec.y);
 };
 
 /**
@@ -170,9 +166,7 @@ Victor.prototype.add = function (vec) {
  * @api public
  */
 Victor.prototype.addScalar = function (scalar) {
-	this.x += scalar;
-	this.y += scalar;
-	return this;
+	return Victor(this.x + scalar, this.y + scalar);
 };
 
 /**
@@ -190,8 +184,7 @@ Victor.prototype.addScalar = function (scalar) {
  * @api public
  */
 Victor.prototype.addScalarX = function (scalar) {
-	this.x += scalar;
-	return this;
+	return Victor(this.x + scalar, this.y);
 };
 
 /**
@@ -229,8 +222,7 @@ Victor.prototype.addScalarY = function (scalar) {
  * @api public
  */
 Victor.prototype.subtractX = function (vec) {
-	this.x -= vec.x;
-	return this;
+	return Victor(this.x - vec.x, this.y)
 };
 
 /**
@@ -249,8 +241,7 @@ Victor.prototype.subtractX = function (vec) {
  * @api public
  */
 Victor.prototype.subtractY = function (vec) {
-	this.y -= vec.y;
-	return this;
+	return Victor(this.x, this.y - vec.y)
 };
 
 /**
@@ -269,9 +260,7 @@ Victor.prototype.subtractY = function (vec) {
  * @api public
  */
 Victor.prototype.subtract = function (vec) {
-	this.x -= vec.x;
-	this.y -= vec.y;
-	return this;
+	return Victor(this.x - vec.x, this.y - vec.y)
 };
 
 /**
@@ -289,9 +278,7 @@ Victor.prototype.subtract = function (vec) {
  * @api public
  */
 Victor.prototype.subtractScalar = function (scalar) {
-	this.x -= scalar;
-	this.y -= scalar;
-	return this;
+	return Victor(this.x - scalar, this.y - scalar);
 };
 
 /**
@@ -309,8 +296,7 @@ Victor.prototype.subtractScalar = function (scalar) {
  * @api public
  */
 Victor.prototype.subtractScalarX = function (scalar) {
-	this.x -= scalar;
-	return this;
+	return Victor(this.x - scalar, this.y);
 };
 
 /**
@@ -328,8 +314,7 @@ Victor.prototype.subtractScalarX = function (scalar) {
  * @api public
  */
 Victor.prototype.subtractScalarY = function (scalar) {
-	this.y -= scalar;
-	return this;
+	return Victor(this.x, this.y - scalar);
 };
 
 /**
@@ -348,8 +333,7 @@ Victor.prototype.subtractScalarY = function (scalar) {
  * @api public
  */
 Victor.prototype.divideX = function (vector) {
-	this.x /= vector.x;
-	return this;
+	return Victor(this.x / vector.x, this.y);
 };
 
 /**
@@ -368,8 +352,7 @@ Victor.prototype.divideX = function (vector) {
  * @api public
  */
 Victor.prototype.divideY = function (vector) {
-	this.y /= vector.y;
-	return this;
+	return Victor(this.x, this.y / vector.y);
 };
 
 /**
@@ -388,9 +371,7 @@ Victor.prototype.divideY = function (vector) {
  * @api public
  */
 Victor.prototype.divide = function (vector) {
-	this.x /= vector.x;
-	this.y /= vector.y;
-	return this;
+	return Victor(this.x / vector.x, this.y / vector.y);
 };
 
 /**
@@ -409,14 +390,10 @@ Victor.prototype.divide = function (vector) {
  */
 Victor.prototype.divideScalar = function (scalar) {
 	if (scalar !== 0) {
-		this.x /= scalar;
-		this.y /= scalar;
+		return Victor(this.x / scalar, this.y / scalar);
 	} else {
-		this.x = 0;
-		this.y = 0;
+		return Victor.zero()
 	}
-
-	return this;
 };
 
 /**
@@ -435,11 +412,10 @@ Victor.prototype.divideScalar = function (scalar) {
  */
 Victor.prototype.divideScalarX = function (scalar) {
 	if (scalar !== 0) {
-		this.x /= scalar;
+		return Victor(this.x / scalar, this.y);
 	} else {
-		this.x = 0;
+		return Victor(0, this.y);
 	}
-	return this;
 };
 
 /**
@@ -458,11 +434,10 @@ Victor.prototype.divideScalarX = function (scalar) {
  */
 Victor.prototype.divideScalarY = function (scalar) {
 	if (scalar !== 0) {
-		this.y /= scalar;
+		return Victor(this.x, this.y / scalar);
 	} else {
-		this.y = 0;
+		return Victor(this.x, 0);
 	}
-	return this;
 };
 
 /**
@@ -479,8 +454,7 @@ Victor.prototype.divideScalarY = function (scalar) {
  * @api public
  */
 Victor.prototype.invertX = function () {
-	this.x *= -1;
-	return this;
+	return Victor(this.x * -1, this.y);
 };
 
 /**
@@ -497,8 +471,7 @@ Victor.prototype.invertX = function () {
  * @api public
  */
 Victor.prototype.invertY = function () {
-	this.y *= -1;
-	return this;
+	return Victor(this.x, this.y * -1);
 };
 
 /**
@@ -515,9 +488,7 @@ Victor.prototype.invertY = function () {
  * @api public
  */
 Victor.prototype.invert = function () {
-	this.invertX();
-	this.invertY();
-	return this;
+	return this.invertX().invertY();
 };
 
 /**
@@ -536,8 +507,7 @@ Victor.prototype.invert = function () {
  * @api public
  */
 Victor.prototype.multiplyX = function (vector) {
-	this.x *= vector.x;
-	return this;
+	return Victor(this.x * vector.x, this.y);
 };
 
 /**
@@ -556,8 +526,7 @@ Victor.prototype.multiplyX = function (vector) {
  * @api public
  */
 Victor.prototype.multiplyY = function (vector) {
-	this.y *= vector.y;
-	return this;
+	return Victor(this.x, this.y * vector.y);
 };
 
 /**
@@ -576,9 +545,7 @@ Victor.prototype.multiplyY = function (vector) {
  * @api public
  */
 Victor.prototype.multiply = function (vector) {
-	this.x *= vector.x;
-	this.y *= vector.y;
-	return this;
+	return Victor(this.x * vector.x, this.y * vector.y);
 };
 
 /**
@@ -596,9 +563,7 @@ Victor.prototype.multiply = function (vector) {
  * @api public
  */
 Victor.prototype.multiplyScalar = function (scalar) {
-	this.x *= scalar;
-	this.y *= scalar;
-	return this;
+	return Victor(this.x * scalar, this.y * scalar);
 };
 
 /**
@@ -616,8 +581,7 @@ Victor.prototype.multiplyScalar = function (scalar) {
  * @api public
  */
 Victor.prototype.multiplyScalarX = function (scalar) {
-	this.x *= scalar;
-	return this;
+	return Victor(this.x * scalar, this.y);
 };
 
 /**
@@ -635,8 +599,7 @@ Victor.prototype.multiplyScalarX = function (scalar) {
  * @api public
  */
 Victor.prototype.multiplyScalarY = function (scalar) {
-	this.y *= scalar;
-	return this;
+	return Victor(this.x, this.y * scalar);
 };
 
 /**
@@ -646,15 +609,13 @@ Victor.prototype.multiplyScalarY = function (scalar) {
  * @api public
  */
 Victor.prototype.normalize = function () {
-	var length = this.length();
-
-	if (length === 0) {
+	if (this.length() === 0) {
 		this.x = 1;
 		this.y = 0;
+		return Victor(1, 0);
 	} else {
-		this.divide(Victor(length, length));
+		return this.divide(Victor(this.length(), this.length()));
 	}
-	return this;
 };
 
 Victor.prototype.norm = Victor.prototype.normalize;
@@ -675,9 +636,10 @@ Victor.prototype.norm = Victor.prototype.normalize;
  * @api public
  */
 Victor.prototype.limit = function (max, factor) {
-	if (Math.abs(this.x) > max){ this.x *= factor; }
-	if (Math.abs(this.y) > max){ this.y *= factor; }
-	return this;
+	return Victor(
+		Math.abs(this.x) > max ? this.x * factor : this.x,
+		Math.abs(this.y) > max ? this.y * factor : this.y
+	);
 };
 
 /**
@@ -696,10 +658,7 @@ Victor.prototype.limit = function (max, factor) {
  * @api public
  */
 Victor.prototype.randomize = function (topLeft, bottomRight) {
-	this.randomizeX(topLeft, bottomRight);
-	this.randomizeY(topLeft, bottomRight);
-
-	return this;
+	return this.randomizeX(topLeft, bottomRight).randomizeY(topLeft, bottomRight);
 };
 
 /**
@@ -718,10 +677,9 @@ Victor.prototype.randomize = function (topLeft, bottomRight) {
  * @api public
  */
 Victor.prototype.randomizeX = function (topLeft, bottomRight) {
-	var min = Math.min(topLeft.x, bottomRight.x);
-	var max = Math.max(topLeft.x, bottomRight.x);
-	this.x = random(min, max);
-	return this;
+	const min = Math.min(topLeft.x, bottomRight.x);
+	const max = Math.max(topLeft.x, bottomRight.x);
+	return Victor(random(min, max), this.y);
 };
 
 /**
@@ -740,10 +698,9 @@ Victor.prototype.randomizeX = function (topLeft, bottomRight) {
  * @api public
  */
 Victor.prototype.randomizeY = function (topLeft, bottomRight) {
-	var min = Math.min(topLeft.y, bottomRight.y);
-	var max = Math.max(topLeft.y, bottomRight.y);
-	this.y = random(min, max);
-	return this;
+	const min = Math.min(topLeft.y, bottomRight.y);
+	const max = Math.max(topLeft.y, bottomRight.y);
+	return Victor(this.x, random(min, max));
 };
 
 /**
@@ -784,9 +741,7 @@ Victor.prototype.randomizeAny = function (topLeft, bottomRight) {
  * @api public
  */
 Victor.prototype.unfloat = function () {
-	this.x = Math.round(this.x);
-	this.y = Math.round(this.y);
-	return this;
+	return Victor(Math.round(this.x), Math.round(this.y));
 };
 
 /**
@@ -805,9 +760,7 @@ Victor.prototype.unfloat = function () {
  */
 Victor.prototype.toFixed = function (precision) {
 	if (typeof precision === 'undefined') { precision = 8; }
-	this.x = this.x.toFixed(precision);
-	this.y = this.y.toFixed(precision);
-	return this;
+	return Victor(Number(this.x.toFixed(precision)), Number(this.y.toFixed(precision)));
 };
 
 /**
@@ -830,9 +783,7 @@ Victor.prototype.mixX = function (vec, amount) {
 	if (typeof amount === 'undefined') {
 		amount = 0.5;
 	}
-
-	this.x = (1 - amount) * this.x + amount * vec.x;
-	return this;
+	return Victor((1 - amount) * this.x + amount * vec.x, this.y);
 };
 
 /**
@@ -855,9 +806,7 @@ Victor.prototype.mixY = function (vec, amount) {
 	if (typeof amount === 'undefined') {
 		amount = 0.5;
 	}
-
-	this.y = (1 - amount) * this.y + amount * vec.y;
-	return this;
+	return Victor(this.x, (1 - amount) * this.y + amount * vec.y);
 };
 
 /**
@@ -877,9 +826,7 @@ Victor.prototype.mixY = function (vec, amount) {
  * @api public
  */
 Victor.prototype.mix = function (vec, amount) {
-	this.mixX(vec, amount);
-	this.mixY(vec, amount);
-	return this;
+	return this.mixX(vec, amount).mixY(vec, amount);
 };
 
 /**
@@ -918,8 +865,8 @@ Victor.prototype.clone = function () {
  * @api public
  */
 Victor.prototype.copyX = function (vec) {
-	this.x = vec.x;
-	return this;
+	return Victor(vec.x, this.y);
+
 };
 
 /**
@@ -937,8 +884,7 @@ Victor.prototype.copyX = function (vec) {
  * @api public
  */
 Victor.prototype.copyY = function (vec) {
-	this.y = vec.y;
-	return this;
+	return Victor(this.x, vec.y);
 };
 
 /**
@@ -956,9 +902,7 @@ Victor.prototype.copyY = function (vec) {
  * @api public
  */
 Victor.prototype.copy = function (vec) {
-	this.copyX(vec);
-	this.copyY(vec);
-	return this;
+	return this.copyX(vec).copyY(vec);
 };
 
 /**
@@ -974,8 +918,7 @@ Victor.prototype.copy = function (vec) {
  * @api public
  */
 Victor.prototype.zero = function () {
-	this.x = this.y = 0;
-	return this;
+	return Victor(0, 0)
 };
 
 /**
@@ -1016,10 +959,8 @@ Victor.prototype.cross = function (vec2) {
  * @api public
  */
 Victor.prototype.projectOnto = function (vec2) {
-    var coeff = ( (this.x * vec2.x)+(this.y * vec2.y) ) / ((vec2.x*vec2.x)+(vec2.y*vec2.y));
-    this.x = coeff * vec2.x;
-    this.y = coeff * vec2.y;
-    return this;
+    const coeff = ( (this.x * vec2.x)+(this.y * vec2.y) ) / ((vec2.x*vec2.x)+(vec2.y*vec2.y));
+	return Victor(coeff * vec2.x, coeff * vec2.y)
 };
 
 
@@ -1044,13 +985,10 @@ Victor.prototype.angleDeg = Victor.prototype.horizontalAngleDeg;
 Victor.prototype.direction = Victor.prototype.horizontalAngle;
 
 Victor.prototype.rotate = function (angle) {
-	var nx = (this.x * Math.cos(angle)) - (this.y * Math.sin(angle));
-	var ny = (this.x * Math.sin(angle)) + (this.y * Math.cos(angle));
-
-	this.x = nx;
-	this.y = ny;
-
-	return this;
+	return Victor(
+		(this.x * Math.cos(angle)) - (this.y * Math.sin(angle)),
+		(this.x * Math.sin(angle)) + (this.y * Math.cos(angle))
+	);
 };
 
 Victor.prototype.rotateDeg = function (angle) {
@@ -1068,8 +1006,7 @@ Victor.prototype.rotateToDeg = function(rotation) {
 };
 
 Victor.prototype.rotateBy = function (rotation) {
-	var angle = this.angle() + rotation;
-
+	const angle = this.angle() + rotation;
 	return this.rotate(angle);
 };
 
