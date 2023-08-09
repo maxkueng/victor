@@ -1259,3 +1259,7 @@ function radian2degrees (rad) {
 function degrees2radian (deg) {
 	return deg / degrees;
 }
+
+function flip () {
+	return Victor(this.y, this.x)
+}
