@@ -88,6 +88,8 @@ Victor.fromObject = function (obj) {
 	return new Victor(obj.x || 0, obj.y || 0);
 };
 
+Victor.create = Victor
+
 /**
  * # Manipulation
  *

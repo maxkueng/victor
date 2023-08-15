@@ -21,6 +21,8 @@ declare class Victor
      */
     constructor(x:number,y:number);
 
+	static create(x:number,y:number):Victor;
+
     /**
      * Creates vector from array.
      * @param arr array An array that contains the X component in the first element and the Y component in the second
