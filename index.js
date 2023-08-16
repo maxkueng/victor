@@ -1265,3 +1265,7 @@ function degrees2radian (deg) {
 function flip () {
 	return Victor(this.y, this.x)
 }
+
+Victor.prototype.map = function (fn) {
+	return Victor(fn(this.x), fn(this.y))
+}

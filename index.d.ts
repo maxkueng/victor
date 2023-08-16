@@ -465,6 +465,8 @@ declare class Victor
      * @param vector
      */
     isEqualTo(vector:Victor):boolean;
+
+	map(fn:(number) => number):Victor;
 }
 
 export = Victor;
